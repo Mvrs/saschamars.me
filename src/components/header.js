@@ -8,9 +8,10 @@ const NavLink = styled(Link)`
   font-size: 1rem;
   font-weight: ${props => props.fontWeight || 'normal'};
   line-height: 1;
-  margin: 0 0.5rem 0 0;
+  margin: 0 1rem 0 0;
   padding: 0.25rem;
   text-decoration: none;
+  float: 'right';
 
   &.current-page {
     border-bottom: 2px solid #222;
@@ -28,11 +29,11 @@ const Header = () => (
       border-bottom: 1px solid #ddd;
       display: flex;
       justify-content: space-between;
-      padding: 0.5rem calc((100vw - 550px - 0.5rem) / 2);
+      padding: 1rem calc((100vw - 650px - 3.5rem) / 2);
     `}
   >
-    <NavLink to="/" fontWeight="bold">
-      FEM Workshop
+    <NavLink to="/" fontWeight="bold" style={{ marginLeft: '15px' }}>
+      Marlon V. Johnson
     </NavLink>
     <nav
       css={css`
@@ -42,8 +43,17 @@ const Header = () => (
       <NavLink to="/" activeClassName="current-page">
         Home
       </NavLink>
+      <NavLink to="/blog/" activeClassName="current-page">
+        Blog
+      </NavLink>
+      <NavLink to="/projects/" activeClassName="current-page">
+        Projects
+      </NavLink>
       <NavLink to="/about/" activeClassName="current-page">
         About
+      </NavLink>
+      <NavLink to="/contact/" activeClassName="current-page">
+        Contact
       </NavLink>
     </nav>
     {/* navigation */}
