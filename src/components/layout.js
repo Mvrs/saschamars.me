@@ -24,9 +24,7 @@ const Layout = ({ children }) => {
           body {
             margin: 0;
             color: #555;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-              Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-              sans-serif;
+            font-family: Averta, sans-serif;
             font-size: 18px;
             line-height: 1.4rem;
 
@@ -71,7 +69,7 @@ const Layout = ({ children }) => {
         css={css`
           margin: 2rem auto 4rem;
           max-width: 90vw;
-          width: 550px;
+          width: 950px;
         `}
       >
         {children}

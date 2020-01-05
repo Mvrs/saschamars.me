@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 
 const NavLink = styled(Link)`
-  color: #222;
+  color: #383a3f;
   font-size: 1rem;
   font-weight: ${props => props.fontWeight || 'normal'};
   line-height: 1;
@@ -14,7 +14,7 @@ const NavLink = styled(Link)`
   float: 'right';
 
   &.current-page {
-    border-bottom: 2px solid #222;
+    border-bottom: 2px solid #2b90d9;
   }
 
   &:last-of-type {
@@ -25,14 +25,13 @@ const NavLink = styled(Link)`
 const Header = () => (
   <header
     css={css`
-      background: #eee;
-      border-bottom: 1px solid #ddd;
+      background: #fff;
       display: flex;
       justify-content: space-between;
-      padding: 1rem calc((100vw - 650px - 3.5rem) / 2);
+      padding: 1rem calc((100vw - 950px - 3.5rem) / 2);
     `}
   >
-    <NavLink to="/" fontWeight="bold" style={{ marginLeft: '15px' }}>
+    <NavLink to="/" style={{ marginLeft: '15px' }}>
       Marlon V. Johnson
     </NavLink>
     <nav
@@ -46,11 +45,14 @@ const Header = () => (
       <NavLink to="/blog/" activeClassName="current-page">
         Blog
       </NavLink>
-      <NavLink to="/projects/" activeClassName="current-page">
-        Projects
-      </NavLink>
       <NavLink to="/about/" activeClassName="current-page">
         About
+      </NavLink>
+      <NavLink to="/work/" activeClassName="current-page">
+        Work
+      </NavLink>
+      <NavLink to="/projects/" activeClassName="current-page">
+        Projects
       </NavLink>
       <NavLink to="/contact/" activeClassName="current-page">
         Contact
