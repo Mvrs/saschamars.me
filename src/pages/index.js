@@ -18,7 +18,7 @@ export default () => {
         {/* Intro will go here*/}
         <Intro />
 
-        <h2
+        {/* <h2
           css={css`
             display: flex;
             margin: 1.25rem 1.25rem 0.75rem 1rem;
@@ -32,7 +32,7 @@ export default () => {
         >
           my skills
         </h2>
-        <StyleBar />
+        <StyleBar /> */}
         <Skills />
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />

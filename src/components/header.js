@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 const NavLink = styled(Link)`
   color: #383a3f;
   font-size: 1rem;
-  font-weight: ${props => props.fontWeight || 'normal'};
+  font-weight: ${props => props.fontWeight || 600};
   line-height: 1;
   margin: 0 1rem 0 0;
   padding: 0.25rem;
@@ -25,6 +25,7 @@ const NavLink = styled(Link)`
 const Header = () => (
   <header
     css={css`
+      font-weight: 600;
       background: #fff;
       display: flex;
       justify-content: space-between;
@@ -40,22 +41,22 @@ const Header = () => (
       `}
     >
       <NavLink to="/" activeClassName="current-page">
-        Home
+        home
       </NavLink>
       <NavLink to="/blog/" activeClassName="current-page">
-        Blog
+        blog
       </NavLink>
       <NavLink to="/about/" activeClassName="current-page">
-        About
+        about
       </NavLink>
       <NavLink to="/work/" activeClassName="current-page">
-        Work
+        work
       </NavLink>
       <NavLink to="/projects/" activeClassName="current-page">
-        Projects
+        projects
       </NavLink>
       <NavLink to="/contact/" activeClassName="current-page">
-        Contact
+        contact
       </NavLink>
     </nav>
     {/* navigation */}

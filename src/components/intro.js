@@ -1,27 +1,24 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import GithubIcon from '../assets/icons8-github.svg'
+import LinkedInIcon from '../assets/icons8-linkedin-circled.svg'
+import TwitterIcon from '../assets/icons8-twitter-circled.svg'
 
 const TextBackground = styled('div')`
   background-position: top 30% center;
   border-bottom: 0.5px solid #fff;
   display: flex;
   /* padding: 1rem calc((90vw - 950px - 3.5rem) / 2); */
-  /* width: 64vw; */
-  /* height: 500px; */
-  background-color: #fffff3;
-  /* padding-top: 0; */
-  /* background-size: cover; */
-  /* height: 50vh; */
-  /* width: 100vw; */
-  /* margin-top: -37px; */
-  /* flex-grow: 1; */
+
+  background-color: #ffffff;
+
   background-size: auto auto;
 
-  /* + * {
+  + * {
 font-family: Averta, sans-serif;
     margin-top: 0;
-  } */
+  }
 `;
 
 const IntroContainer = styled('div')`
@@ -55,12 +52,27 @@ const IntroHeader = styled('h1')`
 `;
 
 export const StyleBar = styled('div')`
-  width: 80px;
-  height: 4px;
-  margin: auto;
-  border-radius: 5px;
+    /* width: 64px; */
+    height: 8px;
+  border-radius: 8px;
+  position: static;
+    left: 0px;
+    top: 0px;
+    display: block;
+    width: 88px;
+    height: 6px;
+    flex: 0 auto;
+    text-align: center;
   background-color: #2b90d9;
 `;
+
+const IconContainer = styled('div')`
+    margin-top: 0px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+`
+
 
 const Intro = () => {
   return (
@@ -85,6 +97,26 @@ const Intro = () => {
         >
           FrontEnd Engineer
         </h2>
+        <IconContainer>
+        <GithubIcon css={css`
+        /* margin-right: 8px; */
+        margin: 0 8px 0 0;
+    padding-right: 0px;
+        
+        `} />
+        <LinkedInIcon css={css`
+          /* margin-right: 8px; */
+          margin: 0 8px 0 0;
+    padding-right: 0px;
+        `}/>
+        <TwitterIcon css={css`
+          /* margin-right: 8px; */
+          margin: 0 8px 0 0;
+    padding-right: 0px;
+        
+        `} />
+        </IconContainer>
+
       </IntroContainer>
     </TextBackground>
   );
