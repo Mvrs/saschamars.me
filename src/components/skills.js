@@ -1,11 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 import ReactIcon from '../assets/icons8-react.svg';
 import GraphQLIcon from '../assets/icons8-graphql.svg';
 import NodeJsIcon from '../assets/icons8-nodejs.svg';
 import JSIcon from '../assets/icons8-javascript.svg';
 import { StyleBar } from '../components/intro';
+
+const fadeCard = keyframes`
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+`;
 
 const SkillContainer = styled('div')`
   min-height: 300px;
@@ -22,10 +31,10 @@ const SkillSetContainer = styled('div')`
 `;
 
 const SkillSetCard = styled('div')`
-  opacity: 1;
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-    rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  transform-style: preserve-3d;
+  opacity: 0;
+  animation: ${fadeCard} ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 
   display: block;
   margin: auto;
@@ -35,7 +44,7 @@ const SkillName = styled('div')`
   margin-top: 20px;
   font-size: 18px;
   text-align: center;
-  color:  #383a3f;;
+  color: #383a3f;
 `;
 
 const SectionNameContainer = styled('div')`
@@ -73,19 +82,35 @@ const Skills = () => {
         <StyleBar />
       </SectionNameContainer>
       <SkillSetContainer>
-        <SkillSetCard>
+        <SkillSetCard
+          css={css`
+            animation-delay: 0.4s;
+          `}
+        >
           <ReactIcon alt="react-logo" />
           <SkillName>Client</SkillName>
         </SkillSetCard>
-        <SkillSetCard>
+        <SkillSetCard
+          css={css`
+            animation-delay: 0.8s;
+          `}
+        >
           <NodeJsIcon alt="nodejs-logo" />
           <SkillName>Server</SkillName>
         </SkillSetCard>
-        <SkillSetCard>
+        <SkillSetCard
+          css={css`
+            animation-delay: 1.2s;
+          `}
+        >
           <JSIcon alt="javascript-logo" />
           <SkillName>Programming</SkillName>
         </SkillSetCard>
-        <SkillSetCard>
+        <SkillSetCard
+          css={css`
+            animation-delay: 1.6s;
+          `}
+        >
           <GraphQLIcon alt="graphql-logo" />
           <SkillName>Schema</SkillName>
         </SkillSetCard>

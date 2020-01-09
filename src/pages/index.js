@@ -8,6 +8,7 @@ import Intro from '../components/intro';
 import { StyleBar } from '../components/intro';
 import { css } from '@emotion/core';
 import Skills from '../components/skills';
+import Work from '../components/work'
 
 export default () => {
   const posts = usePosts();
@@ -34,6 +35,7 @@ export default () => {
         </h2>
         <StyleBar /> */}
         <Skills />
+        <Work/>
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />
         ))}
