@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Marlon V. Johnson',
     description:
-      'A site we built together during full-day of Frontend Masters Gatsby workshop!',
+      'Personal website of Marlon Von Johnson',
   },
   plugins: [
     'gatsby-plugin-emotion',
@@ -20,27 +20,27 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'posts',
-        path: 'posts',
+        name: `posts`,
+        path: `posts`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'images',
-        path: 'images',
+        name: `images`,
+        path: `images`,
       },
     },
     {
-      resolve: 'gatsby-source-instagram',
+      resolve: `gatsby-source-instagram`,
       options: {
-        username: 'gatsbyjs',
+        username: `gatsbyjs`,
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: [/assets/, /\.inline\.svg$/],
@@ -48,13 +48,19 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      resolve: `gatsby-plugin-webpack-bundle-analyzer`,
       options: {
         production: true,
         disable: !process.env.ANALYZE_BUNDLE_SIZE,
         generateStatsFile: true,
-        analyzerMode: 'static',
+        analyzerMode: `static`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/assets/marlon-johnson.svg`
+      }
+    }
   ],
 };
