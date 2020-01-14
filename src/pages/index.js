@@ -8,7 +8,7 @@ import Intro from '../components/intro';
 import { StyleBar } from '../components/intro';
 import { css } from '@emotion/core';
 import Skills from '../components/skills';
-import Work from '../components/work'
+import Work from '../components/work';
 
 export default () => {
   const posts = usePosts();
@@ -34,12 +34,12 @@ export default () => {
           my skills
         </h2>
         <StyleBar /> */}
-        <Skills />
-        <Work/>
+        {/* <Skills /> */}
+        {/* <Work/>
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />
         ))}
-        <Insta />
+        <Insta /> */}
       </Layout>
     </>
   );

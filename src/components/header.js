@@ -37,6 +37,26 @@ const grow = keyframes`
 
 `;
 
+// const Navbar = styled('nav')`
+
+//   display: flex;
+//     width: 100%;
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -webkit-flex-direction: column;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     -webkit-box-pack: center;
+//     -webkit-justify-content: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     -webkit-box-align: center;
+//     -webkit-align-items: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     border: 1px none #668c9a;
+// `
+
 const NavLink = styled(Link)`
   color: #383a3f;
   font-size: 1rem;
@@ -76,6 +96,10 @@ const Header = () => (
       justify-content: space-between;
       padding: 1rem calc((100vw - 950px - 3.5rem) / 2);
       align-items: center;
+
+      @media (max-width: 767px) {
+        padding: 20px 0 0 0;
+      }
     `}
   >
     <NavLink
@@ -111,7 +135,7 @@ const Header = () => (
         align-items: center;
       `}
     >
-      <NavLink to="/" activeClassName="current-page">
+      {/* <NavLink to="/" activeClassName="current-page">
         home
       </NavLink>
       <NavLink to="/blog/" activeClassName="current-page">
@@ -128,7 +152,7 @@ const Header = () => (
       </NavLink>
       <NavLink to="/contact/" activeClassName="current-page">
         contact
-      </NavLink>
+      </NavLink> */}
     </nav>
     {/* navigation */}
   </header>
