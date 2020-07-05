@@ -25,6 +25,8 @@ const Layout = ({ children }) => {
             margin: 0;
             color: #555;
             font-family: Averta, sans-serif;
+            background-color: #fafafc;
+
             font-size: 18px;
             line-height: 1.4rem;
 

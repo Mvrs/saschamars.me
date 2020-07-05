@@ -9,9 +9,10 @@ import { StyleBar } from '../components/intro';
 import { css } from '@emotion/core';
 import Skills from '../components/skills';
 import Work from '../components/work';
+import Header from '../components/header';
 
 export default () => {
-  const posts = usePosts();
+  // const posts = usePosts();
 
   return (
     <>

@@ -94,7 +94,8 @@ const Header = () => (
       background: #fff;
       display: flex;
       justify-content: space-between;
-      padding: 1rem calc((100vw - 950px - 3.5rem) / 2);
+      /* padding: 1rem calc((100vw - 950px - 3.5rem) / 2); */
+      padding: 0.5rem calc((100vw - 800px - 0.5rem) / 2);
       align-items: center;
 
       @media (max-width: 767px) {
@@ -135,7 +136,7 @@ const Header = () => (
         align-items: center;
       `}
     >
-      {/* <NavLink to="/" activeClassName="current-page">
+      <NavLink to="/" activeClassName="current-page">
         home
       </NavLink>
       <NavLink to="/blog/" activeClassName="current-page">
@@ -144,7 +145,7 @@ const Header = () => (
       <NavLink to="/about/" activeClassName="current-page">
         about
       </NavLink>
-      <NavLink to="/work/" activeClassName="current-page">
+      {/* <NavLink to="/work/" activeClassName="current-page">
         work
       </NavLink>
       <NavLink to="/projects/" activeClassName="current-page">
@@ -152,7 +153,7 @@ const Header = () => (
       </NavLink>
       <NavLink to="/contact/" activeClassName="current-page">
         contact
-      </NavLink> */}
+      </NavLink>  */}
     </nav>
     {/* navigation */}
   </header>

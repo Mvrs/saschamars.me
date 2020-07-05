@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Marlon V. Johnson',
-    description:
-      'Personal website of Marlon Von Johnson',
+    description: 'Personal website of Marlon Von Johnson',
   },
   plugins: [
     'gatsby-plugin-emotion',
@@ -59,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: `src/assets/marlon-johnson.svg`
-      }
-    }
+        icon: `src/assets/marlon-johnson.svg`,
+      },
+    },
   ],
 };

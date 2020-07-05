@@ -3,20 +3,34 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import Readlink from '../components/read-link';
+import { PostLayout } from '../components/post-layout';
 
 const PostPreview = ({ post }) => (
   <article
     css={css`
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      margin-top: 0;
-      padding-bottom: 1rem;
-
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+      margin: 20px;
+      padding: 30px 30px 60px;
+      position: relative;
+      width: 320px;
       :first-of-type {
         margin-top: 1rem;
       }
     `}
   >
+    <>
+      <h2
+        css={css`
+          text-decoration: none;
+          /* position: relative; */
+          margin: 0 5px 10px 0;
+        `}
+      >
+        {post.title}
+      </h2>
+    </>
     <Link
       to={post.slug}
       css={css`
@@ -35,9 +49,6 @@ const PostPreview = ({ post }) => (
       />
     </Link>
     <div>
-      <h3>
-        <Link to={post.slug}>{post.title}</Link>
-      </h3>
       <p>{post.excerpt}</p>
       <Readlink to={post.slug}>read this post &rarr;</Readlink>
     </div>
