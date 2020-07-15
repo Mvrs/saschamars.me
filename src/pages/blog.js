@@ -44,7 +44,7 @@ export default () => {
         </p>
         <PostLayout>
           {posts.map(post => (
-            <PostPreview key={post.slug} post={post} />
+            <PostPreview key={post.slug} post={post} tag={post.tags} />
           ))}
         </PostLayout>
       </Layout>
