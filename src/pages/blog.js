@@ -5,6 +5,7 @@ import { css } from '@emotion/core';
 import Layout from '../components/layout';
 import PostPreview from '../components/post-preview';
 import usePosts from '../hooks/use-posts';
+import useTags from '../hooks/use-tags';
 import { PostLayout } from '../components/post-layout';
 
 function Search({ location }) {
@@ -18,6 +19,8 @@ function Search({ location }) {
 
 export default () => {
   const posts = usePosts();
+  const tags = useTags();
+
   return (
     <>
       <Layout>

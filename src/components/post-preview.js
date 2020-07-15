@@ -5,7 +5,7 @@ import Image from 'gatsby-image';
 import Readlink from '../components/read-link';
 import { PostLayout } from '../components/post-layout';
 
-const PostPreview = ({ post }) => (
+const PostPreview = ({ post, tag }) => (
   <article
     css={css`
       background-color: #fff;
@@ -50,6 +50,7 @@ const PostPreview = ({ post }) => (
     </Link>
     <div>
       <p>{post.excerpt}</p>
+      <p >{post.tags}</p>
       <Readlink to={post.slug}>read this post &rarr;</Readlink>
     </div>
   </article>

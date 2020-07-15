@@ -7,10 +7,12 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           default: require.resolve('./src/components/layout.js'),
         },
@@ -30,6 +32,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/content/data`,
       },
     },
     {
@@ -59,6 +68,13 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: `src/assets/marlon-johnson.svg`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // Plugins configs
+        plugins: [],
       },
     },
   ],

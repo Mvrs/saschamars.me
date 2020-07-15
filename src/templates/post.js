@@ -11,6 +11,7 @@ export const query = graphql`
       frontmatter {
         title
         author
+        tags
       }
       body
     }

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "tag": "React",
+    "tagColor": "Green",
+    "hexCode": "#00876B",
+    "opacity": 0.2
+  },
+  {
+    "id": 2,
+    "tag": "Programming",
+    "tagColor": "Pink",
+    "hexCode": "#DD0081",
+    "opacity": 0.2
+  },
+  {
+    "id": 3,
+    "tag": "Life",
+    "tagColor": "Purple",
+    "hexCode": "#6724DE",
+    "opacity": 0.2
+  },
+  {
+    "id": 4,
+    "tag": "TypeScript",
+    "tagColor": "SkyBlue",
+    "hexCode": "#0078DF",
+    "opacity": 0.2
+  },
+  {
+    "id": 5,
+    "tag": "Random",
+    "tagColor": "Red",
+    "hexCode": "#FF001A",
+    "opacity": 0.2
+  }
+]
