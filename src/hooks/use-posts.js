@@ -8,6 +8,7 @@ const usePosts = () => {
           frontmatter {
             title
             slug
+            date
             author
             tags
             image {
@@ -32,6 +33,7 @@ const usePosts = () => {
     title: post.frontmatter.title,
     author: post.frontmatter.author,
     tags: post.frontmatter.tags,
+    date: post.frontmatter.date,
     slug: post.frontmatter.slug,
     image: post.frontmatter.image,
     excerpt: post.excerpt,

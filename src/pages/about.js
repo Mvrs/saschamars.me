@@ -6,6 +6,7 @@ export default () => (
   <Layout>
     <h1>About Me</h1>
     <p>This is my personal website.</p>
+    <p>I just need MF JOB</p>
     <Link to="/">&larr; back to home</Link>
   </Layout>
 );

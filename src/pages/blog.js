@@ -24,7 +24,7 @@ export default () => {
   return (
     <>
       <Layout>
-        <h1
+        {/* <h1
           css={css`
             text-align: center;
             display: block;
@@ -32,8 +32,8 @@ export default () => {
           `}
         >
           Welcome to all my Blog Posts
-        </h1>
-        <p
+        </h1> */}
+        {/* <p
           css={css`
             text-align: center;
             display: block;
@@ -41,7 +41,7 @@ export default () => {
           `}
         >
           This is where all my blogs will be
-        </p>
+        </p> */}
         <PostLayout>
           {posts.map(post => (
             <PostPreview key={post.slug} post={post} tag={post.tags} />

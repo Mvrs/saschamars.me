@@ -8,8 +8,9 @@ export const MainTagContainer = styled('div')`
   font-size: 14px;
   min-height: 32px;
   outline: 0;
+  justify-content: left;
   overflow: hidden;
-  padding: 0 8px;
+  padding: 0 8px 0 0;
   white-space: normal;
   width: 200px;
 `;
@@ -19,6 +20,7 @@ export const InnerTagContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   outline: 0;
+  /* margin-left: 4px; */
   padding-bottom: 1px;
   padding-top: 7px;
 `;

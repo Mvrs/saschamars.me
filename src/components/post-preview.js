@@ -36,7 +36,13 @@ const PostPreview = ({ post, tag }) => {
       <>
         <h2
           css={css`
+            color: #090707;
             text-decoration: none;
+            font-family: Montserrat, sans-serif;
+            font-size: 24.2515px;
+            font-weight: 600;
+            line-height: 1.1;
+            text-rendering: optimizelegibility;
             /* position: relative; */
             margin: 0 5px 10px 0;
           `}
@@ -57,6 +63,10 @@ const PostPreview = ({ post, tag }) => {
             * {
               margin-top: 0;
             }
+            border: 5px solid transparent;
+            padding: 2px;
+            border-color: #db99b9;
+            border-radius: 2px;
           `}
           alt={post.title}
         />
@@ -123,8 +133,34 @@ const PostPreview = ({ post, tag }) => {
             })}
           </InnerTagContainer>
         </MainTagContainer>
-        <p>{post.excerpt}</p>
-        <Readlink to={post.slug}>read this post &rarr;</Readlink>
+        <p
+          css={css`
+            font-size: 18px;
+            margin-top: 5px;
+          `}
+        >
+          {post.excerpt}
+        </p>
+        <small
+          css={css`
+            font-size: 80%;
+            display: block;
+            font-style: italic;
+          `}
+        >
+          {post.date}
+        </small>
+        <Readlink
+          to={post.slug}
+          css={css`
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: none;
+            text-transform: uppercase;
+          `}
+        >
+          read post &rarr;
+        </Readlink>
       </div>
     </article>
   );
