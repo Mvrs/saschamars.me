@@ -97,7 +97,6 @@ const Header = () => (
       /* padding: 1rem calc((100vw - 950px - 3.5rem) / 2); */
       padding: 0.5rem calc((100vw - 800px - 0.5rem) / 2);
       align-items: center;
-
       @media (max-width: 767px) {
         padding: 20px 0 0 0;
       }

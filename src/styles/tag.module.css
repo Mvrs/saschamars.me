@@ -1,36 +1,29 @@
-import styled from '@emotion/styled';
-// import { css } from '@';
-
-export const MainTagContainer = styled('div')`
+.main-tag-container {
   box-sizing: border-box;
   cursor: default;
   display: block;
   font-size: 14px;
   min-height: 32px;
   outline: 0;
-  justify-content: left;
   overflow: hidden;
-  padding: 0 8px 0 0;
+  padding: 0 8px;
   white-space: normal;
   width: 200px;
-`;
+}
 
-export const InnerTagContainer = styled('div')`
+.inner-tag-container {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   outline: 0;
-  /* margin-left: 4px; */
   padding-bottom: 1px;
   padding-top: 7px;
-`;
+}
 
-export const TagContainer = styled('div')`
+.tag-card {
   align-items: center;
   border-radius: 3px;
   box-sizing: border-box;
-  background: ${props => props.hexCode};
-  opacity: ${props => props.opacity};
   color: #37352f;
   display: flex;
   flex-shrink: 0;
@@ -42,12 +35,37 @@ export const TagContainer = styled('div')`
   outline: 0;
   padding-left: 6px;
   padding-right: 6px;
-`;
+}
 
-export const TagName = styled('div')`
+.tag-name {
   box-sizing: border-box;
   outline: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-`;
+}
+
+.green {
+  background: #00876b;
+  opacity: 0.2;
+}
+
+.pink {
+  background: #dd0081;
+  opacity: 0.2;
+}
+
+.purple {
+  background: #6724de;
+  opacity: 0.2;
+}
+
+.blue {
+  background: #0078df;
+  opacity: 0.2;
+}
+
+.red {
+  background: #ff001a;
+  opacity: 0.2;
+}
