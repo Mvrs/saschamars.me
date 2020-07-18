@@ -3,18 +3,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 import { Link } from 'gatsby';
 import MarlonJohnsonIcon from '../assets/marlon-johnson.svg';
-
-// const bounce = keyframes({
-//   from: {
-//     transform: ['translate3d(0px, 0px, 0px)', 'scale3d(1,1,1)'],
-//     transformStyle: 'preserve-3d',
-//   },
-//   to: {
-//     transform: ['translate3d(0px, 0px, 0px)', 'scale3d(1.1, 1.1, 1)'],
-//     transformStyle: 'preserve-3d',
-//     willChange: 'transform',
-//   },
-// });
+import Burger from './burger';
 
 const grow = keyframes`
 
@@ -37,27 +26,7 @@ const grow = keyframes`
 
 `;
 
-// const Navbar = styled('nav')`
-
-//   display: flex;
-//     width: 100%;
-//     -webkit-box-orient: vertical;
-//     -webkit-box-direction: normal;
-//     -webkit-flex-direction: column;
-//     -ms-flex-direction: column;
-//     flex-direction: column;
-//     -webkit-box-pack: center;
-//     -webkit-justify-content: center;
-//     -ms-flex-pack: center;
-//     justify-content: center;
-//     -webkit-box-align: center;
-//     -webkit-align-items: center;
-//     -ms-flex-align: center;
-//     align-items: center;
-//     border: 1px none #668c9a;
-// `
-
-const NavLink = styled(Link)`
+export const NavLink = styled(Link)`
   color: #383a3f;
   font-size: 1rem;
   font-weight: ${props => props.fontWeight || 600};
@@ -100,6 +69,9 @@ const Header = () => (
       @media (max-width: 767px) {
         padding: 20px 0 0 0;
       }
+      @media (max-width: 1024px) {
+        padding: 0.5rem calc((100vw - 650px - 0.5rem) / 2);
+      }
     `}
   >
     <NavLink
@@ -133,15 +105,67 @@ const Header = () => (
         margin-top: 0;
         display: inline-flex;
         align-items: center;
+        /* @media (max-width: 600px) {
+          width: 100%;
+          top: 0;
+          right: 0;
+          /* right: 0;
+          text-align: right;
+          position: absolute; */
+        /* padding: 1rem;
+          position: fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: center; */
+        /* transition: transform 0.3s ease-in-out; */
       `}
     >
-      <NavLink to="/" activeClassName="current-page">
+      <NavLink
+        to="/"
+        activeClassName="current-page"
+        css={css`
+          /* @media (max-width: 600px) {
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem 0;
+            text-transform: uppercase;
+            transform: ${prop =>
+              prop.open ? 'translateX(0)' : 'translateX(100%)'};
+          } */
+        `}
+      >
         home
       </NavLink>
-      <NavLink to="/blog/" activeClassName="current-page">
+      <NavLink
+        to="/blog/"
+        activeClassName="current-page"
+        css={css`
+          /* @media (max-width: 600px) {
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem 0;
+            text-transform: uppercase;
+            width: 100%;
+          } */
+        `}
+      >
         blog
       </NavLink>
-      <NavLink to="/about/" activeClassName="current-page">
+      <NavLink
+        to="/about/"
+        activeClassName="current-page"
+        css={css`
+          /* @media (max-width: 600px) {
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem 0;
+            text-transform: uppercase;
+            :last-of-type {
+              margin: 0 18px 0 0;
+            }
+          } */
+        `}
+      >
         about
       </NavLink>
       {/* <NavLink to="/work/" activeClassName="current-page">

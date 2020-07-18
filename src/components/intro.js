@@ -331,6 +331,10 @@ const HeroContainer = styled('div')`
   align-items: center;
   font-size: 100px;
 
+  @media (max-width: 1024px) {
+    min-height: 50vh;
+  }
+
   @media (max-width: 767px) {
     min-height: auto;
   }
