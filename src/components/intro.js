@@ -353,7 +353,7 @@ const Intro = () => {
               animation-delay: 0.4s;
             `}
           >
-            Hey, peoples
+            Hello world,
             <br />
             my name is Marlon!
           </IntroHeaderText>
