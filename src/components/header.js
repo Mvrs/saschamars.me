@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-// import { Link } from 'gatsby';
 import Link from './link';
 import MarlonJohnsonIcon from '../assets/marlon-johnson.svg';
 import Container from './container';
 import MobileNav from './mobile-nav';
 import { bpMaxSM } from '../lib/breakpoints';
-import Burger from './burger';
 
 const grow = keyframes`
 
