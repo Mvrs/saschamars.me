@@ -157,6 +157,7 @@ const Header = ({
               font-size: 1rem;
               line-height: 1.25;
               display: flex;
+              margin-top: 0;
               align-items: center;
               .mobile-nav {
                 display: none;
@@ -165,6 +166,8 @@ const Header = ({
                   display: block;
                   margin-bottom: 10px;
                   padding-right: 10px;
+                  margin-top: 0.75rem;
+                  margin-right: 3px;
                   display: inline-flex;
                   align-items: center;
                   justify-content: flex-start;
