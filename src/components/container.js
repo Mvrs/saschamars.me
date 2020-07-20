@@ -22,6 +22,7 @@ const Container = props => {
           ${noHorizontalPadding ? 0 : '40'}px;
 
         ${bpMaxSM} {
+          /* margin-bottom: 20vh; */
           padding: ${noVerticalPadding ? 0 : '20'}px
             ${noHorizontalPadding ? 0 : '20'}px;
         }

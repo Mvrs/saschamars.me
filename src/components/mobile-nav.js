@@ -41,7 +41,7 @@ const Toggle = ({ color = 'black' }) => {
               top: -8px;
               width: 24px;
               height: 2px;
-              background: ${isToggleOn ? 'blue' : `${color}`};
+              background: ${isToggleOn ? '#db99b9' : `${color}`};
               position: absolute;
               left: 0;
               ${isToggleOn
@@ -55,7 +55,7 @@ const Toggle = ({ color = 'black' }) => {
               width: 24px;
               height: 2px;
               margin-top: 0;
-              background: ${isToggleOn ? 'blue' : `${color}`};
+              background: ${isToggleOn ? '#db99b9' : `${color}`};
               position: absolute;
               left: 0;
               ${isToggleOn
@@ -77,7 +77,7 @@ const Toggle = ({ color = 'black' }) => {
             height: 100vh;
             display: flex;
             align-items: center;
-            background: #2b90d9;
+            background: #fff;
           `}
         >
           <Container
@@ -85,19 +85,24 @@ const Toggle = ({ color = 'black' }) => {
               display: flex;
               flex-direction: column;
               align-items: center;
-              justify-content: space-evenly;
+              justify-content: center;
+              margin-bottom: 20vh;
               a {
-                color: white;
-                font-size: 22px;
+                color: #2b90d9;
+                font-size: 36px;
+                font: Averta, sans-serif;
+                font-weight: 600;
+                text-decoration: none;
+                display: flex;
                 margin: 10px 0;
-                padding: 10px;
+                opacity: 0.5;
                 border-radius: 5px;
                 :hover {
                   background: rgba(0, 0, 0, 0.2);
                 }
               }
               .current-page {
-                background: rgba(0, 0, 0, 0.2);
+                opacity: 1;
               }
             `}
           >
