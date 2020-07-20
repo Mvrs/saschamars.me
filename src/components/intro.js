@@ -17,16 +17,11 @@ const fadeCard = keyframes`
 `;
 
 const ImageContainer = styled('svg')`
-  /* width: 45%; */
   width: 405px;
   height: 330px;
   max-width: 45%;
 
   @media (max-width: 479px) {
-    /* width: 120px; */
-    /* margin-bottom: 20px; */
-    /* max-width: calc(33% - 1rem); */
-    /* top: -18px; */
     display: flex;
     margin-top: -40px;
     margin-bottom: 20px;
@@ -34,7 +29,6 @@ const ImageContainer = styled('svg')`
 
   @media (max-width: 767px) {
     display: block;
-    /* width: 110vw; */
     max-width: none;
     margin-right: 0px;
     margin-bottom: 20px;
@@ -45,59 +39,24 @@ const ImageContainer = styled('svg')`
     align-self: center;
     zoom: 0.7;
   }
-  /* 
-  @media (max-width: 991px) {
-    display: block;
-    width: 70vw;
-    max-width: none;
-    margin-right: 0px;
-    margin-bottom: 40px;
-    margin-left: 0px;
-    padding-top: 20px;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-  } */
-
-  /* 
-  margin: 0 0 20 0;
-  width: 50%;
-  max-width: 50%; */
-
-  /* display: inline-block; */
 `;
 
 const TextBackground = styled('div')`
   background-position: top 30% center;
   border-bottom: 0.5px solid #fff;
   display: flex;
-  /* padding: 1rem calc((90vw - 950px - 3.5rem) / 2); */
-
   background-color: #ffffff;
-
   background-size: auto auto;
-
   + * {
     font-family: Averta, sans-serif;
     margin-top: 0;
   }
 `;
 
-// const IntroContainer = styled('div')`
-//   /* padding: 1rem calc((90vw - 650px) / 2); */
-//   width: 480px;
-//   min-height: 78vh;
-//   justify-content: center;
-//   margin: auto;
-//   font-size: 14px;
-// `;
 const IntroContainer = styled('div')`
-  /* padding: 1rem calc((90vw - 650px) / 2); */
   display: flex;
   width: 80%;
   min-width: 900px;
-  /* margin-top: 1vh; */
   flex-direction: row;
   justify-content: space-around;
   -webkit-box-orient: horizontal;
@@ -126,78 +85,14 @@ const IntroContainer = styled('div')`
     -ms-grid-row-align: center;
     align-self: center;
   }
-  /* 
-  @media (max-width: 991px) {
-    min-width: 0px;
-    margin-top: 60px;
-    margin-right: 0px;
-    margin-left: 0px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  } */
-  /* width: 480px; */
-  /* min-height: 78vh; */
-  /* justify-content: center; */
-  /* margin: auto; */
-  /* font-size: 14px; */
 `;
 
-// const IntroHeader = styled('h1')`
-//   display: flex;
-
-//   /* flex-direction: column; */
-//   /* flex-wrap: wrap; */
-//   margin: 4.25rem 0 0 1rem;
-//   /* margin: 0; */
-//   justify-content: center;
-//   padding: 0 0 10px;
-//   font-size: 40px;
-//   font-weight: 300;
-//   line-height: 1.2;
-//   letter-spacing: 5.5px;
-//   text-transform: uppercase;
-//   text-decoration: none;
-//   color: #383a3f;
-//   font-weight: 400;
-//   /* position: static; */
-//   /* word-wrap: break-word; */
-// `;
 const IntroHeader = styled('div')`
-  /* display: flex; */
   margin-left: 0px;
   padding-bottom: 36px;
-
-  /* flex-direction: column; */
-  /* flex-wrap: wrap; */
-  /* margin: 4.25rem 0 0 1rem; */
-  /* margin: 0; */
-  /* justify-content: center;
-  padding: 0 0 10px;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 5.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #383a3f;
-  font-weight: 400; */
-  /* position: static; */
-  /* word-wrap: break-word; */
 `;
 
 const IntroHeaderText = styled('h1')`
-  /* height: auto; */
   display: inline-block;
   margin-top: 0px;
   margin-bottom: 12px;
@@ -230,34 +125,6 @@ const IntroHeaderText = styled('h1')`
     width: 100vw;
     color: #383a3f;
   }
-  /* 
-  @media (max-width: 991px) {
-    display: block;
-    width: 80%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-    color: #2b90d9;
-    font-weight: 400;
-    text-align: center;
-  } */
-
-  /* height: auto;
-  margin-top: 0px;
-  display: block;
-  margin-bottom: 12px;
-  margin-left: 0px;
-
-  margin-right: 150px;
-  padding-right: 1px;
-  font-family: Averta, sans-serif;
-  font-size: 2.6vw;
-  line-height: 140%;
-  font-weight: 400;
-  text-align: left; */
 `;
 
 export const StyleBar = styled('div')`
@@ -276,7 +143,6 @@ export const StyleBar = styled('div')`
 `;
 
 const IntroStyleBar = styled('div')`
-  /* width: 64px; */
   width: 80px;
   height: 8px;
   margin-top: 25px;
@@ -313,13 +179,7 @@ const IconContainer = styled('div')`
     margin-left: auto;
     margin-right: auto;
   }
-  /* margin-top: 0px;
-  padding-top: 12px;
-  display: flex;
-  justify-content: center; */
 `;
-
-// const Icon = styled('div');
 
 const HeroContainer = styled('div')`
   display: flex;
@@ -330,6 +190,10 @@ const HeroContainer = styled('div')`
   justify-content: center;
   align-items: center;
   font-size: 100px;
+
+  @media (max-width: 1023px) {
+    min-height: 50vh;
+  }
 
   @media (max-width: 767px) {
     min-height: auto;
@@ -349,7 +213,7 @@ const Intro = () => {
               animation-delay: 0.4s;
             `}
           >
-            Hey, peoples
+            Hello world,
             <br />
             my name is Marlon!
           </IntroHeaderText>
