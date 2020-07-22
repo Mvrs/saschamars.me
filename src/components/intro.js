@@ -39,6 +39,23 @@ const ImageContainer = styled('svg')`
     align-self: center;
     zoom: 0.7;
   }
+
+  /** For later use */
+
+  /* @media (max-width: 991px) {
+    display: block;
+    max-width: none;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    zoom: 1.3;
+  } */
 `;
 
 const TextBackground = styled('div')`
@@ -85,6 +102,25 @@ const IntroContainer = styled('div')`
     -ms-grid-row-align: center;
     align-self: center;
   }
+
+  /*** For later use */
+  /* @media (max-width: 991px) {
+    min-width: 0px;
+    margin-top: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  } */
 `;
 
 const IntroHeader = styled('div')`
@@ -125,6 +161,32 @@ const IntroHeaderText = styled('h1')`
     width: 100vw;
     color: #383a3f;
   }
+
+  /** For later use */
+
+  /* @media (max-width: 991px) {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding-right: 1px;
+    font-family: Averta, sans-serif;
+    color: #383a3f;
+    font-size: 5.8vw;
+    width: 110%;
+    line-height: 140%;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0;
+    -webkit-animation: animation-1mtwtbl ease-in 1;
+    animation: animation-1mtwtbl ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  } */
 `;
 
 export const StyleBar = styled('div')`
