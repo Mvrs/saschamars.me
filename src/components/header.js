@@ -102,7 +102,7 @@ const Header = ({
         z-index: 10;
         top: 0;
         /* padding: 1rem calc((100vw - 950px - 3.5rem) / 2); */
-        padding: 0.5rem calc((100vw - 800px - 0.5rem) / 2);
+        padding: 0.5rem calc((100vw - 850px - 0.5rem) / 2);
         /* padding: 30px 0 0 0; */
         ${bpMaxSM} {
           padding: 20px 0 0 0;
