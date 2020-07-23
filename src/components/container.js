@@ -18,8 +18,7 @@ const Container = props => {
         width: 100%;
         margin: 0 auto;
         max-width: ${fullMaxWidth};
-        padding: ${noVerticalPadding ? 0 : '40'}px
-          ${noHorizontalPadding ? 0 : '40'}px;
+        padding: 0;
 
         ${bpMaxSM} {
           /* margin-bottom: 20vh; */

@@ -19,12 +19,12 @@ const fadeCard = keyframes`
 const ImageContainer = styled('svg')`
   width: 405px;
   height: 330px;
-  max-width: 45%;
 
   @media (max-width: 479px) {
     display: flex;
     margin-top: -40px;
     margin-bottom: 20px;
+    /* zoom: 0.3; */
   }
 
   @media (max-width: 767px) {
@@ -33,11 +33,27 @@ const ImageContainer = styled('svg')`
     margin-right: 0px;
     margin-bottom: 20px;
     margin-left: 0px;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
     align-self: center;
     zoom: 0.7;
+  }
+
+  /** For later use */
+
+  @media only screen and (min-width: 600px) {
+    zoom: 0.8;
+    height: 359px;
+    margin-top: auto;
+  }
+
+  @media only screen and (min-width: 800px) {
+    zoom: 1;
+    height: 360px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  @media only screen and (min-width: 1000px) {
+    zoom: normal;
   }
 `;
 
@@ -59,9 +75,6 @@ const IntroContainer = styled('div')`
   min-width: 900px;
   flex-direction: row;
   justify-content: space-around;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  align-items: center;
   align-self: center;
 
   @media (max-width: 479px) {
@@ -71,25 +84,28 @@ const IntroContainer = styled('div')`
   @media (max-width: 767px) {
     min-width: 0px;
     margin-top: 40px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
+    align-self: center;
+  }
+
+  /*** For later use */
+  @media (max-width: 991px) {
+    min-width: 0px;
+    margin-top: 40px;
+    flex-direction: column-reverse;
+    align-items: center;
     align-self: center;
   }
 `;
 
 const IntroHeader = styled('div')`
-  margin-left: 0px;
+  margin-left: 25px;
   padding-bottom: 36px;
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+  }
 `;
 
 const IntroHeaderText = styled('h1')`
@@ -124,6 +140,11 @@ const IntroHeaderText = styled('h1')`
   @media (max-width: 767px) {
     width: 100vw;
     color: #383a3f;
+  }
+  @media (max-width: 991px) {
+    width: 100vw;
+    color: #383a3f;
+    text-align: center;
   }
 `;
 
@@ -164,6 +185,12 @@ const IntroStyleBar = styled('div')`
     margin-bottom: 0;
     margin-top: 20px;
   }
+
+  @media (max-width: 991px) {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 
 const IconContainer = styled('div')`
@@ -179,6 +206,11 @@ const IconContainer = styled('div')`
     margin-left: auto;
     margin-right: auto;
   }
+
+  @media (max-width: 991px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const HeroContainer = styled('div')`
@@ -191,10 +223,9 @@ const HeroContainer = styled('div')`
   align-items: center;
   font-size: 100px;
 
-  @media (max-width: 1023px) {
-    min-height: 50vh;
+  @media (max-width: 991px) {
+    min-height: 0vh;
   }
-
   @media (max-width: 767px) {
     min-height: auto;
   }
@@ -260,7 +291,7 @@ const Intro = () => {
                     margin: 0 8px 0 0;
                     padding-right: 0px;
                     transform: perspective(1px) translateZ(0);
-                    transition-duration: 0.3s;
+                    transition-duration: 0.5s;
                     transition-property: transform;
 
                     &:hover,
@@ -285,7 +316,7 @@ const Intro = () => {
                     margin: 0 8px 0 0;
                     padding-right: 0px;
                     transform: perspective(1px) translateZ(0);
-                    transition-duration: 0.3s;
+                    transition-duration: 0.5s;
                     transition-property: transform;
 
                     &:hover,
