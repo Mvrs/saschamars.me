@@ -298,16 +298,22 @@ export default () => (
               margin-right: auto;
             `}
           >
-            <h3
+            <a
+              href="mailto: johnsonmarlon18@gmail.com"
               css={css`
                 font-style: italic;
                 font-weight: 400;
                 color: #fff;
                 font-size: 16px;
+                text-decoration: none;
+                :hover,
+                :focus {
+                  opacity: 0.2;
+                }
               `}
             >
               johnsonmarlon18@gmail.com
-            </h3>
+            </a>
           </div>
         </div>
       </div>

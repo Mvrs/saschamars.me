@@ -102,6 +102,10 @@ const IntroContainer = styled('div')`
 const IntroHeader = styled('div')`
   margin-left: 25px;
   padding-bottom: 36px;
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+  }
 `;
 
 const IntroHeaderText = styled('h1')`
