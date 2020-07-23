@@ -20,9 +20,8 @@ export const InnerTagContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   outline: 0;
-  /* margin-left: 4px; */
-  padding-bottom: 1px;
-  padding-top: 7px;
+  padding-bottom: 0.3125rem;
+  padding-top: 0.3125rem;
 `;
 
 export const TagContainer = styled('div')`
