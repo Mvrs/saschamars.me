@@ -61,9 +61,8 @@ const Layout = ({ children }) => {
 
             pre {
               border-radius: 0.25rem;
-              font-family: Operator Mono, 'Lucida Sans', 'Lucida Sans Regular',
-                'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-                sans-serif;
+              font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
+                Consolas, 'Liberation Mono', 'Courier New', monospace sans-serif;
               line-height: 1.55rem;
               overflow: hidden;
               padding: 0.625rem;
