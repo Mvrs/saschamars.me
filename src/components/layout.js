@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Header from './header';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
+import WrapRootElement from '../../gatsby-browser';
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
 
@@ -56,6 +57,27 @@ const Layout = ({ children }) => {
 
             li {
               margin-top: 0.25rem;
+            }
+
+            pre {
+              border-radius: 0.25rem;
+              font-family: Operator Mono, 'Lucida Sans', 'Lucida Sans Regular',
+                'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                sans-serif;
+              line-height: 1.55rem;
+              overflow: hidden;
+              padding: 0.625rem;
+              font-size: 0.875rem;
+            }
+
+            code {
+              color: #c5c8c6;
+              white-space: pre;
+              background-color: #1d1f21;
+              border-radius: 0.3em;
+              padding: 0.1em;
+              font-family: SFMono-Regular, Menlo, Monaco, Consolas,
+                'Liberation Mono', 'Courier New', monospace;
             }
           }
         `}
