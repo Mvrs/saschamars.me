@@ -7,13 +7,35 @@ image: ./images/charles-postiaux.jpg
 tags: ['Programming']
 ---
 
-This is my next blog post. Straight Heat!
+If you're viewing this it's a test build
 
---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac orci condimentum,
-tempus felis et, posuere mauris. Mauris viverra, risus eget consectetur lacinia, odio
+Using `prism-react-renderer`
 
-justo malesuada urna, sit amet tincidunt sem ligula non nibh. Cras vulputate est tortor,
-sed efficitur ipsum vulputate posuere. Quisque lacus turpis, pretium vitae dictum vitae, mattis at massa. Sed laoreet, tellus vitae finibus tincidunt, lorem diam tristique mi, id ornare enim sapien ac felis.
-Nunc euismod tortor eu turpis gravida, id viverra elit ornare. Nullam eu efficitur lacus, ut eleifend nisi. Donec pharetra et ipsum at mollis. Cras a eros a sem cursus dignissim at vitae ipsum. Sed ultrices et diam id ultrices. Duis et semper ligula. Suspendisse potenti. Duis congue ac velit sed ultrices. Etiam pellentesque odio diam, in eleifend neque semper et.
-Phasellus gravida dolor nec mi euismod, sit amet pellentesque elit blandit.
+```jsx
+import Code from '../components/code';
+
+export default {
+  pre: Code,
+};
+```
+
+```python
+# Python program to display the Fibonacci sequence
+
+def recur_fibo(n):
+   if n <= 1:
+       return n
+   else:
+       return(recur_fibo(n-1) + recur_fibo(n-2))
+
+nterms = 10
+
+# check if the number of terms is valid
+if nterms <= 0:
+   print("Plese enter a positive integer")
+else:
+   print("Fibonacci sequence:")
+   for i in range(nterms):
+       print(recur_fibo(i))
+
+```

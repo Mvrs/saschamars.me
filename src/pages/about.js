@@ -9,7 +9,7 @@ import GithubIcon from '../assets/icons8-github.svg';
 import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
 import TwitterIcon from '../assets/icons8-twitter-circled.svg';
 
-const ImageHolder = styled.div`
+export const ImageHolder = styled.div`
   align-items: center;
   box-sizing: border-box;
   display: -webkit-box;
@@ -25,7 +25,7 @@ const ImageHolder = styled.div`
   }
 `;
 
-const TextContainer = styled.div`
+export const TextContainer = styled.div`
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -46,7 +46,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const AboutHeading = styled.div`
+export const AboutHeading = styled.div`
   box-sizing: border-box;
   color: #2b90d9;
   font-size: 36px;
@@ -86,7 +86,7 @@ export const AboutText = styled.div`
   }
 `;
 
-const Footer = styled.div`
+export const Footer = styled.div`
   margin-top: 20px;
   margin-bottom: 0px;
   /* padding-top: 40px; */
