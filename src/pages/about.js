@@ -72,7 +72,7 @@ const AboutHeading = styled.div`
   }
 `;
 
-const AboutText = styled.div`
+export const AboutText = styled.div`
   margin-bottom: 0px;
   font-family: Averta, sans-serif;
   color: #686868;

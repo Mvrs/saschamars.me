@@ -8,6 +8,7 @@ import usePosts from '../hooks/use-posts';
 import useTags from '../hooks/use-tags';
 import { PostLayout } from '../components/post-layout';
 import Footer from '../components/footer';
+// import {AboutText} from '../pages/about'
 
 function Search({ location }) {
   const query =
