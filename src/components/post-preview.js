@@ -133,10 +133,12 @@ const PostPreview = ({ post, tag }) => {
             })}
           </InnerTagContainer>
         </MainTagContainer>
+
         <p
           css={css`
             font-size: 18px;
             margin-top: 5px;
+            overflow: hidden;
           `}
         >
           {post.excerpt}

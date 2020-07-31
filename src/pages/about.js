@@ -76,7 +76,7 @@ export const AboutText = styled.div`
   margin-bottom: 0px;
   font-family: Averta, sans-serif;
   color: #686868;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 36px;
   font-weight: 400;
 
