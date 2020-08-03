@@ -5,8 +5,14 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
 import Img from 'gatsby-image';
+import BlogFooter from '../components/blog-footer';
 
-import { AboutText, TextContainer, ImageHolder } from '../pages/about';
+import {
+  AboutText,
+  TextContainer,
+  ImageHolder,
+  AboutFooter,
+} from '../pages/about';
 
 export const query = graphql`
   query($slug: String) {
@@ -39,47 +45,68 @@ const PostTemplate = ({ data: { mdx: post } }) => {
   const vH = post.frontmatter.image.childImageSharp.fluid.presentationHeight;
 
   return (
-    <Layout>
-      <TextContainer>
-        <h1
-          css={css`
-            color: #222;
-            letter-spacing: 0.12rem;
-            font-size: 33px;
-            line-height: 1.1;
-          `}
-        >
-          {post.frontmatter.title}
-        </h1>
-        <p
-          css={css`
-            font-size: 0.875rem;
-            letter-spacing: 0.05rem;
-          `}
-        >
-          Posted on {post.frontmatter.date}
-        </p>
-        <Img
-          fluid={featuredImgFluid}
-          imgStyle={{ objectFit: 'contain' }}
-          style={{
-            maxWidth: '665px',
-          }}
-        />
-        <AboutText>
-          <p
+    <>
+      <Layout>
+        <TextContainer>
+          <h1
             css={css`
-              font-style: italic;
+              color: #222;
+              letter-spacing: 0.12rem;
+              font-size: 33px;
+              line-height: 1.1;
             `}
           >
-            {post.excerpt}
+            {post.frontmatter.title}
+          </h1>
+          <p
+            css={css`
+              font-size: 0.875rem;
+              letter-spacing: 0.05rem;
+            `}
+          >
+            Posted on {post.frontmatter.date}
           </p>
-        </AboutText>
-      </TextContainer>
+          <Img
+            fluid={featuredImgFluid}
+            imgStyle={{ objectFit: 'contain' }}
+            style={{
+              maxWidth: '665px',
+            }}
+          />
+          <AboutText>
+            <p
+              css={css`
+                font-style: italic;
+              `}
+            >
+              {post.excerpt}
+            </p>
+          </AboutText>
+        </TextContainer>
 
-      <MDXRenderer>{post.body}</MDXRenderer>
-      <ReadLink to="/blog/">&larr; back to all posts</ReadLink>
-    </Layout>
+        <MDXRenderer>{post.body}</MDXRenderer>
+        {/* <ReadLink to="/blog/">&larr; back to all posts</ReadLink> */}
+        <div
+          css={css`
+            height: 100px;
+            margin-top: 0px;
+
+            @media (max-width: 767px) {
+              height: 80px;
+              margin-top: 0px;
+            }
+          `}
+        >
+          {}
+        </div>
+      </Layout>
+      <BlogFooter
+        css={css`
+          width: 100%;
+          position: absolute;
+        `}
+      />
+    </>
   );
 };
 

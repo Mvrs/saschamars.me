@@ -86,7 +86,7 @@ export const AboutText = styled.div`
   }
 `;
 
-export const Footer = styled.div`
+export const AboutFooter = styled.div`
   margin-top: 20px;
   margin-bottom: 0px;
   /* padding-top: 40px; */
@@ -211,7 +211,7 @@ export default () => (
     >
       {}
     </div>
-    <Footer>
+    <AboutFooter>
       <div
         css={css`
           display: -webkit-box;
@@ -403,6 +403,6 @@ export default () => (
           />
         </a>
       </div>
-    </Footer>
+    </AboutFooter>
   </>
 );
