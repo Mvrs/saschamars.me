@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
 import Img from 'gatsby-image';
 import BlogFooter from '../components/blog-footer';
+import headshot from '../../images/van-shoe.jpg';
 
 import {
   AboutText,
@@ -85,27 +86,96 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         </TextContainer>
 
         <MDXRenderer>{post.body}</MDXRenderer>
+        <TextContainer>
+          <footer
+            css={css`
+              margin-top: 40px;
+              padding-top: 20px;
+              display: block;
+            `}
+          >
+            <hr
+              css={css`
+                background: rgba(0, 0, 0, 0.2);
+                border: none;
+                height: 2px;
+                border-radius: 7px;
+                padding: 0;
+              `}
+            />
+            <div
+              css={css`
+                min-width: 0px;
+                display: flex;
+                margin-bottom: 24px;
+                align-items: center;
+              `}
+            >
+              <AboutText
+                css={css`
+                  box-sizing: border-box;
+                  min-width: 0px;
+                  display: flex;
+                  margin-bottom: 48px;
+                  -webkit-box-align: center;
+                  align-items: center;
+                `}
+              >
+                {/* <div
+                  css={css`
+                    height: 100px;
+                    margin-top: 0px;
+                    @media (max-width: 767px) {
+                      height: 80px;
+                      margin-top: 0px;
+                    }
+                  `}
+                >
+                  {}
+                </div> */}
+                <img
+                  alt="marlon johnson"
+                  src={headshot}
+                  css={css`
+                    border-style: none;
+                    /* height: 100%; */
+                    left: 0;
+                    margin: 0;
+                    /* max-width: 100%; */
+                    object-fit: contain;
+                    object-position: center center;
+                    opacity: 1;
+                    padding: 0;
+                    /* position: absolute; */
+                    /* top: 0; */
+                    transition: opacity 500ms ease 0s;
+                    border-radius: 100%;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                  `}
+                />
+                <div
+                  css={css`
+                    display: block;
+                    margin: auto;
+                    padding-left: 10px;
+                    line-height: 1.5;
+                  `}
+                >
+                  I'm Marlon and a Software Engineer chilling outside
+                </div>
+              </AboutText>
+            </div>
+          </footer>
+        </TextContainer>
         {/* <ReadLink to="/blog/">&larr; back to all posts</ReadLink> */}
-        <div
-          css={css`
-            height: 100px;
-            margin-top: 0px;
-
-            @media (max-width: 767px) {
-              height: 80px;
-              margin-top: 0px;
-            }
-          `}
-        >
-          {}
-        </div>
       </Layout>
-      <BlogFooter
+      {/* <BlogFooter
         css={css`
           width: 100%;
           position: absolute;
         `}
-      />
+      /> */}
     </>
   );
 };
