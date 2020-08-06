@@ -150,20 +150,17 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
                   src={headshot}
                   css={css`
                     border-style: none;
-                    /* height: 100%; */
                     left: 0;
                     margin: 0;
-                    /* max-width: 100%; */
                     object-fit: contain;
                     object-position: center center;
                     opacity: 1;
                     padding: 0;
-                    /* position: absolute; */
-                    /* top: 0; */
+                    top: 0;
                     transition: none 0s ease 0s;
-                    border-radius: 100%;
-                    width: 3.5rem;
-                    height: 3.5rem;
+                    border-radius: 50%;
+                    width: 63px;
+                    height: 63px;
                   `}
                 />
                 <div
