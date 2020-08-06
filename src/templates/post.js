@@ -7,6 +7,7 @@ import ReadLink from '../components/read-link';
 import Img from 'gatsby-image';
 import BlogFooter from '../components/blog-footer';
 import headshot from '../../images/van-shoe.jpg';
+import { navigate } from 'gatsby';
 
 import {
   AboutText,
@@ -22,6 +23,7 @@ export const query = graphql`
         title
         author
         date
+        slug
         image {
           childImageSharp {
             fluid(maxWidth: 665, quality: 100) {
@@ -40,10 +42,16 @@ export const query = graphql`
   }
 `;
 
-const PostTemplate = ({ data: { mdx: post } }) => {
+const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
   const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid;
-  const vW = post.frontmatter.image.childImageSharp.fluid.presentationWidth;
-  const vH = post.frontmatter.image.childImageSharp.fluid.presentationHeight;
+  // const vW = post.frontmatter.image.childImageSharp.fluid.presentationWidth;
+  // const vH = post.frontmatter.image.childImageSharp.fluid.presentationHeight;
+
+  const { next, prev, slug } = pageContext;
+
+  console.log(slug);
+
+  console.log(pageContext);
 
   return (
     <>
@@ -59,6 +67,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
           >
             {post.frontmatter.title}
           </h1>
+
           <p
             css={css`
               font-size: 0.875rem;
@@ -68,8 +77,11 @@ const PostTemplate = ({ data: { mdx: post } }) => {
             Posted on {post.frontmatter.date}
           </p>
           <Img
+            css={css`
+              border-radius: 0.25rem;
+            `}
             fluid={featuredImgFluid}
-            imgStyle={{ objectFit: 'contain' }}
+            imgStyle={{ objectFit: 'contain', marginTop: '0' }}
             style={{
               maxWidth: '665px',
             }}
@@ -162,10 +174,65 @@ const PostTemplate = ({ data: { mdx: post } }) => {
                     line-height: 1.5;
                   `}
                 >
-                  I'm Marlon and a Software Engineer chilling outside
+                  I’m Marlon but you can call me Mars. Software Engineer. Music
+                  lover. Bay Area Native. Feel free to{' '}
+                  <a
+                    href="mailto: johnsonmarlon18@gmail.com"
+                    css={css`
+                      color: #db99b9;
+                    `}
+                  >
+                    Contact
+                  </a>{' '}
+                  me.
                 </div>
               </AboutText>
             </div>
+
+            <ul
+              css={css`
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                list-style: none;
+                padding: 0px;
+                flex-flow: row-reverse;
+                margin: 0 0 1.45rem 1.45rem;
+              `}
+            >
+              <li>
+                {next && (
+                  <ReadLink
+                    to={`/blog/${next.frontmatter.slug}`}
+                    css={css`
+                      display: flex;
+                      justify-content: flex-end;
+                      font-size: 16px;
+                      text-decoration: none;
+                      text-transform: none;
+                    `}
+                  >
+                    {next.frontmatter.slug} &rarr;
+                  </ReadLink>
+                )}
+              </li>
+              <li>
+                {prev && (
+                  <ReadLink
+                    to={`/blog/${prev.frontmatter.slug}`}
+                    css={css`
+                      display: flex;
+                      justify-content: flex-start;
+                      text-decoration: none;
+                      font-size: 16px;
+                      text-transform: none;
+                    `}
+                  >
+                    &larr; {prev.frontmatter.slug}
+                  </ReadLink>
+                )}
+              </li>
+            </ul>
           </footer>
         </TextContainer>
         {/* <ReadLink to="/blog/">&larr; back to all posts</ReadLink> */}
