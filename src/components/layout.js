@@ -96,7 +96,7 @@ const Layout = ({ children }) => {
           }
         `}
       />
-      <Helmet defer={false}>
+      <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
