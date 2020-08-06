@@ -67,6 +67,7 @@ const PostPreview = ({ post, tag }) => {
             padding: 2px;
             border-color: #db99b9;
             border-radius: 2px;
+            transition: none 0s ease 0s;
           `}
           alt={post.title}
         />

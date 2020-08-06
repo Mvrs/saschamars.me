@@ -89,6 +89,9 @@ const Layout = ({ children }) => {
               padding: 0.1em;
               font-family: SFMono-Regular, Menlo, Monaco, Consolas,
                 'Liberation Mono', 'Courier New', monospace;
+              @media (max-width: 767px) {
+                font-size: 16px;
+              }
             }
           }
         `}

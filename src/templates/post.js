@@ -160,7 +160,7 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
                     padding: 0;
                     /* position: absolute; */
                     /* top: 0; */
-                    transition: opacity 500ms ease 0s;
+                    transition: none 0s ease 0s;
                     border-radius: 100%;
                     width: 3.5rem;
                     height: 3.5rem;
