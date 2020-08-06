@@ -76,7 +76,7 @@ export const AboutText = styled.div`
   margin-bottom: 0px;
   font-family: Averta, sans-serif;
   color: #686868;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 36px;
   font-weight: 400;
 
@@ -86,7 +86,7 @@ export const AboutText = styled.div`
   }
 `;
 
-export const Footer = styled.div`
+export const AboutFooter = styled.div`
   margin-top: 20px;
   margin-bottom: 0px;
   /* padding-top: 40px; */
@@ -211,7 +211,7 @@ export default () => (
     >
       {}
     </div>
-    <Footer>
+    <AboutFooter>
       <div
         css={css`
           display: -webkit-box;
@@ -403,6 +403,6 @@ export default () => (
           />
         </a>
       </div>
-    </Footer>
+    </AboutFooter>
   </>
 );

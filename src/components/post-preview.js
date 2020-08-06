@@ -67,6 +67,7 @@ const PostPreview = ({ post, tag }) => {
             padding: 2px;
             border-color: #db99b9;
             border-radius: 2px;
+            transition: none 0s ease 0s;
           `}
           alt={post.title}
         />
@@ -133,10 +134,12 @@ const PostPreview = ({ post, tag }) => {
             })}
           </InnerTagContainer>
         </MainTagContainer>
+
         <p
           css={css`
             font-size: 18px;
             margin-top: 5px;
+            overflow: hidden;
           `}
         >
           {post.excerpt}

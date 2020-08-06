@@ -59,6 +59,18 @@ const Layout = ({ children }) => {
               margin-top: 0.25rem;
             }
 
+            hr {
+              border-top-style: initial;
+              border-right-style: initial;
+              border-left-style: initial;
+              padding: 0px;
+              margin: -1px 0px 24px;
+              border-width: 0px 0px 1px;
+              border-image: initial;
+              border-bottom: 1px solid rgb(204, 204, 204);
+              border-color: rgb(204, 204, 204);
+            }
+
             pre {
               border-radius: 0.25rem;
               font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
@@ -77,6 +89,9 @@ const Layout = ({ children }) => {
               padding: 0.1em;
               font-family: SFMono-Regular, Menlo, Monaco, Consolas,
                 'Liberation Mono', 'Courier New', monospace;
+              @media (max-width: 767px) {
+                font-size: 16px;
+              }
             }
           }
         `}

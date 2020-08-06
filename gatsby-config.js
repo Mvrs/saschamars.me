@@ -4,11 +4,9 @@ module.exports = {
     description: 'Personal website of Marlon Von Johnson',
   },
   plugins: [
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -31,9 +29,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `images`,
+        path: `${__dirname}/images`,
       },
     },
+    `gatsby-plugin-sharp`,
+    // This plugin identifies file nodes that are images and
+    // transforms these to create new “ImageSharp” nodes.
+    // With them you can resize images and
+    // generate responsive image thumbnails.
+    `gatsby-transformer-sharp`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
