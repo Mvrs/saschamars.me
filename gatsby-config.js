@@ -46,6 +46,7 @@ module.exports = {
         path: `${__dirname}/content/data`,
       },
     },
+
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
