@@ -13,9 +13,6 @@ import TwitterIcon from '../assets/icons8-twitter-circled.svg';
 export const ImageHolder = styled.div`
   align-items: center;
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: auto;
   justify-content: center;
@@ -27,9 +24,6 @@ export const ImageHolder = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-bottom: 0px;
   padding: 0px 15%;
@@ -256,9 +250,6 @@ export default () => {
         >
           <h2
             css={css`
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
               margin-top: 0px;
               margin-bottom: 0px;
@@ -284,9 +275,6 @@ export default () => {
             css={css`
               position: static;
               right: 0px;
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
               width: 700px;
               margin-left: 0px;
@@ -338,11 +326,7 @@ export default () => {
         </div>
         <div
           css={css`
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
             display: flex;
-            /* margin-top: 36px; */
             margin-bottom: 0px;
             padding-bottom: 100px;
             justify-content: center;

@@ -22,7 +22,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `posts`,
+        path: `${__dirname}/content/posts`,
       },
     },
     {
@@ -46,7 +46,6 @@ module.exports = {
         path: `${__dirname}/content/data`,
       },
     },
-
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
