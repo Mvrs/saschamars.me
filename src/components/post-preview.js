@@ -59,6 +59,7 @@ const PostPreview = ({ post, tag }) => {
       >
         <Image
           fluid={post.image.sharp.fluid}
+          fadeIn="soft"
           css={css`
             * {
               margin-top: 0;
