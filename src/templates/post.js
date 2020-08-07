@@ -102,7 +102,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
             css={css`
               border-radius: 0.25rem;
             `}
-            fadeIn={true}
+            fadeIn={false}
             fluid={featuredImgFluid}
             imgStyle={{ objectFit: 'contain', marginTop: '0' }}
             style={{
