@@ -14,27 +14,12 @@ const components = {
   wrapper: ({ children }) => <>{children}</>,
   pre: props => {
     const className = props.children.props.className || '';
-    const matches = className.match(/language=(?<lang>.*)/);
-    const codeProps = preToCodeBlock(props);
-
-    if (!codeProps) {
-      return <pre {...props} />;
-    }
-
-    {
-      /* code={props.children.props.children.trim()} */
-    }
-    {
-      /* matches && matches.groups && matches.group.lang
-            ? matches.groups.lang
-            : '' */
-    }
-    const { codeString, language } = codeProps;
+    const matches = className.match(/language-(?<lang>.*)/);
     return (
       <Highlight
         {...defaultProps}
-        code={codeString}
-        language={language}
+        code={props.children.props.children}
+        language={matches && matches.groups.lang ? matches.groups.lang : ''}
         theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
