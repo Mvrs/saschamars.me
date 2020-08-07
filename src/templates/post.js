@@ -26,7 +26,7 @@ export const query = graphql`
         slug
         image {
           childImageSharp {
-            fluid(maxWidth: 665, quality: 100) {
+            fluid(maxWidth: 665, quality: 75) {
               # src
               # srcSet
               # aspectRatio
@@ -174,7 +174,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                 >
                   <Img
                     alt="my shoe"
-                    loading="auto"
+                    loading="eager"
                     fixed={shoeImage}
                     imgStyle={{
                       height: 63,

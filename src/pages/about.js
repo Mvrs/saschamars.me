@@ -130,6 +130,7 @@ export default () => {
             alt="marlon johnson"
             fluid={image.sharp.fluid}
             fadeIn={false}
+            loading="eager"
             imgStyle={{ marginTop: 0 }}
             css={css`
               align-self: center;
