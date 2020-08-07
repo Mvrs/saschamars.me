@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import Header from './header';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
-import WrapRootElement from '../../gatsby-browser';
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
 

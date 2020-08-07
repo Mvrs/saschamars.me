@@ -8,7 +8,6 @@ import usePosts from '../hooks/use-posts';
 import useTags from '../hooks/use-tags';
 import { PostLayout } from '../components/post-layout';
 import Footer from '../components/footer';
-// import {AboutText} from '../pages/about'
 
 function Search({ location }) {
   const query =
@@ -26,24 +25,6 @@ export default () => {
   return (
     <>
       <Layout>
-        {/* <h1
-          css={css`
-            text-align: center;
-            display: block;
-            position: relative;
-          `}
-        >
-          Welcome to all my Blog Posts
-        </h1> */}
-        {/* <p
-          css={css`
-            text-align: center;
-            display: block;
-            position: relative;
-          `}
-        >
-          This is where all my blogs will be
-        </p> */}
         <PostLayout>
           {posts.map(post => (
             <PostPreview key={post.slug} post={post} tag={post.tags} />
