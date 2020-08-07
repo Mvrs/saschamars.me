@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
@@ -26,12 +26,13 @@ export const query = graphql`
         slug
         image {
           childImageSharp {
-            fluid(maxWidth: 665, quality: 100) {
-              src
-              srcSet
-              aspectRatio
-              sizes
-              base64
+            fluid(maxWidth: 665, quality: 75) {
+              # src
+              # srcSet
+              # aspectRatio
+              # sizes
+              # base64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -39,19 +40,40 @@ export const query = graphql`
       excerpt
       body
     }
+
+    footerImage: file(relativePath: { eq: "van-shoe.jpg" }) {
+      sharp: childImageSharp {
+        fixed(width: 63, height: 63, quality: 100) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
   }
 `;
 
-const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
+const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
   const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid;
-  // const vW = post.frontmatter.image.childImageSharp.fluid.presentationWidth;
-  // const vH = post.frontmatter.image.childImageSharp.fluid.presentationHeight;
-
   const { next, prev, slug } = pageContext;
+  const shoeImage = footerImage.sharp.fixed;
 
-  console.log(slug);
+  // const footerImage = post.footerImage.sharp.fluid;
 
-  console.log(pageContext);
+  console.log(post);
+  console.log(footerImage.sharp.fluid);
+
+  // console.log(footerImage);
+
+  // const { image } = useStaticQuery(graphql`
+  //   query {
+  //     image: file(relativePath: { eq: "van-shoe.jpg" }) {
+  //       sharp: childImageSharp {
+  //         fluid {
+  //           ...GatsbyImageSharpFluid_withWebp
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <>
@@ -80,6 +102,7 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
             css={css`
               border-radius: 0.25rem;
             `}
+            fadeIn={false}
             fluid={featuredImgFluid}
             imgStyle={{ objectFit: 'contain', marginTop: '0' }}
             style={{
@@ -133,25 +156,11 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
                   align-items: center;
                 `}
               >
-                {/* <div
-                  css={css`
-                    height: 100px;
-                    margin-top: 0px;
-                    @media (max-width: 767px) {
-                      height: 80px;
-                      margin-top: 0px;
-                    }
-                  `}
-                >
-                  {}
-                </div> */}
-                <img
-                  alt="marlon johnson"
-                  src={headshot}
+                <div
                   css={css`
                     border-style: none;
                     left: 0;
-                    margin: 0;
+                    margin-top: 0;
                     object-fit: contain;
                     object-position: center center;
                     opacity: 1;
@@ -162,7 +171,19 @@ const PostTemplate = ({ data: { mdx: post }, pageContext }) => {
                     width: 63px;
                     height: 63px;
                   `}
-                />
+                >
+                  <Img
+                    alt="my shoe"
+                    loading="eager"
+                    fixed={shoeImage}
+                    imgStyle={{
+                      height: 63,
+                      width: 63,
+                      borderRadius: 50,
+                      marginTop: 0,
+                    }}
+                  />
+                </div>
                 <div
                   css={css`
                     display: block;
