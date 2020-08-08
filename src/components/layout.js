@@ -5,7 +5,7 @@ import Header from './header';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const Layout = ({ children }) => {
-  const { title, description } = useSiteMetadata();
+  const { title, description, keywords, url } = useSiteMetadata();
 
   return (
     <>
@@ -96,9 +96,17 @@ const Layout = ({ children }) => {
         `}
       />
       <Helmet>
-        <html lang="en" />
+        <html lang="en_US" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" href={url} />
+        <link rel="canonical" href={url} />
       </Helmet>
       {/* <header></header> */}
       <Header />
