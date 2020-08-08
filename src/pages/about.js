@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import { css, keyframes } from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import headshot from '../../images/van-shoe.jpg';
 import Img from 'gatsby-image';
+import Helmet from 'react-helmet';
 
 import GithubIcon from '../assets/icons8-github.svg';
 import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
 import TwitterIcon from '../assets/icons8-twitter-circled.svg';
+import useSiteMetadata from '../hooks/use-sitemetadata';
 
 export const ImageHolder = styled.div`
   align-items: center;
@@ -84,7 +85,6 @@ export const AboutText = styled.div`
 export const AboutFooter = styled.div`
   margin-top: 20px;
   margin-bottom: 0px;
-  /* padding-top: 40px; */
   padding-bottom: 0px;
   background-color: #383a3f;
   border-top: 5px solid;
@@ -104,9 +104,11 @@ export const AboutFooter = styled.div`
 `;
 
 export default () => {
+  const { keywords, url } = useSiteMetadata();
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "van-shoe.jpg" }) {
+        publicURL
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -119,6 +121,22 @@ export default () => {
   return (
     <>
       <Layout>
+        <Helmet>
+          <html lang="en" />
+          <title>About Marlon V. Johnson</title>
+          <meta name="description" content="All about Marlon V. Johson" />
+          <meta name="keywords" content={keywords} />
+          <meta property="og:title" content="About Marlon V. Johnson" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:description"
+            content="All about Marlon V. Johson"
+          />
+          <meta property="og:image" content={image.publicURL} />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:url" href={url} />
+          <link rel="canonical" href={url} />
+        </Helmet>
         <ImageHolder>
           <Img
             alt="marlon johnson"
@@ -175,6 +193,7 @@ export default () => {
             <b>times do get rough</b>, I’ve been doing Frontend work with a
             startup{' '}
             <a
+              aria-label="my first internship"
               href="https://apps.apple.com/us/app/fullcourt-pickup-basketball/id1083156787"
               css={css`
                 color: #db99b9;
@@ -306,6 +325,7 @@ export default () => {
               `}
             >
               <a
+                aria-label="my email address"
                 href="mailto: johnsonmarlon18@gmail.com"
                 css={css`
                   font-style: italic;
@@ -334,6 +354,7 @@ export default () => {
           `}
         >
           <a
+            aria-label="my github profile"
             href="https://github.com/Mvrs"
             target="_blank"
             rel="noopener noreferrer"
@@ -359,6 +380,7 @@ export default () => {
             />
           </a>
           <a
+            aria-label="my linkedin profile"
             href="https://www.linkedin.com/in/marvj/"
             target="_blank"
             rel="noopener noreferrer"
@@ -382,6 +404,7 @@ export default () => {
           </a>
 
           <a
+            aria-label="my twitter profile"
             href="https://twitter.com/saschamars"
             target="_blank"
             rel="noopener noreferrer"

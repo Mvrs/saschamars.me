@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Marlon V. Johnson',
-    description: 'Personal website of Marlon Von Johnson',
+    title: `Marlon V. Johnson`,
+    description: `Marlon's personal website and notepad`,
+    keywords: `blog, react, gatsby, jamstack, typescript`,
+    url: `https://saschamars.me`,
   },
   plugins: [
     `gatsby-plugin-emotion`,

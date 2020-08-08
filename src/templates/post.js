@@ -1,20 +1,15 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
 import Img from 'gatsby-image';
-import BlogFooter from '../components/blog-footer';
-import headshot from '../../images/van-shoe.jpg';
-import { navigate } from 'gatsby';
 
-import {
-  AboutText,
-  TextContainer,
-  ImageHolder,
-  AboutFooter,
-} from '../pages/about';
+import { AboutText, TextContainer } from '../pages/about';
+
+import useSiteMetadata from '../hooks/use-sitemetadata';
 
 export const query = graphql`
   query($slug: String) {
@@ -24,14 +19,11 @@ export const query = graphql`
         author
         date
         slug
+        tags
         image {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 665, quality: 75) {
-              # src
-              # srcSet
-              # aspectRatio
-              # sizes
-              # base64
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -53,31 +45,36 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
   const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid;
-  const { next, prev, slug } = pageContext;
   const shoeImage = footerImage.sharp.fixed;
 
-  // const footerImage = post.footerImage.sharp.fluid;
-
-  console.log(post);
-  console.log(footerImage.sharp.fluid);
-
-  // console.log(footerImage);
-
-  // const { image } = useStaticQuery(graphql`
-  //   query {
-  //     image: file(relativePath: { eq: "van-shoe.jpg" }) {
-  //       sharp: childImageSharp {
-  //         fluid {
-  //           ...GatsbyImageSharpFluid_withWebp
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const { next, prev } = pageContext;
+  const { keywords, url } = useSiteMetadata();
 
   return (
     <>
       <Layout>
+        <Helmet>
+          <html lang="en" />
+          <title>{post.frontmatter.title}</title>
+          <meta name="description" content={post.excerpt} />
+          <meta name="keywords" content={keywords} />
+          <meta property="og:title" content={post.frontmatter.title} />
+          <meta property="og:type" content="website" />
+          <meta property="og:description" content={post.excerpt} />
+          <meta
+            property="og:image"
+            content={post.frontmatter.image.publicURL}
+          />
+          <meta property="og:locale" content="en_US" />
+          <meta
+            property="og:url"
+            href={`${url}/blog/${post.frontmatter.title}`}
+          />
+          <link
+            rel="canonical"
+            href={`${url}/blog/${post.frontmatter.title}`}
+          />
+        </Helmet>
         <TextContainer>
           <h1
             css={css`
@@ -253,14 +250,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
             </ul>
           </footer>
         </TextContainer>
-        {/* <ReadLink to="/blog/">&larr; back to all posts</ReadLink> */}
       </Layout>
-      {/* <BlogFooter
-        css={css`
-          width: 100%;
-          position: absolute;
-        `}
-      /> */}
     </>
   );
 };

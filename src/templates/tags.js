@@ -1,7 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-// Components
 import { Link, graphql } from 'gatsby';
 
 const Tags = ({ pageContext, data }) => {
@@ -29,25 +26,6 @@ const Tags = ({ pageContext, data }) => {
     </div>
   );
 };
-
-// Tags.PropTypes = {
-//   data: PropTypes.shape({
-//     allMdx: PropTypes.shape({
-//       totalCount: PropTypes.number.isRequired,
-//       edges: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           node: PropTypes.shape({
-//             frontmatter: PropTypes.shape({
-//               slug: PropTypes.string.isRequired,
-//               title: PropTypes.string.isRequired,
-//               tags: PropTypes.array.isRequired,
-//             }),
-//           }),
-//         }).isRequired,
-//       ),
-//     }),
-//   }),
-// };
 
 export default Tags;
 

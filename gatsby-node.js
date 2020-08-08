@@ -1,6 +1,4 @@
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
-// const { default: PostTemplate } = require("./src/templates/post");
 const _ = require(`lodash`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
@@ -17,7 +15,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
       postMdx: allMdx(
-        sort: { order: ASC, fields: frontmatter___date }
+        sort: { order: DESC, fields: frontmatter___date }
         limit: 1000
       ) {
         edges {

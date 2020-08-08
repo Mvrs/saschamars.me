@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import useSiteMetaData from '../hooks/use-sitemetadata';
 
 const useTags = () => {
   const data = useStaticQuery(graphql`
