@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-import { Link } from 'gatsby';
 import GithubIcon from '../assets/icons8-github.svg';
 import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
 import TwitterIcon from '../assets/icons8-twitter-circled.svg';
@@ -262,22 +261,6 @@ const Intro = () => {
             <br />
             in Oakland, CA.
           </IntroHeaderText>
-          {/* <h2
-          css={css`
-            display: flex;
-            margin: auto;
-            padding: 0 0 10px;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            opacity: 0.7;
-          `}
-        >
-          FrontEnd Engineer
-        </h2> */}
           <IconContainer>
             <div>
               <a

@@ -122,7 +122,7 @@ export default () => {
     <>
       <Layout>
         <Helmet>
-          <html lang="en_US" />
+          <html lang="en" />
           <title>About Marlon V. Johnson</title>
           <meta name="description" content="All about Marlon V. Johson" />
           <meta name="keywords" content={keywords} />
@@ -193,6 +193,7 @@ export default () => {
             <b>times do get rough</b>, I’ve been doing Frontend work with a
             startup{' '}
             <a
+              aria-label="my first internship"
               href="https://apps.apple.com/us/app/fullcourt-pickup-basketball/id1083156787"
               css={css`
                 color: #db99b9;
@@ -324,6 +325,7 @@ export default () => {
               `}
             >
               <a
+                aria-label="my email address"
                 href="mailto: johnsonmarlon18@gmail.com"
                 css={css`
                   font-style: italic;
@@ -352,6 +354,7 @@ export default () => {
           `}
         >
           <a
+            aria-label="my github profile"
             href="https://github.com/Mvrs"
             target="_blank"
             rel="noopener noreferrer"
@@ -377,6 +380,7 @@ export default () => {
             />
           </a>
           <a
+            aria-label="my linkedin profile"
             href="https://www.linkedin.com/in/marvj/"
             target="_blank"
             rel="noopener noreferrer"
@@ -400,6 +404,7 @@ export default () => {
           </a>
 
           <a
+            aria-label="my twitter profile"
             href="https://twitter.com/saschamars"
             target="_blank"
             rel="noopener noreferrer"

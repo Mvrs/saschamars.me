@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { css } from '@emotion/core';
 
 import Layout from '../components/layout';
 import PostPreview from '../components/post-preview';
 import usePosts from '../hooks/use-posts';
-import useTags from '../hooks/use-tags';
 import { PostLayout } from '../components/post-layout';
 import Footer from '../components/footer';
 
@@ -20,7 +17,6 @@ function Search({ location }) {
 
 export default () => {
   const posts = usePosts();
-  const tags = useTags();
 
   return (
     <>

@@ -54,7 +54,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
     <>
       <Layout>
         <Helmet>
-          <html lang="en_US" />
+          <html lang="en" />
           <title>{post.frontmatter.title}</title>
           <meta name="description" content={post.excerpt} />
           <meta name="keywords" content={keywords} />
