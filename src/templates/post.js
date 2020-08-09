@@ -80,8 +80,9 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
             css={css`
               color: #222;
               letter-spacing: 0.12rem;
-              font-size: 33px;
+              font-size: 1.75rem;
               line-height: 1.1;
+              text-align: center;
             `}
           >
             {post.frontmatter.title}
@@ -91,6 +92,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
             css={css`
               font-size: 0.875rem;
               letter-spacing: 0.05rem;
+              text-align: center;
             `}
           >
             Posted on {post.frontmatter.date}
@@ -110,6 +112,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
             <p
               css={css`
                 font-style: italic;
+                text-align: center;
               `}
             >
               {post.excerpt}

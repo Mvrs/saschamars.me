@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import { css } from '@';
 
 export const MainTagContainer = styled('div')`
   box-sizing: border-box;
