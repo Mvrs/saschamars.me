@@ -4,8 +4,6 @@ import { css } from '@emotion/core';
 const Footer = () => (
   <footer
     css={css`
-      -webkit-box-align: center;
-      -webkit-box-pack: center;
       align-items: center;
       display: flex;
       justify-content: center;

@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { bpMaxSM } from '../lib/breakpoints';
 
-const Container = props => {
+const Container = (props) => {
   const {
     maxWidth = 767,
     noHorizontalPadding = false,
@@ -15,7 +15,7 @@ const Container = props => {
   return (
     <div
       css={css`
-        width: 100%;
+        width: 90%;
         margin: 0 auto;
         max-width: ${fullMaxWidth};
         padding: 0;

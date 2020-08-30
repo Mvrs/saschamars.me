@@ -49,15 +49,17 @@ const HeaderLink = ({
 export const NavLink = styled(Link)`
   color: #383a3f;
   font-size: 1rem;
-  font-weight: ${props => props.fontWeight || 600};
+  font-weight: ${(props) => props.fontWeight || 600};
   line-height: 1;
   margin: 0 1rem 0 0;
-  padding: 0.25rem;
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
   float: 'right';
 
   &.current-page {
-    border-bottom: 2px solid #2b90d9;
+    /* border-bottom: 2px solid #2b90d9; */
+    background-color: #f5f5f5;
+    border-radius: 6px;
   }
 
   &:last-of-type {
@@ -68,11 +70,14 @@ export const NavLink = styled(Link)`
   &:hover,
   &:focus,
   &:active {
-    transform: scale(1.1);
-    transition-duration: 0.4s;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+
+    /* transform: scale(1.1); */
+    /* transition-duration: 0.4s; */
     /* outline: 0; */
     /* font-size: 1.1rem; */
-    animation: ${grow} ease;
+    /* animation: ${grow} ease; */
   }
 
   & + & {
@@ -96,20 +101,21 @@ const Header = ({
   return (
     <header
       css={css`
-        font-weight: 600;
-        background: #fff;
+        font-weight: 700;
+        background: #fafafc;
         flex-shrink: 0;
         z-index: 10;
         top: 0;
         /* padding: 1rem calc((100vw - 950px - 3.5rem) / 2); */
-        padding: 0.5rem calc((100vw - 850px - 0.5rem) / 2);
+        padding: 0.5rem calc((100vw - 950px - 0.5rem) / 2);
         /* padding: 30px 0 0 0; */
         ${bpMaxSM} {
           padding: 20px 0 0 0;
         }
 
-        @media (max-width: 1023px) {
-          padding: 0.5rem calc((100vw - 650px - 0.5rem) / 2);
+        @media screen and (min-width: 1200px) {
+          padding: 0.5rem calc((100vw - 70% - 0.5rem) / 2);
+          margin: 0 auto;
         }
       `}
     >
@@ -129,6 +135,8 @@ const Header = ({
             css={css`
               display: inline-flex;
               align-items: center;
+              margin-left: -20px;
+              padding-left: 5px;
               justify-content: flex-start;
               color: #2b90d9;
               &:hover,
@@ -180,17 +188,17 @@ const Header = ({
             <MobileNav color={headerColor} />
 
             <NavLink to="/" activeClassName="current-page">
-              home
+              Home
             </NavLink>
             <NavLink to="/blog/" activeClassName="current-page">
-              blog
+              Blog
             </NavLink>
             <NavLink
               to="/about/"
               aria-label="View about page"
               activeClassName="current-page"
             >
-              about
+              About
             </NavLink>
           </div>
         </nav>

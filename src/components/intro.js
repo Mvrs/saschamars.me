@@ -70,8 +70,9 @@ const TextBackground = styled('div')`
 
 const IntroContainer = styled('div')`
   display: flex;
-  width: 80%;
-  min-width: 900px;
+  /* width: 80%; */
+  min-width: 850px;
+  margin-top: 20px;
   flex-direction: row;
   justify-content: space-around;
   align-self: center;
@@ -101,9 +102,20 @@ const IntroContainer = styled('div')`
 const IntroHeader = styled('div')`
   margin-left: 25px;
   padding-bottom: 36px;
+  /* margin-right: 30px; */
+  width: 50%;
 
   @media (max-width: 767px) {
     margin-left: 0;
+    margin-right: auto;
+  }
+  @media screen and (max-width: 1000px) {
+    margin-left: auto;
+    padding-bottom: 36px;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
+    margin-right: auto;
   }
 `;
 
@@ -141,8 +153,12 @@ const IntroHeaderText = styled('h1')`
     color: #383a3f;
   }
   @media (max-width: 991px) {
-    width: 100vw;
     color: #383a3f;
+    /* width: 85%; */
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
     text-align: center;
   }
 `;
@@ -163,10 +179,11 @@ export const StyleBar = styled('div')`
 `;
 
 const IntroStyleBar = styled('div')`
+  /** old height was 8px */
   width: 80px;
-  height: 8px;
-  margin-top: 25px;
-  margin-bottom: 32px;
+  height: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   background-color: #2b90d9;
 
@@ -222,13 +239,17 @@ const HeroContainer = styled('div')`
   align-items: center;
   font-size: 100px;
 
-  @media (max-width: 991px) {
-    min-height: 0vh;
-  }
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     min-height: auto;
   }
-  @media (max-width: 479px) {
+
+  @media (min-width: 991px) {
+    min-height: 0vh;
+  }
+  @media (min-width: 767px) {
+    min-height: auto;
+  }
+  @media (min-width: 479px) {
     min-height: auto;
   }
 `;
@@ -238,106 +259,145 @@ const Intro = () => {
     <HeroContainer>
       <IntroContainer>
         <IntroHeader>
-          <IntroHeaderText
-            css={css`
-              animation-delay: 0.4s;
-            `}
-          >
-            Hello world,
+          <IntroHeaderText>
+            Hi, I'm Marlon.
             <br />
-            my name is Marlon!
+            I'm a frontend engineer.
           </IntroHeaderText>
           <IntroStyleBar
             css={css`
-              animation-delay: 0.8;
+              visibility: hidden;
             `}
           />
           <IntroHeaderText
             css={css`
-              animation-delay: 1.2s;
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #555;
+              @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: center;
+                margin-top: 20px;
+                margin-right: auto;
+                margin-left: auto;
+              }
             `}
           >
-            I'm a frontend engineer
-            <br />
-            in Oakland, CA.
+            I build applications on the web with JavaScript, TypeScript, React,
+            and Node.js. Making sure websites are performant, accessible and
+            look great is what I enjoy.
           </IntroHeaderText>
-          <IconContainer>
-            <div>
-              <a
-                href="https://github.com/Mvrs"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon
-                  css={css`
-                    /* margin-right: 8px; */
-                    margin: 0 8px 0 0;
-                    padding-right: 0px;
-                    transform: perspective(1px) translateZ(0);
-                    transition-duration: 0.5s;
-                    transition-property: transform;
+          <IntroHeaderText
+            css={css`
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #555;
+              @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: center;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                padding-right: 20px;
+                padding-left: 20px;
+                margin-left: auto;
+              }
+            `}
+          >
+            I believe in Growth, Humbleness, and being a Student at heart.
+          </IntroHeaderText>
+          <IntroHeaderText
+            css={css`
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #555;
+              @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: center;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                padding-right: 20px;
+                padding-left: 20px;
+                margin-left: auto;
+              }
+            `}
+          >
+            When I'm not coding, you can catch me stock trading, making
+            electronic music, or going to sleep 😅.
+          </IntroHeaderText>
+          <IntroHeaderText
+            css={css`
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #555;
 
-                    &:hover,
-                    &:focus,
-                    &:active {
-                      -webkit-transform: translateY(-8px);
-                      transform: translateY(-8px);
-                    }
-                  `}
-                />
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://www.linkedin.com/in/marvj/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedInIcon
-                  css={css`
-                    /* margin-right: 8px; */
-                    margin: 0 8px 0 0;
-                    padding-right: 0px;
-                    transform: perspective(1px) translateZ(0);
-                    transition-duration: 0.5s;
-                    transition-property: transform;
+              @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: center;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                padding-right: 20px;
+                padding-left: 20px;
+                margin-left: auto;
+              }
+            `}
+          >
+            You can check out my&nbsp;
+            <a
+              href="/blog"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+              blog,
+            </a>
+            &nbsp;explore&nbsp;
+            <a
+              href="/"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+              projects
+            </a>
+            &nbsp;I'm building, or contact me on&nbsp;
+            <a
+              href="https://twitter.com/saschamars"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={css`
+                background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                box-sizing: border-box;
+                color: #2b90d9;
+                cursor: pointer;
+                letter-spacing: 0.4px;
+                text-decoration: none;
 
-                    &:hover,
-                    &:focus,
-                    &:active {
-                      -webkit-transform: translateY(-8px);
-                      transform: translateY(-8px);
-                    }
-                  `}
-                />
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://twitter.com/saschamars"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon
-                  css={css`
-                    /* margin-right: 8px; */
-                    margin: 0 8px 0 0;
-                    padding-right: 0px;
-                    transform: perspective(1px) translateZ(0);
-                    transition-duration: 0.3s;
-                    transition-property: transform;
-
-                    &:hover,
-                    &:focus,
-                    &:active {
-                      -webkit-transform: translateY(-8px);
-                      transform: translateY(-8px);
-                    }
-                  `}
-                />
-              </a>
-            </div>
-          </IconContainer>
+                :hover {
+                  background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                  color: #555;
+                }
+              `}
+            >
+              Twitter.
+            </a>
+          </IntroHeaderText>
         </IntroHeader>
         <ImageContainer>
           <MarlonLaptop
