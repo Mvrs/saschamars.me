@@ -106,16 +106,14 @@ const IntroHeader = styled('div')`
   width: 50%;
 
   @media (max-width: 767px) {
-    margin-left: 0;
-    margin-right: auto;
-  }
-  @media screen and (max-width: 1000px) {
-    margin-left: auto;
+    margin-left: 20px;
+    /* display: inline-block; */
     padding-bottom: 36px;
-    padding-right: 20px;
-    padding-left: 20px;
-    width: 100%;
-    margin-right: auto;
+    /* padding-right: 20px; */
+    margin-top: 0;
+    /* padding-left: 20px; */
+    width: auto;
+    margin-right: 20px;
   }
 `;
 
@@ -126,7 +124,6 @@ const IntroHeaderText = styled('h1')`
   margin-left: 0px;
   padding-right: 1px;
   font-family: Averta, sans-serif;
-  color: #383a3f;
   font-size: 2.8vw;
   line-height: 140%;
   font-weight: 400;
@@ -149,15 +146,13 @@ const IntroHeaderText = styled('h1')`
   }
 
   @media (max-width: 767px) {
-    width: 100vw;
-    color: #383a3f;
+    width: auto;
   }
   @media (max-width: 991px) {
     color: #383a3f;
     /* width: 85%; */
-    margin: 0 auto;
-    padding-right: 20px;
-    padding-left: 20px;
+    /* padding-right: 20px;
+    padding-left: 20px; */
     display: block;
     text-align: center;
   }

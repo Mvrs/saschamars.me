@@ -139,6 +139,14 @@ const Header = ({
               padding-left: 5px;
               justify-content: flex-start;
               color: #2b90d9;
+
+              @media (max-width: 767px) {
+                display: inline-flex;
+                align-items: center;
+                justify-content: flex-start;
+                color: #2b90d9;
+              }
+
               &:hover,
               &:focus,
               &:active {
