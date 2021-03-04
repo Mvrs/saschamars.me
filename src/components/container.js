@@ -20,11 +20,13 @@ const Container = (props) => {
         max-width: ${fullMaxWidth};
         padding: 0;
 
-        ${bpMaxSM} {
+        /* ${bpMaxSM} {
           /* margin-bottom: 20vh; */
-          padding: ${noVerticalPadding ? 0 : '20'}px
+        /* padding: ${noVerticalPadding
+          ? 0
+          : '20'}px
             ${noHorizontalPadding ? 0 : '20'}px;
-        }
+        } */
       `}
       {...restProps}
     >

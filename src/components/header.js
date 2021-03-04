@@ -94,7 +94,7 @@ export const NavLink = styled(Link)`
 
 const Header = ({
   headerLink = '/',
-  maxWidth = 767,
+  maxWidth = 850,
   headerImage = true,
   headerColor = 'black',
 }) => {
@@ -102,16 +102,16 @@ const Header = ({
     <header
       css={css`
         font-weight: 700;
-        background: #fafafc;
+        background: #fafafa;
         flex-shrink: 0;
         z-index: 10;
         top: 0;
         /* padding: 1rem calc((100vw - 950px - 3.5rem) / 2); */
         padding: 0.5rem calc((100vw - 950px - 0.5rem) / 2);
         /* padding: 30px 0 0 0; */
-        ${bpMaxSM} {
+        /* ${bpMaxSM} {
           padding: 20px 0 0 0;
-        }
+        } */
 
         @media screen and (min-width: 1200px) {
           padding: 0.5rem calc((100vw - 70% - 0.5rem) / 2);
@@ -194,19 +194,12 @@ const Header = ({
             `}
           >
             <MobileNav color={headerColor} />
-
-            <NavLink to="/" activeClassName="current-page">
-              Home
-            </NavLink>
-            <NavLink to="/blog/" activeClassName="current-page">
-              Blog
-            </NavLink>
             <NavLink
-              to="/about/"
-              aria-label="View about page"
+              to="/#"
+              rel="noopener noreferrer"
               activeClassName="current-page"
             >
-              About
+              😅 Blog Coming Soon
             </NavLink>
           </div>
         </nav>

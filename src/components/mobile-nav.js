@@ -115,19 +115,19 @@ const Toggle = ({ color = 'black' }) => {
             </Link>
             <Link
               aria-label="View blog page"
-              to="/blog"
+              to="/#"
               activeClassName="current-page"
             >
-              blog
+              😅 blog
             </Link>
 
-            <Link
+            {/* <Link
               aria-label="View about page"
               to="/about"
               activeClassName="current-page"
             >
               about
-            </Link>
+            </Link> */}
           </Container>
         </div>
       )}

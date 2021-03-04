@@ -100,20 +100,24 @@ const IntroContainer = styled('div')`
 `;
 
 const IntroHeader = styled('div')`
-  margin-left: 25px;
   padding-bottom: 36px;
   /* margin-right: 30px; */
-  width: 50%;
+  width: 55%;
+
+  /* @media (max-width: 479px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  } */
 
   @media (max-width: 767px) {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     /* display: inline-block; */
     padding-bottom: 36px;
     /* padding-right: 20px; */
     margin-top: 0;
     /* padding-left: 20px; */
     width: auto;
-    margin-right: 20px;
+    /* margin-right: 20px; */
   }
 `;
 
@@ -124,9 +128,9 @@ const IntroHeaderText = styled('h1')`
   margin-left: 0px;
   padding-right: 1px;
   font-family: Averta, sans-serif;
-  font-size: 2.8vw;
+  font-size: 2.7vw;
   line-height: 140%;
-  font-weight: 400;
+  font-weight: 700;
   text-align: left;
 
   opacity: 0;
@@ -153,7 +157,12 @@ const IntroHeaderText = styled('h1')`
     /* width: 85%; */
     /* padding-right: 20px;
     padding-left: 20px; */
+
+    font-size: 1.4rem;
+    font-weight: 700;
     display: block;
+    overflow-x: hidden;
+    font-weight: 700;
     text-align: center;
   }
 `;
@@ -249,12 +258,30 @@ const HeroContainer = styled('div')`
   }
 `;
 
+/**
+ * box-sizing: border-box;
+color: #60656c;
+font-family: Roboto,sans-serif;
+font-size: 1.2rem;
+letter-spacing: .4px;
+line-height: 1.5;
+ */
+
 const Intro = () => {
   return (
     <HeroContainer>
       <IntroContainer>
         <IntroHeader>
-          <IntroHeaderText>
+          <IntroHeaderText
+            css={css`
+              font-size: 2.3rem;
+
+              @media (max-width: 479px) {
+                font-size: 2rem;
+                text-align: left;
+              }
+            `}
+          >
             Hi, I'm Marlon.
             <br />
             I'm a frontend engineer.
@@ -268,13 +295,14 @@ const Intro = () => {
             css={css`
               font-size: 1.1rem;
               line-height: 1.5;
-              color: #555;
+              color: #60656c;
+              font-weight: 400;
               @media (max-width: 479px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
-                text-align: center;
+                text-align: left;
                 margin-top: 20px;
                 margin-right: auto;
                 margin-left: auto;
@@ -289,18 +317,19 @@ const Intro = () => {
             css={css`
               font-size: 1.1rem;
               line-height: 1.5;
-              color: #555;
+              font-weight: 400;
+              color: #60656c;
               @media (max-width: 479px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
-                text-align: center;
+                text-align: left;
                 /* margin: 0 auto; */
                 margin-top: 20px;
                 margin-right: auto;
-                padding-right: 20px;
-                padding-left: 20px;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
                 margin-left: auto;
               }
             `}
@@ -311,49 +340,50 @@ const Intro = () => {
             css={css`
               font-size: 1.1rem;
               line-height: 1.5;
-              color: #555;
+              color: #60656c;
+              font-weight: 400;
               @media (max-width: 479px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
-                text-align: center;
+                text-align: left;
                 /* margin: 0 auto; */
                 margin-top: 20px;
                 margin-right: auto;
-                padding-right: 20px;
-                padding-left: 20px;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
                 margin-left: auto;
               }
             `}
           >
             When I'm not coding, you can catch me stock trading, making
-            electronic music, or going to sleep 😅.
+            electronic music, or going to sleep 😴.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
               font-size: 1.1rem;
               line-height: 1.5;
-              color: #555;
-
+              color: #60656c;
+              font-weight: 400;
               @media (max-width: 479px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
-                text-align: center;
+                text-align: left;
                 /* margin: 0 auto; */
                 margin-top: 20px;
                 margin-right: auto;
-                padding-right: 20px;
-                padding-left: 20px;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
                 margin-left: auto;
               }
             `}
           >
             You can check out my&nbsp;
             <a
-              href="/blog"
+              href="/#"
               rel="noopener noreferrer"
               css={css`
                 color: #db99b9;
@@ -363,7 +393,7 @@ const Intro = () => {
             </a>
             &nbsp;explore&nbsp;
             <a
-              href="/"
+              href="/https://github.com/Mvrs"
               rel="noopener noreferrer"
               css={css`
                 color: #db99b9;
@@ -402,6 +432,9 @@ const Intro = () => {
               /* width: 120px; */
               /* margin-bottom: 20px; */
               max-width: calc(33% - 1rem);
+
+              @media (max-width: 479px) {
+              }
             `}
           />
         </ImageContainer>
