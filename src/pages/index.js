@@ -5,6 +5,7 @@ import projects from '../../content/data/projects';
 import Layout from '../components/layout';
 import Intro from '../components/intro';
 import Project from '../components/projects/project';
+import Footer from '../components/footer/footer';
 
 export default () => {
   return (
@@ -34,6 +35,7 @@ export default () => {
             ))}
           </div>
         </section>
+        <Footer />
       </Layout>
     </>
   );
