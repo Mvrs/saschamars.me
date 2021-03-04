@@ -301,9 +301,10 @@ const Intro = () => {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
+                color: #60656c;
                 margin-bottom: 0;
                 text-align: left;
-                margin-top: 20px;
+                margin-top: 10px;
                 margin-right: auto;
                 margin-left: auto;
               }
@@ -323,6 +324,7 @@ const Intro = () => {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
+                color: #60656c;
                 margin-bottom: 0;
                 text-align: left;
                 /* margin: 0 auto; */
@@ -334,7 +336,7 @@ const Intro = () => {
               }
             `}
           >
-            I believe in Growth, Humbleness, and being a Student at heart.
+            I believe in Growth, Humility, and being a Student at heart.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -348,6 +350,7 @@ const Intro = () => {
                 font-weight: 400;
                 margin-bottom: 0;
                 text-align: left;
+                color: #60656c;
                 /* margin: 0 auto; */
                 margin-top: 20px;
                 margin-right: auto;
@@ -358,7 +361,7 @@ const Intro = () => {
             `}
           >
             When I'm not coding, you can catch me stock trading, making
-            electronic music, or going to sleep 😴.
+            electronic music, or eating pizza 🍕.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -393,7 +396,8 @@ const Intro = () => {
             </a>
             &nbsp;explore&nbsp;
             <a
-              href="/https://github.com/Mvrs"
+              href="https://github.com/Mvrs"
+              target="_blank"
               rel="noopener noreferrer"
               css={css`
                 color: #db99b9;

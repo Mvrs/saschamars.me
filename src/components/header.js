@@ -102,7 +102,7 @@ const Header = ({
     <header
       css={css`
         font-weight: 700;
-        background: #fafafa;
+        background: #f4f4f4;
         flex-shrink: 0;
         z-index: 10;
         top: 0;
