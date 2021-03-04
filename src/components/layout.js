@@ -115,6 +115,13 @@ const Layout = ({ children }) => {
           margin: 2rem auto 4rem;
           max-width: 90vw;
           width: 950px;
+
+          @media (min-height: 1024px) {
+            margin: 0 auto;
+            padding: 0 0.7rem;
+            max-width: 88vw;
+            width: 950px;
+          }
         `}
       >
         {children}

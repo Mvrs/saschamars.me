@@ -7,13 +7,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      allTagColorsJson {
-        edges {
-          node {
-            id
-          }
-        }
-      }
       postMdx: allMdx(
         sort: { order: DESC, fields: frontmatter___date }
         limit: 1000
@@ -59,7 +52,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postTags = result.data.postMdx.edges;
 
   // inline tags
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     actions.createPage({
       path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,

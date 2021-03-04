@@ -12,9 +12,6 @@ const BlogFooter = () => {
       <AboutFooter>
         <div
           css={css`
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
             display: flex;
             margin-top: 0px;
             padding-top: 80px;
@@ -35,9 +32,6 @@ const BlogFooter = () => {
         >
           <h2
             css={css`
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
               margin-top: 0px;
               margin-bottom: 0px;
@@ -63,9 +57,6 @@ const BlogFooter = () => {
             css={css`
               position: static;
               right: 0px;
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
               width: 700px;
               margin-left: 0px;
@@ -117,9 +108,6 @@ const BlogFooter = () => {
         </div>
         <div
           css={css`
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
             display: flex;
             /* margin-top: 36px; */
             margin-bottom: 0px;
