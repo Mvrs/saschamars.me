@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { graphql } from 'gatsby';
 import { css } from '@emotion/react';
@@ -12,7 +13,7 @@ import { AboutText, TextContainer } from '../pages/about';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
 export const query = graphql`
-  query($slug: String) {
+  query ($slug: String) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -23,9 +24,7 @@ export const query = graphql`
         image {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 665, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(width: 665, quality: 75)
           }
         }
       }
@@ -35,9 +34,7 @@ export const query = graphql`
 
     footerImage: file(relativePath: { eq: "van-shoe.jpg" }) {
       sharp: childImageSharp {
-        fixed(width: 63, height: 63, quality: 100) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(width: 63, height: 63, quality: 100)
       }
     }
   }
@@ -45,9 +42,9 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
   const featuredImgFluid = getImage(
-    post.frontmatter.image.childImageSharp.fluid,
+    post.frontmatter.image.childImageSharp.getsbyImageData,
   );
-  const shoeImage = footerImage.sharp.fixed;
+  const shoeImage = footerImage.sharp.gatsbyImageData;
 
   const { next, prev } = pageContext;
   const { keywords, url } = useSiteMetadata();
@@ -97,9 +94,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
               text-align: center;
             `}
           >
-            Posted on
-            {' '}
-            {post.frontmatter.date}
+            Posted on {post.frontmatter.date}
           </p>
           <GatsbyImage
             css={css`
@@ -170,11 +165,11 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                     object-position: center center;
                     opacity: 1;
                     padding: 0;
-                    top: 0;
                     transition: none 0s ease 0s;
                     border-radius: 50%;
                     width: 63px;
                     height: 63px;
+                    /* position: relative; */
                   `}
                 >
                   <GatsbyImage
@@ -187,6 +182,8 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                       width: 63,
                       borderRadius: 50,
                       marginTop: 0,
+                      top: '-62px',
+                      position: 'relative',
                     }}
                   />
                 </div>
@@ -199,8 +196,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                   `}
                 >
                   I’m Marlon but you can call me Mars. Software Engineer. Music
-                  lover. Bay Area Native. Feel free to
-                  {' '}
+                  lover. Bay Area Native. Feel free to{' '}
                   <a
                     href="mailto: johnsonmarlon18@gmail.com"
                     css={css`
@@ -208,8 +204,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                     `}
                   >
                     Contact
-                  </a>
-                  {' '}
+                  </a>{' '}
                   me.
                 </div>
               </AboutText>
@@ -238,9 +233,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                       text-transform: none;
                     `}
                   >
-                    {next.frontmatter.slug}
-                    {' '}
-                    &rarr;
+                    {next.frontmatter.slug} &rarr;
                   </ReadLink>
                 )}
               </li>
@@ -256,9 +249,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                       text-transform: none;
                     `}
                   >
-                    &larr;
-                    {' '}
-                    {prev.frontmatter.slug}
+                    &larr; {prev.frontmatter.slug}
                   </ReadLink>
                 )}
               </li>
