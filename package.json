@@ -2,7 +2,7 @@
   "name": "saschamars.me",
   "private": true,
   "description": "Personal Website of Marlon V. Johnson",
-  "version": "0.3.0",
+  "version": "3.0.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -63,8 +63,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Mvrs/saschamars.me"
-  },
-  "engines": {
-    "node": ">=12.13.0"
   }
 }
