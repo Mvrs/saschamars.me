@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { StyleBar } from '../components/intro';
+import { StyleBar } from './intro';
 
 const WorkContainer = styled('div')`
   display: flex;

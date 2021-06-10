@@ -48,7 +48,9 @@ const Footer = () => {
           justify-content: left;
         `}
       >
-        {copySuccessMessage} {instructions}
+        {copySuccessMessage}
+        {' '}
+        {instructions}
       </div>
       <ul
         css={css`

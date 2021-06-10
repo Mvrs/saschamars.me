@@ -13,13 +13,12 @@ const usePosts = () => {
             tags
             image {
               sharp: childImageSharp {
-                fluid(
-                  maxWidth: 200
-                  maxHeight: 150 # duotone: { shadow: "#663399", highlight: "#ddbbff" }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp
-                  # srcSet
-                }
+                gatsbyImageData(
+                  width: 200
+                  layout: FULL_WIDTH
+                  height: 150 # duotone: { shadow: "#663399", highlight: "#ddbbff" }
+                  formats: [AUTO]
+                )
               }
             }
           }
@@ -29,7 +28,7 @@ const usePosts = () => {
     }
   `);
 
-  return data.allMdx.nodes.map(post => ({
+  return data.allMdx.nodes.map((post) => ({
     title: post.frontmatter.title,
     author: post.frontmatter.author,
     tags: post.frontmatter.tags,

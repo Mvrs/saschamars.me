@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import './projects.css';
 
 const Projects = ({ project }) => {
-  const { title, description, code, live } = project;
+  const {
+ title, description, code, live
+} = project;
 
   return (
     <div key={title}>

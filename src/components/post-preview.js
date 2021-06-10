@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Helmet from 'react-helmet';
 
-import Readlink from '../components/read-link';
+import Readlink from './read-link';
 import {
   MainTagContainer,
   TagName,
@@ -16,8 +16,11 @@ import '../styles/tag.module.css';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const PostPreview = ({ post, tag }) => {
-  const _image = getImage(post.image.sharp.fluid);
+  const _image = getImage(post.image.sharp.gatsbyImageData);
+  // const _image = post.image.sharp.fluid;
   const { keywords, url } = useSiteMetadata();
+
+  console.log(_image);
 
   return (
     <>
@@ -79,7 +82,9 @@ const PostPreview = ({ post, tag }) => {
           <GatsbyImage
             // fluid={post.image.sharp.fluid}
             image={_image}
-            fadeIn={false}
+            // fadeIn={false}
+            objectFit="contain"
+            objectPosition={`50% 50%`}
             css={css`
               * {
                 margin-top: 0;
@@ -100,8 +105,8 @@ const PostPreview = ({ post, tag }) => {
             `}
           >
             <InnerTagContainer>
-              {tag.forEach((tags, i) => {
-                if (tags === 'Life')
+              {tag?.map((tags, i) => {
+                if (tags === 'Life') {
                   return (
                     <TagContainer
                       key={i}
@@ -120,7 +125,8 @@ const PostPreview = ({ post, tag }) => {
                       </TagName>
                     </TagContainer>
                   );
-                else if (tags === 'React')
+                }
+                if (tags === 'React') {
                   return (
                     <TagContainer
                       key={i}
@@ -133,7 +139,8 @@ const PostPreview = ({ post, tag }) => {
                       <TagName css={css``}>{tags}</TagName>
                     </TagContainer>
                   );
-                else if (tags === 'Programming')
+                }
+                if (tags === 'Programming') {
                   return (
                     <TagContainer
                       key={i}
@@ -152,6 +159,7 @@ const PostPreview = ({ post, tag }) => {
                       </TagName>
                     </TagContainer>
                   );
+                }
               })}
             </InnerTagContainer>
           </MainTagContainer>

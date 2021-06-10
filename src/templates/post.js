@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 import { css } from '@emotion/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Helmet from 'react-helmet';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { AboutText, TextContainer } from '../pages/about';
 
@@ -97,7 +97,9 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
               text-align: center;
             `}
           >
-            Posted on {post.frontmatter.date}
+            Posted on
+            {' '}
+            {post.frontmatter.date}
           </p>
           <GatsbyImage
             css={css`
@@ -197,7 +199,8 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                   `}
                 >
                   I’m Marlon but you can call me Mars. Software Engineer. Music
-                  lover. Bay Area Native. Feel free to{' '}
+                  lover. Bay Area Native. Feel free to
+                  {' '}
                   <a
                     href="mailto: johnsonmarlon18@gmail.com"
                     css={css`
@@ -205,7 +208,8 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                     `}
                   >
                     Contact
-                  </a>{' '}
+                  </a>
+                  {' '}
                   me.
                 </div>
               </AboutText>
@@ -234,7 +238,9 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                       text-transform: none;
                     `}
                   >
-                    {next.frontmatter.slug} &rarr;
+                    {next.frontmatter.slug}
+                    {' '}
+                    &rarr;
                   </ReadLink>
                 )}
               </li>
@@ -250,7 +256,9 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                       text-transform: none;
                     `}
                   >
-                    &larr; {prev.frontmatter.slug}
+                    &larr;
+                    {' '}
+                    {prev.frontmatter.slug}
                   </ReadLink>
                 )}
               </li>

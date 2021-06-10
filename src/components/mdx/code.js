@@ -16,19 +16,21 @@ export const Code = ({ codeString, language, ...props }) => {
       language={language}
       theme={theme}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <Line key={i} {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              <LineContent>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
+      {({
+ className, style, tokens, getLineProps, getTokenProps
+}) => (
+  <Pre className={className} style={style}>
+    {tokens.map((line, i) => (
+      <Line key={i} {...getLineProps({ line, key: i })}>
+        <LineNo>{i + 1}</LineNo>
+        <LineContent>
+          {line.map((token, key) => (
+            <span {...getTokenProps({ token, key })} />
                 ))}
-              </LineContent>
-            </Line>
+        </LineContent>
+      </Line>
           ))}
-        </Pre>
+  </Pre>
       )}
     </Highlight>
   );

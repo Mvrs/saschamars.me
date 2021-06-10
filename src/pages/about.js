@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../components/layout';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Helmet from 'react-helmet';
+import Layout from '../components/layout';
 
 import GithubIcon from '../assets/icons8-github.svg';
 import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
@@ -173,12 +173,12 @@ const About = () => {
           <AboutText>
             The idea of becoming a developer was something that never crossed my
             mind, I’ve always had a fascination towards becoming one with the
-            matrix <b>I know totally unrelated</b>. But, this curiosity was
-            built on top of fictional depictions the media portrayed or the
-            movies I like to watch, so finding a way into the world of computer
-            science was trivial. Honestly, who wouldn’t want to be in a dark
-            room with a neon green terminal door dashing your favorite meal you
-            never gave up on.
+            matrix <b>I know totally unrelated</b>
+            . But, this curiosity was built on top of fictional depictions the
+            media portrayed or the movies I like to watch, so finding a way into
+            the world of computer science was trivial. Honestly, who wouldn’t
+            want to be in a dark room with a neon green terminal door dashing
+            your favorite meal you never gave up on.
             <br />
             <br />
             All jokes aside, I decided to embark on the journey in my freshman
@@ -186,8 +186,8 @@ const About = () => {
             boring <b>I’m not gonna lie</b>. Maybe because it was in C. But,
             that class gave me a foundation to unlock why the world is in an
             object in itself.{' '}
-            <b>I know… I know, I’m not speaking about the Matrix lol</b>.
-            Knowing there was a way to improve lives and solve problems with
+            <b>I know… I know, I’m not speaking about the Matrix lol</b>
+            . Knowing there was a way to improve lives and solve problems with
             creativity is what drew me to becoming a Frontend Engineer. Also, it
             is cool to flex your design skills every once in a while.
             <br />

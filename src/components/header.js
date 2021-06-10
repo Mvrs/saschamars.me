@@ -36,7 +36,7 @@ const HeaderLink = ({
   return (
     <Link
       activeClassName={activeClassName}
-      partiallyActive={true}
+      partiallyActive
       css={css`
         text-decoration: none;
         color: ${headerColor};
@@ -196,7 +196,7 @@ const Header = ({
             <MobileNav color={headerColor} />
             {/* eslint-disable-next-line */}
             <NavLink
-              to="/#"
+              to="/blog"
               rel="noopener noreferrer"
               activeClassName="current-page"
             >

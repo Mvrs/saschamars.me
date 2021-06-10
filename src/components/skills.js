@@ -5,7 +5,7 @@ import ReactIcon from '../assets/icons8-react.svg';
 import GraphQLIcon from '../assets/icons8-graphql.svg';
 import NodeJsIcon from '../assets/icons8-nodejs.svg';
 import JSIcon from '../assets/icons8-javascript.svg';
-import { StyleBar } from '../components/intro';
+import { StyleBar } from './intro';
 
 const fadeCard = keyframes`
   from {
