@@ -63,5 +63,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Mvrs/saschamars.me"
+  },
+  "engines": {
+   "node": ">=12.13.0"
   }
 }
