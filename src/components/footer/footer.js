@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 const Footer = () => {
   const [copySuccessMessage, setCopySuccessMessage] = useState('');
@@ -65,6 +65,7 @@ const Footer = () => {
             margin: 0;
           `}
         >
+          {/* eslint-disable-next-line */}
           <a
             css={css`
               padding: 1rem;
@@ -83,6 +84,7 @@ const Footer = () => {
             `}
             onClick={copyEmail}
             onMouseOver={showInstruction}
+            onFocus={showInstruction}
             onMouseOut={hideInstruction}
           >
             Email

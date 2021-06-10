@@ -6,23 +6,24 @@ import usePosts from '../hooks/use-posts';
 import { PostLayout } from '../components/post-layout';
 import Footer from '../components/footer';
 
-function Search({ location }) {
-  const query =
-    (location.state && location.state.query) ||
-    location.pathname.replace(/^\/blog\/?/, '') ||
-    '';
+/* eslint-disable-next-line */
+// function Search({ location }) {
+//   const query =
+//     (location.state && location.state.query) ||
+//     location.pathname.replace(/^\/blog\/?/, '') ||
+//     '';
 
-  const post_title = query.replace('/-+/g', ' ');
-}
+//   // const post_title = query.replace('/-+/g', ' ');
+// }
 
-export default () => {
+const Blog = () => {
   const posts = usePosts();
 
   return (
     <>
       <Layout>
         <PostLayout>
-          {posts.map(post => (
+          {posts.map((post) => (
             <PostPreview key={post.slug} post={post} tag={post.tags} />
           ))}
         </PostLayout>
@@ -31,3 +32,5 @@ export default () => {
     </>
   );
 };
+
+export default Blog;

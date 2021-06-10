@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
-import GithubIcon from '../assets/icons8-github.svg';
-import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
-import TwitterIcon from '../assets/icons8-twitter-circled.svg';
+import { css, keyframes } from '@emotion/react';
 import MarlonLaptop from '../assets/marlon-laptop.svg';
 
 const fadeCard = keyframes`
@@ -56,17 +53,17 @@ const ImageContainer = styled('svg')`
   }
 `;
 
-const TextBackground = styled('div')`
-  background-position: top 30% center;
-  border-bottom: 0.5px solid #fff;
-  display: flex;
-  background-color: #ffffff;
-  background-size: auto auto;
-  + * {
-    font-family: Averta, sans-serif;
-    margin-top: 0;
-  }
-`;
+// const TextBackground = styled('div')`
+//   background-position: top 30% center;
+//   border-bottom: 0.5px solid #fff;
+//   display: flex;
+//   background-color: #ffffff;
+//   background-size: auto auto;
+//   + * {
+//     font-family: Averta, sans-serif;
+//     margin-top: 0;
+//   }
+// `;
 
 const IntroContainer = styled('div')`
   display: flex;
@@ -213,25 +210,25 @@ const IntroStyleBar = styled('div')`
   }
 `;
 
-const IconContainer = styled('div')`
-  margin-top: 0px;
-  padding-top: 24px;
-  display: flex;
-  align-items: flex-end;
+// const IconContainer = styled('div')`
+//   margin-top: 0px;
+//   padding-top: 24px;
+//   display: flex;
+//   align-items: flex-end;
 
-  @media (max-width: 479px) {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+//   @media (max-width: 479px) {
+//     margin: 0;
+//     display: flex;
+//     justify-content: center;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
 
-  @media (max-width: 991px) {
-    display: flex;
-    justify-content: center;
-  }
-`;
+//   @media (max-width: 991px) {
+//     display: flex;
+//     justify-content: center;
+//   }
+// `;
 
 const HeroContainer = styled('div')`
   display: flex;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { AboutFooter } from '../pages/about';
 import GithubIcon from '../assets/icons8-github.svg';
 import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';

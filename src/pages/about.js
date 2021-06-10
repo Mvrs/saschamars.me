@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Helmet from 'react-helmet';
 
 import GithubIcon from '../assets/icons8-github.svg';
@@ -103,7 +103,7 @@ export const AboutFooter = styled.div`
   }
 `;
 
-export default () => {
+const About = () => {
   const { keywords, url } = useSiteMetadata();
   const { image } = useStaticQuery(graphql`
     query {
@@ -117,6 +117,8 @@ export default () => {
       }
     }
   `);
+
+  const _image = getImage(image.sharp.fluid);
 
   return (
     <>
@@ -138,9 +140,10 @@ export default () => {
           <link rel="canonical" href={url} />
         </Helmet>
         <ImageHolder>
-          <Img
+          <GatsbyImage
             alt="marlon johnson"
-            fluid={image.sharp.fluid}
+            // fluid={image.sharp.fluid}
+            image={_image}
             fadeIn={false}
             loading="eager"
             imgStyle={{ marginTop: 0 }}
@@ -433,3 +436,5 @@ export default () => {
     </>
   );
 };
+
+export default About;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 import ReadLink from '../components/read-link';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { AboutText, TextContainer } from '../pages/about';
 
@@ -44,7 +44,9 @@ export const query = graphql`
 `;
 
 const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
-  const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid;
+  const featuredImgFluid = getImage(
+    post.frontmatter.image.childImageSharp.fluid,
+  );
   const shoeImage = footerImage.sharp.fixed;
 
   const { next, prev } = pageContext;
@@ -97,12 +99,13 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
           >
             Posted on {post.frontmatter.date}
           </p>
-          <Img
+          <GatsbyImage
             css={css`
               border-radius: 0.25rem;
             `}
             fadeIn={false}
-            fluid={featuredImgFluid}
+            // fluid={featuredImgFluid}
+            image={featuredImgFluid}
             imgStyle={{ objectFit: 'contain', marginTop: '0' }}
             style={{
               maxWidth: '665px',
@@ -172,10 +175,11 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
                     height: 63px;
                   `}
                 >
-                  <Img
+                  <GatsbyImage
                     alt="my shoe"
                     loading="eager"
-                    fixed={shoeImage}
+                    // fixed={shoeImage}
+                    image={shoeImage}
                     imgStyle={{
                       height: 63,
                       width: 63,

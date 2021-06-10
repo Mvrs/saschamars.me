@@ -1,7 +1,7 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Link } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Helmet from 'react-helmet';
 
 import Readlink from '../components/read-link';
@@ -16,12 +16,13 @@ import '../styles/tag.module.css';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const PostPreview = ({ post, tag }) => {
+  const _image = getImage(post.image.sharp.fluid);
   const { keywords, url } = useSiteMetadata();
 
   return (
     <>
       <Helmet>
-        <html lang="en_US" />
+        <html lang="en-US" />
         <title>Blog | Marlon V. Johnson</title>
         <meta name="description" content="Marlon V. Johnson blog posts" />
         <meta name="keywords" content={keywords} />
@@ -75,8 +76,9 @@ const PostPreview = ({ post, tag }) => {
             width: 100px;
           `}
         >
-          <Image
-            fluid={post.image.sharp.fluid}
+          <GatsbyImage
+            // fluid={post.image.sharp.fluid}
+            image={_image}
             fadeIn={false}
             css={css`
               * {
@@ -98,7 +100,7 @@ const PostPreview = ({ post, tag }) => {
             `}
           >
             <InnerTagContainer>
-              {tag.map((tags, i) => {
+              {tag.forEach((tags, i) => {
                 if (tags === 'Life')
                   return (
                     <TagContainer

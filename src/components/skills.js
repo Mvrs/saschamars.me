@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 import ReactIcon from '../assets/icons8-react.svg';
 import GraphQLIcon from '../assets/icons8-graphql.svg';
 import NodeJsIcon from '../assets/icons8-nodejs.svg';

@@ -6,7 +6,9 @@ module.exports = {
     url: `https://saschamars.me`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     {

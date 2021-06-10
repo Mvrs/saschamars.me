@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 import Link from './link';
 import MarlonJohnsonIcon from '../assets/marlon-johnson.svg';
 import Container from './container';
@@ -194,6 +194,7 @@ const Header = ({
             `}
           >
             <MobileNav color={headerColor} />
+            {/* eslint-disable-next-line */}
             <NavLink
               to="/#"
               rel="noopener noreferrer"

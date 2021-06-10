@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Link } from 'gatsby';
 import Container from './container';
-import { bpMaxSM } from '../lib/breakpoints';
+// import { bpMaxSM } from '../lib/breakpoints';
 
 const Toggle = ({ color = 'black' }) => {
   const [isToggleOn, setToggle] = useState(false);
