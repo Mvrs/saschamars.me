@@ -12,6 +12,15 @@ export const MainTagContainer = styled('div')`
   padding: 0 8px 0 0;
   white-space: normal;
   width: 200px;
+  margin-top: 5px;
+  order: 1;
+  flex: 0 55%;
+
+  @media (max-width: 479px) {
+    margin-top: 2px;
+    /* justify-content: baseline;
+    align-content: flex-start; */
+  }
 `;
 
 export const InnerTagContainer = styled('div')`
@@ -20,7 +29,12 @@ export const InnerTagContainer = styled('div')`
   flex-wrap: wrap;
   outline: 0;
   padding-bottom: 0.3125rem;
-  padding-top: 0.3125rem;
+  padding-top: 0;
+  gap: 4px;
+  /* @media (max-width: 479px) {
+    padding-bottom: 0;
+    padding-top: 8px;
+  } */
 `;
 
 export const TagContainer = styled('div')`
