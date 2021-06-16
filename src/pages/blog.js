@@ -62,6 +62,7 @@ const BlogInput = styled('input')`
   margin: 1rem 0 2rem;
   padding: 6px;
   width: 70%;
+  text-overflow: ellipsis;
 `;
 
 const Blog = () => {

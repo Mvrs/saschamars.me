@@ -14,10 +14,12 @@ export const MainTagContainer = styled('div')`
   width: 200px;
   margin-top: 5px;
   order: 1;
-  flex: 0 55%;
+  /* flex: 0 55%; */
+  flex: 1 62%;
 
   @media (max-width: 479px) {
-    margin-top: 2px;
+    margin-top: 4px;
+
     /* justify-content: baseline;
     align-content: flex-start; */
   }
@@ -31,10 +33,6 @@ export const InnerTagContainer = styled('div')`
   padding-bottom: 0.3125rem;
   padding-top: 0;
   gap: 4px;
-  /* @media (max-width: 479px) {
-    padding-bottom: 0;
-    padding-top: 8px;
-  } */
 `;
 
 export const TagContainer = styled('div')`
@@ -48,6 +46,7 @@ export const TagContainer = styled('div')`
   flex-shrink: 0;
   font-size: 14px;
   height: 18px;
+  margin-top: 0;
   /* line-height: 120%;
   margin: 0 6px 6px 0;
   min-width: 0;

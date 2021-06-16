@@ -84,13 +84,13 @@ const BlogDateContainer = styled('div')`
   order: 0;
   flex: 0 50%;
 
-  @media screen and (device-width: 320px) {
+  /* @media screen and (device-width: 320px) {
     flex: 0 45%;
-  }
+  } */
 
   @media (max-width: 479px) {
     order: 0;
-    flex: 1 40%;
+    flex: 0 40%;
   }
   /* @media (max-width: 779px) {
     display: inline-flex;
@@ -113,7 +113,7 @@ const BlogDate = styled('p')`
 `;
 
 const BlogPreview = ({ post, tag }) => {
-  const _image = getImage(post.image.sharp.gatsbyImageData);
+  const _image = getImage(post.image?.sharp?.gatsbyImageData);
   // const _image = post.image.sharp.fluid;
   const { keywords, url } = useSiteMetadata();
 
@@ -156,130 +156,269 @@ const BlogPreview = ({ post, tag }) => {
           property="og:description"
           content="Marlon V. Johnson blog posts"
         />
-        <meta property="og:image" content={post.image.publicURL} />
+        <meta property="og:image" content={post.image?.publicURL} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:url" href={url} />
         <link rel="canonical" href={url} />
       </Helmet>
 
-      <BlogWrapper>
-        <BlogTitleContainer
-          css={css`
-            /* @media (max-width: 479px) {
+      <Link to={post.slug} style={{ textDecoration: 'none' }}>
+        <BlogWrapper>
+          <BlogTitleContainer
+            css={css`
+              /* @media (max-width: 479px) {
               order: -1;
               flex: 1 0 100%;
             } */
-          `}
-        >
-          <BlogTitle>{post.title}</BlogTitle>
-        </BlogTitleContainer>
-        <MainTagContainer>
-          <InnerTagContainer>
-            {tag?.map((tags, i) => {
-              if (tags === 'Life') {
-                return (
-                  <TagContainer
-                    key={i}
-                    css={css`
-                      appearance: button;
-                      background-color: #ede9fe;
-                      background-image: none;
-                      border: 2px solid rgba(139, 92, 246, 0.5);
-                      border-radius: 0.25rem;
-                      box-sizing: border-box;
-                      color: #5b21b6;
-                      cursor: pointer;
-                      display: inline-flex;
-                      font-family: ui-sans-serif, system-ui, -apple-system,
-                        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-                        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-                        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-                      font-size: 0.875rem;
-                      font-weight: 600;
-                      line-height: 1.25rem;
-                      /* margin: 0rem 0.25rem 0.25rem; */
-                      padding: 0.5rem 0.5rem;
-                      text-align: center;
-                      text-transform: none;
-                      /* ::active {
-                        color: 
-                      } */
-
-                      ::focus {
-                        outline: 5px auto rgba(139, 92, 246, 0.5);
-                      }
-                    `}
-                  >
-                    <TagName>{tags}</TagName>
-                  </TagContainer>
-                );
-              }
-              if (tags === 'React') {
-                return (
-                  <TagContainer
-                    key={i}
-                    css={css`
-                      background-color: #0078df;
-                      /* opacity: 0.4; */
-                      color: #fff;
-
-                      appearance: button;
-                      background-color: #ede9fe;
-                      background-image: none;
-                      border: 2px solid rgba(139, 92, 246, 0.5);
-                      border-radius: 0.25rem;
-                      box-sizing: border-box;
-                      color: #5b21b6;
-                      cursor: pointer;
-                      display: inline-flex;
-                      font-family: ui-sans-serif, system-ui, -apple-system,
-                        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-                        Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-                        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-                      font-size: 0.875rem;
-                      font-weight: 600;
-                      line-height: 1.25rem;
-                      /* margin: 0rem 0.25rem 0.25rem; */
-                      padding: 0.5rem 0.5rem;
-                      text-align: center;
-                      text-transform: none;
-                      /* ::active {
-                        color: 
-                      } */
-
-                      ::focus {
-                        outline: 5px auto rgba(139, 92, 246, 0.5);
-                      }
-                    `}
-                  >
-                    <TagName css={css``}>{tags}</TagName>
-                  </TagContainer>
-                );
-              }
-              if (tags === 'Programming') {
-                return (
-                  <TagContainer
-                    key={i}
-                    css={css`
-                      background: #00876b;
-                      opacity: 0.4;
-                      color: #fff;
-                    `}
-                  >
-                    <TagName
+            `}
+          >
+            <BlogTitle>{post.title}</BlogTitle>
+          </BlogTitleContainer>
+          <MainTagContainer>
+            <InnerTagContainer>
+              {tag?.map((tags, i) => {
+                if (tags === 'Life') {
+                  return (
+                    <TagContainer
+                      key={i}
                       css={css`
-                        font: 500;
+                        appearance: button;
+                        background-color: #ede9fe;
+                        background-image: none;
+                        border: 2px solid rgba(139, 92, 246, 0.5);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #5b21b6;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(139, 92, 246, 0.5);
+                        }
                       `}
                     >
-                      {tags}
-                    </TagName>
-                  </TagContainer>
-                );
-              }
-            })}
-          </InnerTagContainer>
-        </MainTagContainer>
-        {/* <Link
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+                if (tags === 'TypeScript') {
+                  return (
+                    <TagContainer
+                      key={i}
+                      css={css`
+                        appearance: button;
+                        background-color: #dbeafe;
+                        background-image: none;
+                        border: 2px solid rgba(30, 64, 175, 0.5);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #1e40af;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(30, 64, 175, 0.5);
+                        }
+                      `}
+                    >
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+                if (tags === 'React') {
+                  return (
+                    <TagContainer
+                      key={i}
+                      css={css`
+                        /* background-color: #0078df; */
+                        /* opacity: 0.4; */
+                        /* color: #fff; */
+
+                        appearance: button;
+                        background-color: rgba(50, 138, 255, 0.1);
+                        background-image: none;
+                        border: 2px solid rgba(50, 138, 255, 0.5);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #328aff;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(50, 138, 255, 0.5);
+                        }
+                      `}
+                    >
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+                if (tags === 'JavaScript') {
+                  return (
+                    <TagContainer
+                      key={i}
+                      css={css`
+                        appearance: button;
+                        background-color: #fbffb9;
+                        background-image: none;
+                        border: 2px solid rgba(239, 220, 5, 1);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #fdc23e;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(50, 138, 255, 0.5);
+                        }
+                      `}
+                    >
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+                if (tags === 'bigfrontend.dev') {
+                  return (
+                    <TagContainer
+                      key={i}
+                      css={css`
+                        appearance: button;
+                        background-color: rgba(255, 116, 116, 0.1);
+                        background-image: none;
+                        border: 2px solid rgba(255, 116, 116, 0.5);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #ff7474;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(255, 116, 116, 0.5);
+                        }
+                      `}
+                    >
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+                if (tags === 'random') {
+                  return (
+                    <TagContainer
+                      key={i}
+                      css={css`
+                        appearance: button;
+                        background-color: rgba(0, 184, 92, 0.1);
+                        background-image: none;
+                        border: 2px solid rgba(0, 184, 92, 0.5);
+                        border-radius: 0.25rem;
+                        box-sizing: border-box;
+                        color: #00b85c;
+                        cursor: pointer;
+                        display: inline-flex;
+                        font-family: ui-sans-serif, system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto,
+                          'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                          'Apple Color Emoji', 'Segoe UI Emoji',
+                          'Segoe UI Symbol', 'Noto Color Emoji';
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        line-height: 1.25rem;
+                        /* margin: 0rem 0.25rem 0.25rem; */
+                        padding: 0.5rem 0.5rem;
+                        text-align: center;
+                        text-transform: none;
+                        /* ::active {
+                        color: 
+                      } */
+
+                        ::focus {
+                          outline: 5px auto rgba(0, 184, 92, 0.5);
+                        }
+                      `}
+                    >
+                      <TagName>{tags}</TagName>
+                    </TagContainer>
+                  );
+                }
+              })}
+            </InnerTagContainer>
+          </MainTagContainer>
+          {/* <Link
           to={post.slug}
           css={css`
           margin: 1rem 1rem 0 0;
@@ -305,11 +444,11 @@ const BlogPreview = ({ post, tag }) => {
           alt={post.title}
           />
         </Link> */}
-        <BlogDateContainer>
-          <BlogDate>{post.date}</BlogDate>
-        </BlogDateContainer>
-        {/* </div> */}
-        {/*
+          <BlogDateContainer>
+            <BlogDate>{post.date}</BlogDate>
+          </BlogDateContainer>
+          {/* </div> */}
+          {/*
         <div>
           {/* 
             <p
@@ -330,20 +469,21 @@ const BlogPreview = ({ post, tag }) => {
           >
             {post.date}
           </small> */}
-        {/* <Readlink
-            to={post.slug}
-            css={css`
-              display: flex;
-              justify-content: flex-end;
-              text-decoration: none;
-              text-transform: uppercase;
-            `}
-          >
-            read post &rarr;
-          </Readlink>
-        */}
-        {/* </div> */}
-      </BlogWrapper>
+          {/* <Readlink
+          to={post.slug}
+          css={css`
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: none;
+            text-transform: uppercase;
+          `}
+        >
+          read post &rarr;
+        </Readlink> */}
+
+          {/* </div> */}
+        </BlogWrapper>
+      </Link>
     </>
   );
 };
