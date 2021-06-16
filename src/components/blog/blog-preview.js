@@ -182,7 +182,7 @@ const BlogPreview = ({ post, tag }) => {
                     <TagContainer
                       key={i}
                       css={css`
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: #ede9fe;
                         background-image: none;
                         border: 2px solid rgba(139, 92, 246, 0.5);
@@ -221,7 +221,7 @@ const BlogPreview = ({ post, tag }) => {
                     <TagContainer
                       key={i}
                       css={css`
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: #dbeafe;
                         background-image: none;
                         border: 2px solid rgba(30, 64, 175, 0.5);
@@ -264,7 +264,7 @@ const BlogPreview = ({ post, tag }) => {
                         /* opacity: 0.4; */
                         /* color: #fff; */
 
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: rgba(50, 138, 255, 0.1);
                         background-image: none;
                         border: 2px solid rgba(50, 138, 255, 0.5);
@@ -303,7 +303,7 @@ const BlogPreview = ({ post, tag }) => {
                     <TagContainer
                       key={i}
                       css={css`
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: #fbffb9;
                         background-image: none;
                         border: 2px solid rgba(239, 220, 5, 1);
@@ -342,7 +342,7 @@ const BlogPreview = ({ post, tag }) => {
                     <TagContainer
                       key={i}
                       css={css`
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: rgba(255, 116, 116, 0.1);
                         background-image: none;
                         border: 2px solid rgba(255, 116, 116, 0.5);
@@ -381,7 +381,7 @@ const BlogPreview = ({ post, tag }) => {
                     <TagContainer
                       key={i}
                       css={css`
-                        appearance: button;
+                        /* appearance: button; */
                         background-color: rgba(0, 184, 92, 0.1);
                         background-image: none;
                         border: 2px solid rgba(0, 184, 92, 0.5);
