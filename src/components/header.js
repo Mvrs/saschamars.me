@@ -47,7 +47,7 @@ const HeaderLink = ({
 };
 
 export const NavLink = styled(Link)`
-  color: #383a3f;
+  color: #636363;
   font-size: 1rem;
   font-weight: ${(props) => props.fontWeight || 600};
   line-height: 1;
@@ -72,7 +72,7 @@ export const NavLink = styled(Link)`
   &:active {
     background-color: #f5f5f5;
     border-radius: 6px;
-
+    color: #222;
     /* transform: scale(1.1); */
     /* transition-duration: 0.4s; */
     /* outline: 0; */
@@ -200,7 +200,7 @@ const Header = ({
               rel="noopener noreferrer"
               activeClassName="current-page"
             >
-              😅 Blog Coming Soon
+              Blog
             </NavLink>
           </div>
         </nav>

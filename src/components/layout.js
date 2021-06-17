@@ -1,16 +1,30 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
 import Helmet from 'react-helmet';
+import { MDXProvider } from '@mdx-js/react';
+import { preToCodeBlock } from 'mdx-utils';
 import Header from './header';
+import { Code } from './mdx/code';
 import useSiteMetadata from '../hooks/use-sitemetadata';
+import '../styles/layout.css';
+
+const components = {
+  pre: (preProps) => {
+    const props = preToCodeBlock(preProps);
+    if (props) {
+      return <Code {...props} />;
+    } else {
+      return <pre {...preProps} />;
+    }
+  },
+};
 
 const Layout = ({ children }) => {
-  const {
- title, description, keywords, url
-} = useSiteMetadata();
+  // eslint-disable-next-line object-curly-newline
+  const { title, description, keywords, url } = useSiteMetadata();
 
   return (
-    <>
+    <MDXProvider components={components}>
       <Global
         styles={css`
           * {
@@ -71,28 +85,63 @@ const Layout = ({ children }) => {
               border-bottom: 1px solid rgb(204, 204, 204);
               border-color: rgb(204, 204, 204);
             }
+            /* a {
+              background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+              box-sizing: border-box;
+              color: #2a5aa7;
+              cursor: pointer;
+              font-family: Roboto, sans-serif;
+              font-weight: 700;
+              letter-spacing: 0.4px;
+              line-height: 24px;
+              text-align: left;
+              text-decoration: none;
+            } */
+
+            blockquote {
+              border-left: 5px solid rgb(87, 62, 222);
+              font-style: italic;
+              padding-left: 1rem !important;
+              margin-left: 0px !important;
+              margin-right: 0px !important;
+            }
 
             pre {
               border-radius: 0.25rem;
               font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
                 Consolas, 'Liberation Mono', 'Courier New', monospace sans-serif;
               line-height: 1.55rem;
-              overflow: hidden;
-              padding: 0.625rem;
+              overflow: auto;
+              /* padding: -0.625rem; */
               font-size: 0.875rem;
+              white-space: pre;
+              /* margin-left: 0;
+              margin-right: 0;
+              margin-top: 0;
+              min-width: 100%; */
             }
 
             code {
-              color: #c5c8c6;
+              /* color: #c5c8c6; */
               white-space: pre;
-              background-color: #1d1f21;
               border-radius: 0.3em;
-              padding: 0.1em;
+              background: rgba(255, 229, 100, 0.2);
+              color: #1a1a1a;
+              padding: 0.15em 0.2em 0.05em;
+              white-space: normal;
               font-family: SFMono-Regular, Menlo, Monaco, Consolas,
                 'Liberation Mono', 'Courier New', monospace;
               @media (max-width: 767px) {
                 font-size: 16px;
               }
+            }
+
+            :not(pre) > code[class*='language-'] {
+              border-radius: 0.3em;
+              background: rgba(255, 229, 100, 0.2);
+              color: #1a1a1a;
+              padding: 0.15em 0.2em 0.05em;
+              white-space: normal;
             }
           }
         `}
@@ -128,7 +177,7 @@ const Layout = ({ children }) => {
       >
         {children}
       </main>
-    </>
+    </MDXProvider>
   );
 };
 

@@ -35,9 +35,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.postMdx.edges;
 
   posts.forEach(({ node }, index) => {
-    const path = node.frontmatter.slug;
+    const _path = node.frontmatter.slug;
     actions.createPage({
-      path: `/blog/${path}`,
+      path: `/blog/${_path}`,
       component: blogPostTemplate,
       context: {
         slug: node.frontmatter.slug,
@@ -49,7 +49,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // extracting tags from query
   const tags = result.data.tagsMdx.group;
-  const postTags = result.data.postMdx.edges;
+  // const postTags = result.data.postMdx.edges;
 
   // inline tags
   tags.forEach((tag) => {

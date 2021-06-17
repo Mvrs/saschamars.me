@@ -383,7 +383,7 @@ const Intro = () => {
           >
             You can check out my&nbsp;
             <a
-              href="/#"
+              href="/blog"
               rel="noopener noreferrer"
               css={css`
                 color: #db99b9;

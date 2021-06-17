@@ -1,208 +1,182 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import Layout from '../components/layout';
-import ReadLink from '../components/read-link';
+import Helmet from 'react-helmet';
 
-import { AboutText, TextContainer } from '../pages/about';
-
-import useSiteMetadata from '../hooks/use-sitemetadata';
+import Readlink from '../read-link';
 import {
-  InnerTagContainer,
   MainTagContainer,
-  TagContainer,
   TagName,
-} from '../components/tag-layout';
+  TagContainer,
+  InnerTagContainer,
+} from '../tag-layout';
 
-export const query = graphql`
-  query ($slug: String) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        author
-        date
-        slug
-        tags
-        image {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(width: 665, quality: 75)
-          }
-        }
-      }
-      excerpt
-      body
-    }
+import '../../styles/tag.module.css';
+import useSiteMetadata from '../../hooks/use-sitemetadata';
 
-    footerImage: file(relativePath: { eq: "van-shoe.jpg" }) {
-      sharp: childImageSharp {
-        gatsbyImageData(width: 63, height: 63, quality: 100)
-      }
-    }
+const BlogWrapper = styled('div')`
+  box-sizing: border-box;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 18.4px;
+  margin-left: -0.7rem;
+  padding: 0 0.7rem;
+
+  :hover {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 479px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 `;
 
-// const BlogTitleContainer = styled('div')`
-//   box-sizing: border-box;
-//   color: #222;
-//   cursor: pointer;
-//   /* flex: 3; */
-//   font-family: Roboto, sans-serif;
-//   letter-spacing: 0.4px;
-//   line-height: 18.4px;
-//   margin-right: 1rem;
+const BlogTitleContainer = styled('div')`
+  box-sizing: border-box;
+  color: #222;
+  cursor: pointer;
+  /* flex: 3; */
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.4px;
+  line-height: 18.4px;
+  margin-right: 1rem;
 
-//   order: -1;
-//   flex: 1 0 25%;
+  order: -1;
+  flex: 1 0 25%;
 
-//   @media (max-width: 479px) {
-//     flex: 1 0 100%;
-//   }
-// `;
+  @media (max-width: 479px) {
+    flex: 1 0 100%;
+  }
+`;
 
-// const BlogDateContainer = styled('div')`
-//   box-sizing: border-box;
-//   color: #222;
-//   cursor: pointer;
-//   /* flex: 1; */
-//   letter-spacing: 0.4px;
-//   line-height: 18.4px;
-//   margin-top: 0;
-//   text-align: right;
+const BlogTitle = styled('p')`
+  box-sizing: border-box;
+  color: #222;
+  cursor: pointer;
+  font-size: 1.25rem;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+`;
 
-//   /* order: 1;
-//   flex: 1 0 50%; */
+const BlogDateContainer = styled('div')`
+  box-sizing: border-box;
+  color: #222;
+  cursor: pointer;
+  /* flex: 1; */
+  letter-spacing: 0.4px;
+  line-height: 18.4px;
+  margin-top: 0;
+  text-align: right;
 
-//   order: 0;
-//   flex: 0 50%;
+  /* order: 1;
+  flex: 1 0 50%; */
 
-//   /* @media screen and (device-width: 320px) {
-//     flex: 0 45%;
-//   } */
+  order: 0;
+  flex: 0 50%;
 
-//   @media (max-width: 479px) {
-//     order: 0;
-//     flex: 0 40%;
-//   }
-//   /* @media (max-width: 779px) {
-//     display: inline-flex;
-//   } */
-// `;
+  /* @media screen and (device-width: 320px) {
+    flex: 0 45%;
+  } */
 
-// export const MainTagContainer = styled('div')`
-//   box-sizing: border-box;
-//   cursor: default;
-//   display: block;
-//   font-size: 14px;
-//   min-height: 32px;
-//   outline: 0;
-//   justify-content: left;
-//   overflow: hidden;
-//   padding: 0 8px 0 0;
-//   white-space: normal;
-//   width: 200px;
-//   margin-top: 5px;
-//   order: 1;
-//   /* flex: 0 55%; */
-//   flex: 1 62%;
+  @media (max-width: 479px) {
+    order: 0;
+    flex: 0 40%;
+  }
+  /* @media (max-width: 779px) {
+    display: inline-flex;
+  } */
+`;
 
-//   @media (max-width: 479px) {
-//     margin-top: 4px;
+const BlogDate = styled('p')`
+  box-sizing: border-box;
+  color: #636363;
+  cursor: pointer;
+  font-family: Roboto, sans-serif;
+  font-size: 0.96rem;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+  text-align: right;
 
-//     /* justify-content: baseline;
-//     align-content: flex-start; */
-//   }
-// `;
+  @media (max-width: 479px) {
+    text-align: left;
+  }
+`;
 
-const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
-  const featuredImgFluid = getImage(
-    post.frontmatter.image?.childImageSharp.getsbyImageData,
-  );
-  const shoeImage = footerImage.sharp.gatsbyImageData;
-
-  const { next, prev } = pageContext;
+const BlogPreview = ({ post, tag }) => {
+  const _image = getImage(post.image?.sharp?.gatsbyImageData);
+  // const _image = post.image.sharp.fluid;
   const { keywords, url } = useSiteMetadata();
 
-  const post_tags = post?.frontmatter?.tags;
+  console.log(_image);
 
+  // <div
+  //   css={css`
+  //     display: flex;
+  //     justify-content: space-evenly;
+  //     flex-direction: row-reverse;
+  //     /* justify-items: center; */
+  //     margin: auto;
+  //     align-items: center;
+  //     align-content: center;
+  //     margin-left: 0;
+  //     @media (max-width: 479px) {
+  //       display: flex;
+  //       justify-content: space-evenly;
+  //       flex-direction: row-reverse;
+  //       /* justify-items: center; */
+  //       margin: auto;
+  //       align-items: center;
+  //       align-content: center;
+  //       margin-left: 0;
+  //       gap: 10px;
+  //       width: max-content;
+  //     }
+  //   `}
+  // >
   return (
     <>
-      <Layout>
-        <Helmet>
-          <html lang="en" />
-          <title>{post.frontmatter.title}</title>
-          <meta name="description" content={post.excerpt} />
-          <meta name="keywords" content={keywords} />
-          <meta property="og:title" content={post.frontmatter.title} />
-          <meta property="og:type" content="website" />
-          <meta property="og:description" content={post.excerpt} />
-          <meta
-            property="og:image"
-            content={post && post.frontmatter.image?.publicURL}
-          />
-          <meta property="og:locale" content="en_US" />
-          <meta
-            property="og:url"
-            href={`${url}/blog/${post.frontmatter.title}`}
-          />
-          <link
-            rel="canonical"
-            href={`${url}/blog/${post.frontmatter.title}`}
-          />
-        </Helmet>
-        <div
-          css={css`
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            margin-top: 2rem;
-          `}
-        >
-          <div
+      <Helmet>
+        <html lang="en-US" />
+        <title>Blog | Marlon V. Johnson</title>
+        <meta name="description" content="Marlon V. Johnson blog posts" />
+        <meta name="keywords" content={keywords} />
+        <meta property="og:title" content="Blog | Marlon V. Johnson" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Marlon V. Johnson blog posts"
+        />
+        <meta property="og:image" content={post.image?.publicURL} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" href={url} />
+        <link rel="canonical" href={url} />
+      </Helmet>
+
+      <Link to={post.slug} style={{ textDecoration: 'none' }}>
+        <BlogWrapper>
+          <BlogTitleContainer
             css={css`
+              /* @media (max-width: 479px) {
               order: -1;
               flex: 1 0 100%;
+            } */
             `}
           >
-            <h1
-              css={css`
-                color: #222;
-                letter-spacing: 0.12rem;
-                font-size: 1.75rem;
-                line-height: 1.1;
-                text-align: left;
-
-                order: 0;
-                flex: 1 0 100%;
-              `}
-            >
-              {post.frontmatter.title}
-            </h1>
-          </div>
-          <div
-            css={css`
-              order: 0;
-              flex: 2 0 50%;
-            `}
-          >
-            <p
-              css={css`
-                font-size: 0.875rem;
-                letter-spacing: 0.05rem;
-                text-align: left;
-                font-style: italic;
-              `}
-            >
-              {post.frontmatter.date}
-            </p>
-          </div>
+            <BlogTitle>{post.title}</BlogTitle>
+          </BlogTitleContainer>
           <MainTagContainer>
             <InnerTagContainer>
-              {post_tags?.map((tags, i) => {
+              {tag?.map((tags, i) => {
                 if (tags === 'Life') {
                   return (
                     <TagContainer
@@ -444,147 +418,74 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
               })}
             </InnerTagContainer>
           </MainTagContainer>
-        </div>
-
-        <MDXRenderer>{post.body}</MDXRenderer>
-        <TextContainer>
-          <footer
+          {/* <Link
+          to={post.slug}
+          css={css`
+          margin: 1rem 1rem 0 0;
+          width: 100px;
+          `}
+          >
+          <GatsbyImage
+          // fluid={post.image.sharp.fluid}
+          image={_image}
+          // fadeIn={false}
+          objectFit="contain"
+          objectPosition={`50% 50%`}
+          css={css`
+          * {
+            margin-top: 0;
+          }
+          border: 5px solid transparent;
+          padding: 2px;
+          border-color: #db99b9;
+          border-radius: 2px;
+          transition: none 0s ease 0s;
+          `}
+          alt={post.title}
+          />
+        </Link> */}
+          <BlogDateContainer>
+            <BlogDate>{post.date}</BlogDate>
+          </BlogDateContainer>
+          {/* </div> */}
+          {/*
+        <div>
+          {/* 
+            <p
             css={css`
-              margin-top: 40px;
-              padding-top: 20px;
-              display: block;
+            font-size: 18px;
+            margin-top: 5px;
+            overflow: hidden;
             `}
           >
-            <hr
-              css={css`
-                background: rgba(0, 0, 0, 0.2);
-                border: none;
-                height: 2px;
-                border-radius: 7px;
-                padding: 0;
-              `}
-            />
-            <div
-              css={css`
-                min-width: 0px;
-                display: flex;
-                margin-bottom: 24px;
-                align-items: center;
-              `}
-            >
-              <AboutText
-                css={css`
-                  box-sizing: border-box;
-                  min-width: 0px;
-                  display: flex;
-                  margin-bottom: 48px;
-                  -webkit-box-align: center;
-                  align-items: center;
-                `}
-              >
-                <div
-                  css={css`
-                    border-style: none;
-                    left: 0;
-                    margin-top: 0;
-                    object-fit: contain;
-                    object-position: center center;
-                    opacity: 1;
-                    padding: 0;
-                    transition: none 0s ease 0s;
-                    border-radius: 50%;
-                    width: 63px;
-                    height: 63px;
-                    /* position: relative; */
-                  `}
-                >
-                  <GatsbyImage
-                    alt="my shoe"
-                    loading="eager"
-                    // fixed={shoeImage}
-                    image={shoeImage}
-                    imgStyle={{
-                      height: 63,
-                      width: 63,
-                      borderRadius: 50,
-                      marginTop: 0,
-                      top: '-62px',
-                      position: 'relative',
-                    }}
-                  />
-                </div>
-                <div
-                  css={css`
-                    display: block;
-                    margin: auto;
-                    padding-left: 10px;
-                    line-height: 1.5;
-                  `}
-                >
-                  I’m Marlon but you can call me Mars. Software Engineer. Music
-                  lover. Bay Area Native. Feel free to{' '}
-                  <a
-                    href="mailto: johnsonmarlon18@gmail.com"
-                    css={css`
-                      color: #db99b9;
-                    `}
-                  >
-                    Contact
-                  </a>{' '}
-                  me.
-                </div>
-              </AboutText>
-            </div>
+            {post.excerpt}
+          </p>
+          {/* <small
+            css={css`
+              font-size: 80%;
+              display: block;
+              font-style: italic;
+            `}
+          >
+            {post.date}
+          </small> */}
+          {/* <Readlink
+          to={post.slug}
+          css={css`
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: none;
+            text-transform: uppercase;
+          `}
+        >
+          read post &rarr;
+        </Readlink> */}
 
-            <ul
-              css={css`
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                list-style: none;
-                padding: 0px;
-                flex-flow: row-reverse;
-                margin: 0 0 1.45rem 1.45rem;
-              `}
-            >
-              <li>
-                {next && (
-                  <ReadLink
-                    to={`/blog/${next.frontmatter.slug}`}
-                    css={css`
-                      display: flex;
-                      justify-content: flex-end;
-                      font-size: 16px;
-                      text-decoration: none;
-                      text-transform: none;
-                    `}
-                  >
-                    {next.frontmatter.slug} &rarr;
-                  </ReadLink>
-                )}
-              </li>
-              <li>
-                {prev && (
-                  <ReadLink
-                    to={`/blog/${prev.frontmatter.slug}`}
-                    css={css`
-                      display: flex;
-                      justify-content: flex-start;
-                      text-decoration: none;
-                      font-size: 16px;
-                      text-transform: none;
-                    `}
-                  >
-                    &larr; {prev.frontmatter.slug}
-                  </ReadLink>
-                )}
-              </li>
-            </ul>
-          </footer>
-        </TextContainer>
-      </Layout>
+          {/* </div> */}
+        </BlogWrapper>
+      </Link>
     </>
   );
 };
 
-export default PostTemplate;
+export default BlogPreview;
