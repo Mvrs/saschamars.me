@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { css } from '@emotion/react';
-import { AboutFooter } from '../pages/about';
-import GithubIcon from '../assets/icons8-github.svg';
-import LinkedInIcon from '../assets/icons8-linkedin-circled.svg';
-import TwitterIcon from '../assets/icons8-twitter-circled.svg';
+import { AboutFooter } from '../../pages/about';
+import GithubIcon from '../../assets/icons8-github.svg';
+import LinkedInIcon from '../../assets/icons8-linkedin-circled.svg';
+import TwitterIcon from '../../assets/icons8-twitter-circled.svg';
 
 const BlogFooter = () => {
   return (
@@ -50,6 +50,7 @@ const BlogFooter = () => {
               }
             `}
           >
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             Let's get in touch!
           </h2>
 

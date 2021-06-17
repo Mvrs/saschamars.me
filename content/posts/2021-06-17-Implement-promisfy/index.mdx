@@ -1,0 +1,135 @@
+---
+title: Implement promisify()
+slug: implement promisify
+author: Marlon Johnson
+date: June 17, 2021
+tags: ['JavaScript', 'bigfrontend.dev']
+excerpt: implementing your own promise function
+---
+
+Promises are used in many codebases and drives the bulding blocks for synchronous methods. It allows
+your state to take direction in a route in which you give it. MDN represents it best in a machine state analogy:
+
+> A `Promise` is in one of these states:
+>
+> - _pending_: initial state, neither fulfilled nor rejected.
+> - _fulfilled_: meaning that the operation was completed successfully.
+> - _rejected_: meaning that the operation failed.
+
+A `Promise` is a special JavaScript object that links these statees together.
+
+<br />
+
+## My Definition of a Promise
+
+Bring back my coffee, and please make sure it's not an iced coffee 😅. Isn't that Promise.
+On a serious note, it's a promise to return something eventually. MDN has many examples on how you can [chain things together](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) and don't have to be explicit.
+
+<br />
+
+## How to promisfy a function?
+
+One of the most dreaded interview questions most developers don't want to see (because it can catch you off-guard). Luckily, I had to chance to try it out on bigfrontend.dev. **The idea is you'll have a function that's gonna eventually return a function**,
+and then when you invoke that, it's gonna be a Promise, so you can chain it.
+Here my implementation here:
+
+```js {8-9,26}
+/**
+ * @param {(...args) => void} func
+ * @returns {(...args) => Promise<any}
+ */
+ function promisify(func) {
+  // your code here
+  return function(...args) {
+    return new Promise((resolve, reject) => {
+      const cb = (error, data) => {
+        if (error) {
+          reject(error)
+        } else {
+          resolve(data)
+        }
+      }
+      func.apply(this, args.concat(cb));
+    })
+  }
+}
+
+const func = (arg1, arg2, cb) => {}
+
+let promiseFn = promisify(func);
+
+// chaining process
+promiseFn().then(...).then(...)
+```
+
+<br />
+
+## Conclusion
+
+A `promise` gives us more flexibility and better code flow. It allows us to direct a natural state of instructions that's similar to how I like to place my door dash order. Kinda.
+
+Resources:
+
+<ul>
+
+<li>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Using Promises
+  </a>
+</li>
+
+<li>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Promises
+  </a>
+</li>
+
+<li>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Function.prototype.apply()
+  </a>
+</li>
+
+</ul>

@@ -12,6 +12,17 @@ export const MainTagContainer = styled('div')`
   padding: 0 8px 0 0;
   white-space: normal;
   width: 200px;
+  margin-top: 5px;
+  order: 1;
+  /* flex: 0 55%; */
+  flex: 1 62%;
+
+  @media (max-width: 479px) {
+    margin-top: 4px;
+
+    /* justify-content: baseline;
+    align-content: flex-start; */
+  }
 `;
 
 export const InnerTagContainer = styled('div')`
@@ -20,26 +31,28 @@ export const InnerTagContainer = styled('div')`
   flex-wrap: wrap;
   outline: 0;
   padding-bottom: 0.3125rem;
-  padding-top: 0.3125rem;
+  padding-top: 0;
+  gap: 4px 4px;
 `;
 
 export const TagContainer = styled('div')`
   align-items: center;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   box-sizing: border-box;
-  background: ${props => props.hexCode};
-  opacity: ${props => props.opacity};
-  color: #37352f;
+  background: ${(props) => props.hexCode};
+  opacity: ${(props) => props.opacity};
+  /* color: #37352f; */
   display: flex;
   flex-shrink: 0;
   font-size: 14px;
   height: 18px;
-  line-height: 120%;
+  margin-top: 0;
+  /* line-height: 120%;
   margin: 0 6px 6px 0;
   min-width: 0;
   outline: 0;
   padding-left: 6px;
-  padding-right: 6px;
+  padding-right: 6px; */
 `;
 
 export const TagName = styled('div')`
