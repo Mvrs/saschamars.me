@@ -32,7 +32,7 @@ export const InnerTagContainer = styled('div')`
   outline: 0;
   padding-bottom: 0.3125rem;
   padding-top: 0;
-  gap: 4px !important;
+  gap: 4px 4px;
 `;
 
 export const TagContainer = styled('div')`
