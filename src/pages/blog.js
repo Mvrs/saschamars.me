@@ -1,20 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import PostPreview from '../components/blog/blog-preview';
 import usePosts from '../hooks/use-posts';
 import { BlogContainer } from '../components/blog/blog-container';
 import Footer from '../components/footer';
-
-/* eslint-disable-next-line */
-// function Search({ location }) {
-//   const query =
-//     (location.state && location.state.query) ||
-//     location.pathname.replace(/^\/blog\/?/, '') ||
-//     '';
-
-//   // const post_title = query.replace('/-+/g', ' ');
-// }
 
 const BlogHeader = styled('header')`
   box-sizing: border-box;
@@ -66,7 +56,40 @@ const BlogInput = styled('input')`
 `;
 
 const Blog = () => {
-  const posts = usePosts();
+  let posts = usePosts();
+  const allPosts = posts;
+
+  const emptyQuery = '';
+
+  const [state, setState] = useState({
+    filterData: [],
+    query: emptyQuery,
+  });
+
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+
+    const _posts = allPosts || [];
+
+    const filteredData = _posts.filter((post) => {
+      const { title, tags } = post;
+      return (
+        // eslint-disable-next-line operator-linebreak
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        (tags && tags.join('').toLowerCase().includes(query.toLowerCase()))
+      );
+    });
+
+    setState({
+      query,
+      filteredData,
+    });
+  };
+
+  const { filteredData, query } = state;
+  const hasSearchResults = filteredData && query !== emptyQuery;
+  posts = hasSearchResults ? filteredData : allPosts;
 
   return (
     <>
@@ -79,7 +102,11 @@ const Blog = () => {
               insightful.
             </BlogDescription>
             <form>
-              <BlogInput placeholder="Find blogs on topics you're interested in" />
+              <BlogInput
+                type="text"
+                onChange={handleInputChange}
+                placeholder="Find blogs on topics you're interested in"
+              />
             </form>
           </BlogHeader>
           {posts.map((post) => (
