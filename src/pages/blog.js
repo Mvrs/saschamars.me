@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import PostPreview from '../components/blog/blog-preview';
