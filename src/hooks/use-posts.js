@@ -11,16 +11,16 @@ const usePosts = () => {
             date
             author
             tags
-            image {
-              sharp: childImageSharp {
-                gatsbyImageData(
-                  width: 200
-                  layout: FULL_WIDTH
-                  height: 150 # duotone: { shadow: "#663399", highlight: "#ddbbff" }
-                  formats: [AUTO]
-                )
-              }
-            }
+            # image {
+            #   sharp: childImageSharp {
+            #     gatsbyImageData(
+            #       width: 200
+            #       layout: FULL_WIDTH
+            #       height: 150 # duotone: { shadow: "#663399", highlight: "#ddbbff" }
+            #       formats: [AUTO]
+            #     )
+            #   }
+            # }
           }
           excerpt
         }
@@ -34,7 +34,7 @@ const usePosts = () => {
     tags: post.frontmatter.tags,
     date: post.frontmatter.date,
     slug: post.frontmatter.slug,
-    image: post.frontmatter.image,
+    // image: post?.frontmatter?.image,
     excerpt: post.excerpt,
   }));
 };

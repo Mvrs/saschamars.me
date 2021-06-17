@@ -27,12 +27,12 @@ export const query = graphql`
         date
         slug
         tags
-        image {
-          publicURL
-          childImageSharp {
-            gatsbyImageData(width: 665, quality: 75)
-          }
-        }
+        # image {
+        #   publicURL
+        #   childImageSharp {
+        #     gatsbyImageData(width: 665, quality: 75)
+        #   }
+        # }
       }
       excerpt
       body
