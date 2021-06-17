@@ -115,7 +115,7 @@ const Toggle = ({ color = 'black' }) => {
             </Link>
             <Link
               aria-label="View blog page"
-              to="/#"
+              to="/blog"
               activeClassName="current-page"
             >
               😅 blog
