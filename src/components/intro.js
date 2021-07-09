@@ -268,12 +268,22 @@ const Intro = () => {
   return (
     <HeroContainer>
       <IntroContainer>
-        <IntroHeader>
+        <IntroHeader
+          css={css`
+            @media (max-width: 991px) {
+              width: 100%;
+            }
+          `}
+        >
           <IntroHeaderText
             css={css`
               font-size: 2.3rem;
 
               @media (max-width: 479px) {
+                font-size: 2rem;
+                text-align: left;
+              }
+              @media (max-width: 991px) {
                 font-size: 2rem;
                 text-align: left;
               }
@@ -305,6 +315,17 @@ const Intro = () => {
                 margin-right: auto;
                 margin-left: auto;
               }
+              @media (max-width: 991px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+              }
             `}
           >
             I build applications on the web with JavaScript, TypeScript, React,
@@ -318,6 +339,20 @@ const Intro = () => {
               font-weight: 400;
               color: #60656c;
               @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
@@ -355,6 +390,20 @@ const Intro = () => {
                 /* padding-left: 20px; */
                 margin-left: auto;
               }
+              @media (max-width: 991px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                color: #60656c;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
             `}
           >
             When I'm not coding, you can catch me stock trading, making
@@ -367,6 +416,19 @@ const Intro = () => {
               color: #60656c;
               font-weight: 400;
               @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 font-weight: 400;
