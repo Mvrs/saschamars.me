@@ -14,4 +14,11 @@ export default [
     code: 'https://github.com/Mvrs/tw-timeline',
     live: 'http://tw-timeline.vercel.app/',
   },
+  {
+    title: '🎧 e-commerce-app',
+    description:
+      'e-commerce web application built using TypeScript, React, Redux Toolkit, Chakra UI, and Next.js',
+    code: 'https://github.com/Mvrs/e-commerce-app',
+    live: 'http://e-commerce-app-mvrs.vercel.app/',
+  },
 ];
