@@ -29,10 +29,11 @@ Our custom hook will look like this `useDebounced<T>(f: func, w: number, o?: Obj
 
 Let’s Implement it below:
 
-```js
+```ts
 // for our options that contains flags
 // lets iterate through the keys to create a type
 // we don't use but I figured it be fun to make this type
+
 type OptionsFlags<T> = {
 	[Property in keyof T]: boolean
 }
