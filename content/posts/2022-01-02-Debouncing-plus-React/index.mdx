@@ -1,0 +1,172 @@
+---
+title: Debouncing + React
+slug: debouncing-react
+author: Marlon Johnson
+date: January 02, 2022
+tags: ['JavaScript', 'TypeScript', 'React']
+excerpt: implementing your own custom hook for Debounce
+---
+
+## Introduction
+
+Debouncing is a real-world problem that you’ll come across in production.
+For this use case, we’ll reference an auto-search complete bar. Why debouncing is a great solution bar?
+
+<br />
+The lodash docs give a great definition: > ...function that delays invoking func
+until after wait ms have elapsed since the last time the denounced function was invoked
+
+## Use Case
+
+In the Fullcourt app, we currently use debounce to restrict the number of calls we make to our server. Imagine having a list of Cities and with every event change we not only shake our tree, but we’re making accessive calls to query a city/or cities, and that can cause bad performance for our users.
+
+## Approach
+
+We can create a custom hook and import it into our search module. The question is do you really need to do this? Yes! Yes, you do if you want to save money on your car insurance by switching to... I’m joking lol. Seriously, yes.
+
+Our custom hook will look like this `useDebounced<T>(v: func, w: number)` `v` take in the value and `w` will allow our hook to be configurable.
+
+Let’s Implement it below:
+
+```js
+// for our options that contains flags
+// lets iterate through the keys to create a type
+// we don't use but I figured it be fun to make this type
+type OptionsFlags<T> = {
+	[Property in keyof T]: boolean
+}
+
+type Flags = {
+	leading?: boolean
+	trailing?: boolean
+}
+
+type DebounceFlags = OptionsFlags<Flags>
+
+type MaxWaitOption<T> = {
+	[key: T]: number
+}
+
+type MaxWaitProp = {
+	maxWait?: number
+}
+
+type MaxWait = MaxWaitOptions<MaxWaitProp>
+
+// intersect our props
+type Options = DebounceFlag & MaxWait
+
+interface DebounceProps = {
+	value: () => void
+	wait?: number,
+	options?: Options
+}
+
+function useDebounced({value, wait}: {DebounceProps}) {
+		let [debouncedValue, setDebouncedValue] = useState(value)
+
+		useEffect(() => {
+			let timeOutId = setTimeout(() => {
+				setDebouncedValue(value)
+			}, wait)
+
+			// cleanup
+			return () => {
+				clearTimeout(timeoutId)
+			}
+		}, [value, wait])
+
+		return debouncedValue
+}
+
+module.exports =  { useDebounced }
+
+```
+
+## Usage
+
+Now we can just drop it into our Search Component and call it a day. One thing you will notice is that we’re no longer causing a bottleneck to our server, and no matter how many characters we type into our search the `useDebounced` hook will only fire `wait` ms after the user is done typing.
+
+> I’m only implementing pseudo logic for our use case. This will give you a general idea of how to add this piece to your puzzle
+
+```js {11,20}
+import React from 'react'
+import { useDebounced } from '../src/hooks/'
+
+const Example: React.FC<>({}) => {
+	const [query, setQuery] = useState<string>("")
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setQuery(e?.target?.value)
+	}
+
+	// we call our custom hook :)
+	const debouncedOnChange = useDebounced(onChange, 500)
+
+	{/* semantic HTML FTW!!! */}
+return (
+	<div class="search-container">
+		<form action="#" method="get">
+				<label forHTML={query}>
+						Search
+            {/* use it on our onChange prop */}
+						<input type="text" name={query} placeholder="Search for a City..." onChange={debouncedOnChange}/>
+				</label>
+				{/*other fun stuff below*/}
+		</form>
+
+	</div>
+	)
+}
+```
+
+## Conclusion
+
+Today we learned about debouncing and the problems it can resolve for many users who are experiencing performance issues. Debouncing is a common technique for handling events in a sophisticated way. We can target events to help us avoid doing extra work and allow us to control when we want to execute our function.
+
+Resources:
+
+<ul>
+
+<li>
+  <a
+    href="https://css-tricks.com/debouncing-throttling-explained-examples/"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Debouncing and Throttling Explained Through Examples
+  </a>
+</li>
+
+<li>
+  <a
+    href="https://lodash.com/docs/4.17.15#debounce"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    _.debounce
+  </a>
+</li>
+
+</ul>
+
+I hope you enjoyed reading the article :) Happy New Year!!!
