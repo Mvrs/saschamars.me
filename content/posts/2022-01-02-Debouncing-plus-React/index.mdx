@@ -7,18 +7,19 @@ tags: ['JavaScript', 'TypeScript', 'React']
 excerpt: implementing your own custom hook for Debounce
 ---
 
-## Introduction
+`Debouncing` is a technique to control how many times we allow a function to be executed over time.
+For today's article, we’ll reference an search bar since it's a common use case for this scenario when your'e trying to manage a large data set containing thousands of nodes across your server(s).
 
-Debouncing is a real-world problem that you’ll come across in production.
-For this use case, we’ll reference an auto-search complete bar. Why debouncing is a great solution bar?
+The lodash docs give a great definition: 
+> ...function that delays invoking func until after wait ms have elapsed since the last time the denounced function was invoked
 
 <br />
-The lodash docs give a great definition: > ...function that delays invoking func
-until after wait ms have elapsed since the last time the denounced function was invoked
 
 ## Use Case
 
 In the Fullcourt app, we currently use debounce to restrict the number of calls we make to our server. Imagine having a list of Cities and with every event change we not only shake our tree, but we’re making accessive calls to query a city/or cities, and that can cause bad performance for our users.
+
+<br />
 
 ## Approach
 
@@ -63,25 +64,27 @@ interface DebounceProps = {
 }
 
 function useDebounced({value, wait}: {DebounceProps}) {
-		let [debouncedValue, setDebouncedValue] = useState(value)
+	let [debouncedValue, setDebouncedValue] = useState(value)
 
-		useEffect(() => {
-			let timeOutId = setTimeout(() => {
-				setDebouncedValue(value)
-			}, wait)
+	useEffect(() => {
+		let timeOutId = setTimeout(() => {
+			setDebouncedValue(value)
+		}, wait)
 
-			// cleanup
-			return () => {
-				clearTimeout(timeoutId)
-			}
-		}, [value, wait])
+		// cleanup
+		return () => {
+			clearTimeout(timeoutId)
+		}
+	}, [value, wait])
 
-		return debouncedValue
+	return debouncedValue
 }
 
 module.exports =  { useDebounced }
 
 ```
+
+<br />
 
 ## Usage
 
@@ -102,18 +105,17 @@ const Example: React.FC<>({}) => {
 	// we call our custom hook :)
 	const debouncedOnChange = useDebounced(onChange, 500)
 
-	{/* semantic HTML FTW!!! */}
+{/* semantic HTML FTW!!! */}
 return (
 	<div class="search-container">
 		<form action="#" method="get">
-				<label forHTML={query}>
-						Search
-            {/* use it on our onChange prop */}
-						<input type="text" name={query} placeholder="Search for a City..." onChange={debouncedOnChange}/>
-				</label>
-				{/*other fun stuff below*/}
+			<label forHTML={query}>
+				Search
+				{/* use it on our onChange prop */}
+				<input type="text" name={query} placeholder="Search for a City..." onChange={debouncedOnChange}/>
+			</label>
+			{/*other fun stuff below*/}
 		</form>
-
 	</div>
 	)
 }
