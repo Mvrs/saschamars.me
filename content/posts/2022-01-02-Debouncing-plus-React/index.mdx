@@ -8,7 +8,7 @@ excerpt: implementing your own custom hook for Debounce
 ---
 
 `Debouncing` is a technique to control how many times we allow a function to be executed over time.
-For today's article, we’ll reference an search bar since it's a common use case for this scenario when your'e trying to manage a large data set containing thousands of nodes across your server(s).
+For today's article, we’ll reference a search bar since it's a common use case for this scenario when your'e trying to manage a large data set containing thousands of nodes across your server(s).
 
 The lodash docs give a great definition: 
 > ...function that delays invoking func until after wait ms have elapsed since the last time the denounced function was invoked
@@ -25,7 +25,7 @@ In the Fullcourt app, we currently use debounce to restrict the number of calls 
 
 We can create a custom hook and import it into our search module. The question is do you really need to do this? Yes! Yes, you do if you want to save money on your car insurance by switching to... I’m joking lol. Seriously, yes.
 
-Our custom hook will look like this `useDebounced<T>(v: func, w: number)` `v` take in the value and `w` will allow our hook to be configurable.
+Our custom hook will look like this `useDebounced<T>(f: func, w: number, o?: Object)` `f` take in the function and `w` will allow our hook to be configurable, and `o` will be our options.
 
 Let’s Implement it below:
 
@@ -45,7 +45,7 @@ type Flags = {
 type DebounceFlags = OptionsFlags<Flags>
 
 type MaxWaitOption<T> = {
-	[key: T]: number
+	[key: keyof T]: number
 }
 
 type MaxWaitProp = {
@@ -55,32 +55,32 @@ type MaxWaitProp = {
 type MaxWait = MaxWaitOptions<MaxWaitProp>
 
 // intersect our props
-type Options = DebounceFlag & MaxWait
+type Options = DebounceFlags & MaxWait
 
 interface DebounceProps = {
-	value: () => void
-	wait?: number,
+	func: () => void
+	wait: number,
 	options?: Options
 }
 
-function useDebounced({value, wait}: {DebounceProps}) {
-	let [debouncedValue, setDebouncedValue] = useState(value)
+function useDebounced({ func, wait }: DebounceProps) {
+	let [debouncedValue, setDebouncedValue] = useState(func)
 
 	useEffect(() => {
 		let timeOutId = setTimeout(() => {
-			setDebouncedValue(value)
+			setDebouncedValue(func)
 		}, wait)
 
 		// cleanup
 		return () => {
 			clearTimeout(timeoutId)
 		}
-	}, [value, wait])
+	}, [func, wait])
 
 	return debouncedValue
 }
 
-module.exports =  { useDebounced }
+module.exports = { useDebounced }
 
 ```
 
@@ -92,11 +92,11 @@ Now we can just drop it into our Search Component and call it a day. One thing y
 
 > I’m only implementing pseudo logic for our use case. This will give you a general idea of how to add this piece to your puzzle
 
-```js {11,20}
+```js {11,24}
 import React from 'react'
 import { useDebounced } from '../src/hooks/'
 
-const Example: React.FC<>({}) => {
+const Example: React.FC = ({}) => {
 	const [query, setQuery] = useState<string>("")
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setQuery(e?.target?.value)
@@ -112,7 +112,12 @@ return (
 			<label forHTML={query}>
 				Search
 				{/* use it on our onChange prop */}
-				<input type="text" name={query} placeholder="Search for a City..." onChange={debouncedOnChange}/>
+				<input 
+					type="text" 
+					name={query} 
+					placeholder="Search for a City..." 
+					onChange={debouncedOnChange}
+				/>
 			</label>
 			{/*other fun stuff below*/}
 		</form>
