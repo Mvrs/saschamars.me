@@ -25,7 +25,7 @@ const calculateLinesToHighlight = (meta) => {
   };
 };
 
-export const Code = ({ codeString, language, metastring, ...props }) => {
+export function Code({ codeString, language, metastring, ...props }) {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
 
   return (
@@ -62,4 +62,4 @@ export const Code = ({ codeString, language, metastring, ...props }) => {
       )}
     </Highlight>
   );
-};
+}

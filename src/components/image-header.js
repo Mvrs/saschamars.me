@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+// import { css } from '@emotion/react';
 
 const ImageBackground = styled('div')`
   width: 45%;
@@ -12,8 +12,8 @@ const ImageBackground = styled('div')`
   /* position: inherit; */
 `;
 
-const ImageHeader = () => {
+function ImageHeader() {
   return <ImageBackground />;
-};
+}
 
 export default ImageHeader;
