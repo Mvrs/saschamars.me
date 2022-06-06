@@ -6,10 +6,6 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
-import {
-  Line,
-  LineNo,
-} from '../../gatsby-plugin-theme/styles';
 
 const RE = /{([\d,-]+)}/;
 
