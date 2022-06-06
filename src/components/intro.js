@@ -150,7 +150,7 @@ const IntroHeaderText = styled('h1')`
     width: auto;
   }
   @media (max-width: 991px) {
-    color: #383a3f;
+    // color: #383a3f;
     /* width: 85%; */
     /* padding-right: 20px;
     padding-left: 20px; */

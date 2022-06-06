@@ -10,7 +10,8 @@ excerpt: implementing your own custom hook for Debounce
 `Debouncing` is a technique to control how many times we allow a function to be executed over time.
 For today's article, we’ll reference a search bar since it's a common use case for this scenario when your'e trying to manage a large data set containing thousands of nodes across your server(s).
 
-The lodash docs give a great definition: 
+The lodash docs give a great definition:
+
 > ...function that delays invoking func until after wait ms have elapsed since the last time the denounced function was invoked
 
 <br />
@@ -93,38 +94,42 @@ Now we can just drop it into our Search Component and call it a day. One thing y
 > I’m only implementing pseudo logic for our use case. This will give you a general idea of how to add this piece to your puzzle
 
 ```js {11,24}
-import React from 'react'
-import { useDebounced } from '../src/hooks/'
+import React from 'react';
+import { useDebounced } from '../src/hooks/';
 
 const Example: React.FC = ({}) => {
-	const [query, setQuery] = useState<string>("")
-	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setQuery(e?.target?.value)
-	}
+  const [query, setQuery] = useState < string > '';
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e?.target?.value);
+  };
 
-	// we call our custom hook :)
-   const debouncedOnChange = useDebounced(onChange, 500)
+  // we call our custom hook :)
+  const debouncedOnChange = useDebounced(onChange, 500);
 
-{/* semantic HTML FTW!!! */}
-return (
-	<div class="search-container">
-		<form action="#" method="get">
-			<label forHTML={query}>
-				Search
-				{/* use it on our onChange prop */}
-				<input 
-					type="text" 
-					name={query} 
-					placeholder="Search for a City..." 
-					onChange={debouncedOnChange}
-				/>
-			</label>
-			{/*other fun stuff below*/}
-		</form>
-	</div>
-	)
-}
+  {
+    /* semantic HTML FTW!!! */
+  }
+  return (
+    <div class="search-container">
+      <form action="#" method="get">
+        <label forHTML={query}>
+          Search
+          {/* use it on our onChange prop */}
+          <input
+            type="text"
+            name={query}
+            placeholder="Search for a City..."
+            onChange={debouncedOnChange}
+          />
+        </label>
+        {/*other fun stuff below*/}
+      </form>
+    </div>
+  );
+};
 ```
+
+<br />
 
 ## Conclusion
 
