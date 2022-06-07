@@ -76,6 +76,19 @@ li > code {
   }
 }
 
+.css-1avyp1d p {
+  color: rgb(87, 62, 222);
+  font-family: inherit;
+  font-style: normal;
+}
+
+blockquote.css-1avyp1d  {
+  background-color: rgba(87, 62, 222, 0.2);
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
 gatsby-highlight > code[class*='language-'],
 .gatsby-highlight > pre[class*='language-'] {
   word-spacing: normal;
