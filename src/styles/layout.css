@@ -20,14 +20,9 @@ body {
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
-
-
-  @media (max-width: 479px) {
-    font-size: 0.9rem;
-  }
-
+  
   @media (max-width: 767px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
 
