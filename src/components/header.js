@@ -28,11 +28,11 @@ const grow = keyframes`
 
 `;
 
-const HeaderLink = ({
+function HeaderLink({
   headerColor = 'black',
   activeClassName = 'current-page',
   ...props
-}) => {
+}) {
   return (
     <Link
       activeClassName={activeClassName}
@@ -41,10 +41,11 @@ const HeaderLink = ({
         text-decoration: none;
         color: ${headerColor};
       `}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
   );
-};
+}
 
 export const NavLink = styled(Link)`
   color: #636363;
@@ -92,16 +93,17 @@ export const NavLink = styled(Link)`
   }
 `;
 
-const Header = ({
+function Header({
   headerLink = '/',
   maxWidth = 850,
   headerImage = true,
   headerColor = 'black',
-}) => {
+}) {
   return (
     <header
       css={css`
         font-weight: 700;
+        /* position: sticky; */
         background: #f4f4f4;
         flex-shrink: 0;
         z-index: 10;
@@ -117,6 +119,11 @@ const Header = ({
           padding: 0.5rem calc((100vw - 70% - 0.5rem) / 2);
           margin: 0 auto;
         }
+
+        ${bpMaxSM} {
+          position: sticky;
+        }
+        
       `}
     >
       <Container maxWidth={maxWidth} noVerticalPadding>
@@ -207,6 +214,6 @@ const Header = ({
       </Container>
     </header>
   );
-};
+}
 
 export default Header;
