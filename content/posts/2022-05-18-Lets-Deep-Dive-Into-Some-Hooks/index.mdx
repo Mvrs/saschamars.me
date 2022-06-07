@@ -1,0 +1,367 @@
+---
+title: Let's Deep Dive into Hooks
+slug: lets-deep-dive-into-hooks
+author: Marlon Johnson
+date: May 18, 2022
+tags: ['JavaScript', 'React']
+excerpt: going in depth with the latest hooks React has to offer
+---
+
+Let’s look at a simple example
+
+```js
+// Parent.jsx
+import React, { useState } from 'react';
+import Child from './Child';
+
+function Parent() {
+  const [parentCount, setParentCount] = useState(0);
+  console.log('Parent component re-rendering ------');
+  return (
+    <div style={{ background: 'lightseagreen' }}>
+      <Child />
+      <button
+        type="button"
+        onClick={() => {
+          setParentCount(parentCount + 1);
+        }}
+      >
+        Parent component +1
+      </button>
+    </div>
+  );
+}
+
+// Child.jsx
+function Child() {
+  console.log('------------ child component re-render');
+  return (
+    <div style={{ background: 'pink', margin: '50px 0' }}>
+      <button type="button"></button>
+    </div>
+  );
+}
+```
+
+When we click the button of the parent component, the state of the parent component `parentCount` will be updated, causing the parent component to re-render and the child component to re-render; at this time, there is no dependency between our child component and the parent component, so this repetition Rendering can be optimized out, you can use `React.memo` Wrap subcomponents
+
+```js {4}
+// Child.jsx
+import React from 'react';
+// ...other code
+export default React.memo(Child);
+```
+
+<br />
+
+## React.memo(Comp[, fn[)
+
+- Used to reduce re-rendering of child components
+- `React.memo` It is a higher-order component (the parameter is the component, and the **function** whose return value is the new component is the higher-order component)
+
+For externally, the changes that `React.memo` will be checked, the component will be re-rendered `props` only when the incoming `props` changes, then we click the parent component button again, the child component will not be re-rendered
+
+- `React.memo` Only shallow comparisions are made for complex objects, and the comparison process can be controlled by passing in the second parameter
+- The second parameter is a function that receives props before and after re-rendering
+
+```js
+function MyComponent(props) {
+  /* render with props */
+}
+function areEqual(prevProps, nextProps) {
+  /*
+If nextProps is passed to the render method, the return result is the same as
+  Returns true if the result of passing prevProps to the render method is consistent,
+  else return false
+  */
+}
+export default React.memo(MyComponent, areEqual);
+```
+
+<br />
+
+## useMemo(fn[, DependentArray])
+
+- Used to reduce repeated complex calculations every time the component is re-rendered, the parameters are a function and an optional array of dependecies, and return the result of the call to the passed function
+- `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b])`
+- `useMemo` The function is similar to that `Vue` of `computed` (computed property), the difference is that the dependencies need to be passed in manually. When the dependencies change, the **passed-in function will be called again** and the calculated value will be returned.
+- When the incoming dependency is an empty array, the last calculation result is returned directly
+- When no dependencies are passed in, it will be recalculated every time the component is refreshed, which should be used as an optimization strategy when the code works properly
+
+Modify our example, note that React.memo the sub-component is wrapped to ensure that the sub-component re-rendering is only affected by the incoming props changes during testing
+
+```js
+// Parent.jsx
+import React, { useState, useMemo } from 'react';
+import Child from '../Child';
+
+function Parent() {
+  const [parentCount, setParentCount] = useState(0);
+  const [otherCount, setOtherCount] = useState(0);
+  console.log('Parent component re-rendering --------------');
+
+  const computedFn = (a, b) => {
+    console.log('----Recalculated ----');
+    return a + b;
+  };
+
+  const computedValue = useMemo(() => {
+    return computedFn(parentCount, 1);
+  }, [parentCount]);
+
+  return (
+    <div style={{ background: 'lightseagreen' }}>
+      <Child parentCount={parentCount} computedValue={computedValue} />
+      <button
+        type="button"
+        onClick={() => {
+          setParentCount(parentCount + 1);
+        }}
+      >
+        Parent component +1
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setOtherCount(otherCount + 1);
+        }}
+      >
+        Parent component otherCount+1
+      </button>
+    </div>
+  );
+}
+```
+
+> Click the first button, the dependencies are changed, the output is recalculated, and the second button is clicked, because the change is not the dependency of the calculated value, so it will not be recalculated, and the child components will not be re-rendered
+
+<br />
+
+## useCallback(fn[, DependentArray])
+
+- Used for functions that need to be passed to subcomponents to reduce repeated rendering of subcomponents, the parameters are a funciton and an optional array of dependencies, and return a memoized version of the function
+
+```js
+// Parent.jsx
+import React, { useState } from 'react';
+import Child from '../Child';
+
+function Parent() {
+  const [parentCount, setParentCount] = useState(0);
+  const [otherCount, setOtherCount] = useState(0);
+  console.log('Parent component re-rendering --------------');
+
+  const computedFn = () => {
+    return parentCount + 1;
+  };
+
+  return (
+    <div style={{ background: 'lightseagreen' }}>
+      <Child parentCount={parentCount} computedFn={computedFn} />
+      <button type="button" onClick={() => { setParentCount(parentCount + 1); }}>Parent component +1</button>
+      <button type="button" onClick={() => { setOtherCount(otherCount + 1); }}>Parent component otherCount+1</button>
+    </div>
+  );
+}
+
+export default Parent;
+
+// Child.jsx
+import React from 'react';
+
+function Child(props) {
+  const { computedValue, computedFn } = props;
+  console.log('------------ child component re-render');
+  return (
+    <div style={{ background: 'pink', margin: '50px 0' }}>
+      <div>
+        The calculation result passed in by the parent component:
+        {computedValue}
+      </div>
+      <button type="button" onClick={computedFn}>Subassembly</button>
+    </div>
+  );
+}
+
+export default React.memo(Child);
+```
+
+> The child component also re-renders when the second button is clicked to `computedFn` add `useCallback`
+
+```js
+// Parent.jsx
+import React, { useState, useCallback } from 'react';
+
+// ...other code
+
+const computedFn = useCallback(() => {
+  console.log(parentCount);
+  return parentCount + 1;
+}, [parentCount]);
+
+// ...other code
+
+export default Parent;
+```
+
+At this time, click the second button sub-component of the parent component, the sub-component will not be re-rendered, because `useCallback` the dependencies of the sub-component have not changed, and the function of the last rendering is returned, so the props passed into the sub-component have not changed, and the component will not be re-rendered.
+
+- It should be noted that the `useCallback` internal scope of the saved function will not change. Therefore, when the dependency array is empty, `useCallback` the value of the variable in the component obtained through the closure inside the passed-in function will remain unchanged.
+
+```js
+import React, { useState, useCallback } from 'react';
+import Child from '../Child';
+
+let a = 0;
+function Parent() {
+  const [parentCount, setParentCount] = useState(0);
+  const [otherCount, setOtherCount] = useState(0);
+  console.log('Parent component re-rendering --------------');
+
+  const computedFn = useCallback(() => {
+    // The dependency is empty, the printed value here is always unchanged;
+    // Because the entire component will be re-rendered when the component state changes, and here parentCount always takes the value of the first rendered version
+    console.log(parentCount);
+    // The printed value here will be updated in real time, because the variable is defined directly outside the component and is not affected by the re-rendering of the component
+    console.log(a);
+    return parentCount + 1;
+  }, []);
+
+  return (
+    <div style={{ background: 'lightseagreen' }}>
+      <Child parentCount={parentCount} computedFn={computedFn} />
+      <button
+        type="button"
+        onClick={() => {
+          setParentCount(parentCount + 1);
+          a += 1;
+        }}
+      >
+        Parent component +1
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setOtherCount(otherCount + 1);
+        }}
+      >
+        Parent component otherCount+1
+      </button>
+    </div>
+  );
+}
+
+export default Parent;
+```
+
+- Because the `useCallback` purpose is to reduce the re-rendering of sub-components, it needs to be used with sub-components `shouldComponentUpdate` or `React.memo` together to make optimization sense.
+- The above is the case when the dependecies are changed infrequently. When the dependencies are changed frequently, `useCallback` the memory effect is not good. It can be used `ref` as a dependency solution.
+
+```js
+function Form() {
+  const [text, updateText] = useState('');
+  const textRef = useRef();
+
+  useEffect(() => {
+    textRef.current = text; // write it to ref
+  });
+
+  const handleSubmit = useCallback(() => {
+    // ref objects remain the same for the lifetime of the component
+    // Read it from ref, the current change will not cause the component to re-render, and the correct value can be obtained inside the function
+    const currentText = textRef.current;
+    alert(currentText);
+  }, [textRef]);
+
+  return (
+    <>
+      <input value={text} onChange={(e) => updateText(e.target.value)} />
+      <ExpensiveTree onSubmit={handleSubmit} />
+    </br>
+  );
+}
+```
+
+<br />
+
+## useRef
+
+```js
+const refContainer = useRef(initialValue);
+```
+
+> `useRef` Returns a mutable ref object whose `.current` properties are initialized to the passed parameter (`initialValue`). The returned ref object remains unchanged for the lifetime of the component
+
+It can be understood as: `useRef` the object created by using has a `current` property, this property is like a box, and everything can be stored, including `DOM` nodes; the returned ref object remains unchanged during the entire life cycle of the component, that is, the existing `current` value is not subject to resetting by the component. The rendering effect always maintains the original reference; at the same time, the change of this property will not trigger the re-rendering of the component; the initial value of this property is `useRef` the parameter
+
+Take a look at the official example
+
+```js
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+  const onButtonClick = () => {
+    // `current` points to the text input element mounted on the DOM
+    inputEl.current.focus();
+  };
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+```
+
+When the `useRef` object is passed to `DOM` the ref attribute of the element, react will store `DOM` reference of the `current` element in the attribute, so that the element current can be directly manipulated through the ref object `DOM`
+
+<br />
+
+## Conclusion
+
+Today we learned about advantage Hooks gives us as a developer. Knowing we can asbtract pieces of logic and control the state in a more conceptual ergonomic way, we have a many ways to approach problems nowadays.
+
+Resources:
+
+<ul>
+
+<li>
+  <a
+    href="https://reactjs.org/docs/hooks-reference.html"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Hooks API Reference
+  </a>
+</li>
+
+<li>
+  <a
+    href="https://dmitripavlutin.com/react-useref-guide/"
+    style="background-image: linear-gradient(transparent 70%,#dbe4ff 0);
+box-sizing: border-box;
+color: #2a5aa7;
+cursor: pointer;
+font-family: Roboto,sans-serif;
+font-weight: 700;
+letter-spacing: .4px;
+line-height: 24px;
+text-decoration: none;width:max-content;a:hover
+{color: #222;}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    The Complete Guide to useRef() and Refs in React
+  </a>
+</li>
+
+</ul>
