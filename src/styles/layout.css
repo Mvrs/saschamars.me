@@ -15,12 +15,13 @@ body {
 }
 
 .prism-code {
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: inherit;
   padding-top: 1rem;
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
-  
+
   @media (max-width: 767px) {
     font-size: 0.8rem;
   }
