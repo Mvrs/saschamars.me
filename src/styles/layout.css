@@ -16,11 +16,20 @@ body {
 
 .prism-code {
   font-size: 14px;
-  /* font-size: 1rem; */
   padding-top: 1rem;
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
+
+
+  @media (max-width: 479px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 0.9rem;
+  }
+
 
   /* float: left; */
   /* min-width: 100%; */
@@ -94,7 +103,6 @@ gatsby-highlight > code[class*='language-'],
   word-spacing: normal;
   word-break: normal;
   overflow-wrap: normal;
-  font-size: 14px;
   line-height: 1.5;
   tab-size: 4;
 
