@@ -142,7 +142,7 @@ const PostTemplate = ({ data: { mdx: post, footerImage }, pageContext }) => {
           <meta property="og:description" content={post.excerpt} />
           <meta
             property="og:image"
-            content={post && post.frontmatter.image?.publicURL}
+            content={"../../images/hero-og.jpeg"}
           />
           <meta property="og:locale" content="en_US" />
           <meta
