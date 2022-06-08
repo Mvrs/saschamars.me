@@ -9,6 +9,8 @@ excerpt: going in depth with the latest hooks React has to offer
 
 Let’s look at a simple example
 
+<br />
+
 ```js
 // Parent.jsx
 import React, { useState } from 'react';
@@ -43,7 +45,11 @@ function Child() {
 }
 ```
 
+<br />
+
 When we click the button of the parent component, the state of the parent component `parentCount` will be updated, causing the parent component to re-render and the child component to re-render; at this time, there is no dependency between our child component and the parent component, so this repetition Rendering can be optimized out, you can use `React.memo` Wrap subcomponents
+
+<br />
 
 ```js {4}
 // Child.jsx
@@ -63,6 +69,8 @@ For externally, the changes that `React.memo` will be checked, the component wil
 
 - `React.memo` Only shallow comparisions are made for complex objects, and the comparison process can be controlled by passing in the second parameter
 - The second parameter is a function that receives props before and after re-rendering
+
+<br />
 
 ```js
 function MyComponent(props) {
@@ -89,6 +97,8 @@ export default React.memo(MyComponent, areEqual);
 - When no dependencies are passed in, it will be recalculated every time the component is refreshed, which should be used as an optimization strategy when the code works properly
 
 Modify our example, note that React.memo the sub-component is wrapped to ensure that the sub-component re-rendering is only affected by the incoming props changes during testing
+
+<br />
 
 ```js
 // Parent.jsx
@@ -133,13 +143,19 @@ function Parent() {
 }
 ```
 
+<br />
+
 > Click the first button, the dependencies are changed, the output is recalculated, and the second button is clicked, because the change is not the dependency of the calculated value, so it will not be recalculated, and the child components will not be re-rendered
 
 <br />
 
 ## useCallback(fn[, DependentArray])
 
-- Used for functions that need to be passed to subcomponents to reduce repeated rendering of subcomponents, the parameters are a funciton and an optional array of dependencies, and return a memoized version of the function
+<br />
+
+Used for functions that need to be passed to subcomponents to reduce repeated rendering of subcomponents, the parameters are a funciton and an optional array of dependencies, and return a memoized version of the function
+
+<br />
 
 ```js
 // Parent.jsx
@@ -186,7 +202,11 @@ function Child(props) {
 export default React.memo(Child);
 ```
 
+<br />
+
 > The child component also re-renders when the second button is clicked to `computedFn` add `useCallback`
+
+<br />
 
 ```js
 // Parent.jsx
@@ -204,9 +224,13 @@ const computedFn = useCallback(() => {
 export default Parent;
 ```
 
+<br />
+
 At this time, click the second button sub-component of the parent component, the sub-component will not be re-rendered, because `useCallback` the dependencies of the sub-component have not changed, and the function of the last rendering is returned, so the props passed into the sub-component have not changed, and the component will not be re-rendered.
 
 - It should be noted that the `useCallback` internal scope of the saved function will not change. Therefore, when the dependency array is empty, `useCallback` the value of the variable in the component obtained through the closure inside the passed-in function will remain unchanged.
+
+<br />
 
 ```js
 import React, { useState, useCallback } from 'react';
@@ -254,8 +278,12 @@ function Parent() {
 export default Parent;
 ```
 
+<br />
+
 - Because the `useCallback` purpose is to reduce the re-rendering of sub-components, it needs to be used with sub-components `shouldComponentUpdate` or `React.memo` together to make optimization sense.
 - The above is the case when the dependecies are changed infrequently. When the dependencies are changed frequently, `useCallback` the memory effect is not good. It can be used `ref` as a dependency solution.
+
+<br />
 
 ```js
 function Form() {
@@ -286,15 +314,25 @@ function Form() {
 
 ## useRef
 
+<br />
+
+The conventional approach way of creating a ref:
+
 ```js
 const refContainer = useRef(initialValue);
 ```
 
+<br />
+
 > `useRef` Returns a mutable ref object whose `.current` properties are initialized to the passed parameter (`initialValue`). The returned ref object remains unchanged for the lifetime of the component
+
+<br />
 
 It can be understood as: `useRef` the object created by using has a `current` property, this property is like a box, and everything can be stored, including `DOM` nodes; the returned ref object remains unchanged during the entire life cycle of the component, that is, the existing `current` value is not subject to resetting by the component. The rendering effect always maintains the original reference; at the same time, the change of this property will not trigger the re-rendering of the component; the initial value of this property is `useRef` the parameter
 
-Take a look at the official example
+Take a look at the official example:
+
+<br />
 
 ```js
 function TextInputWithFocusButton() {
@@ -311,6 +349,8 @@ function TextInputWithFocusButton() {
   );
 }
 ```
+
+<br />
 
 When the `useRef` object is passed to `DOM` the ref attribute of the element, react will store `DOM` reference of the `current` element in the attribute, so that the element current can be directly manipulated through the ref object `DOM`
 

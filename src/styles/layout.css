@@ -35,19 +35,32 @@ body {
   padding: 0.15em 0.2em 0.05em;
   white-space: normal;
 } */
-
-p > code,
+/* p > code, */
 li > code {
-  background: rgb(1, 22, 39);
-  color: rgb(214, 222, 235);
+  /* background: rgb(1, 22, 39); */
+  color: #8338ec !important;
   padding: 0.4em 0.3rem;
 }
+
+p > code {
+  color: rgb(1, 22, 39)
+}
+
+
+p > code::before {
+  content: "`";
+}
+
+p > code::after {
+  content: "`";
+}
+
 .highlight-line {
   display: block;
 }
 
 .gatsby-highlight {
-  font-size: 0.75rem !important;
+  /* font-size: 0.75rem !important; */
   /* position: relative; */
   -webkit-overflow-scrolling: touch;
   overflow: auto;
@@ -91,7 +104,7 @@ gatsby-highlight > code[class*='language-'],
   overflow-wrap: normal;
   line-height: 1.5;
   tab-size: 4;
-  font-size: 0.65rem !important;
+  /* font-size: 0.65rem !important; */
   text-align: left;
   white-space: pre;
   word-wrap: normal;
@@ -143,4 +156,8 @@ gatsby-highlight > code[class*='language-'],
   /* opacity: 0.5; */
   width: calc(1.2em - 4px);
   left: -2px;
+}
+
+.prism-code pre {
+  font-size: 0.875em;
 }

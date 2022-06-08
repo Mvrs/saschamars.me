@@ -19,7 +19,7 @@ const components = {
   },
 };
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   // eslint-disable-next-line object-curly-newline
   const { title, description, keywords, url } = useSiteMetadata();
 
@@ -106,38 +106,35 @@ const Layout = ({ children }) => {
               margin-right: 0px !important;
             }
 
+
+/* 
             pre {
-              border-radius: 0.25rem;
               font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
                 Consolas, 'Liberation Mono', 'Courier New', monospace sans-serif;
               line-height: 1.55rem;
               overflow: auto;
-              /* padding: -0.625rem; */
               font-size: 0.875rem;
               white-space: pre;
-              /* margin-left: 0;
-              margin-right: 0;
-              margin-top: 0;
-              min-width: 100%; */
-            }
+  
+            } */
 
             code {
-              /* color: #c5c8c6; */
               white-space: pre;
               border-radius: 0.3em;
-              background: rgba(255, 229, 100, 0.2);
+              /* background: rgba(255, 229, 100, 0.2); */
+              font-weight: 600;
+              font-size: 0.875em;
               color: #1a1a1a;
               padding: 0.15em 0.2em 0.05em;
               white-space: normal;
-              font-family: SFMono-Regular, Menlo, Monaco, Consolas,
-                'Liberation Mono', 'Courier New', monospace;
-              @media (max-width: 767px) {
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+              /* @media (max-width: 767px) {
                 font-size: 16px;
-              }
+              } */
             }
 
             :not(pre) > code[class*='language-'] {
-              border-radius: 0.3em;
+              /* border-radius: 0.3em; */
               background: rgba(255, 229, 100, 0.2);
               color: #1a1a1a;
               padding: 0.15em 0.2em 0.05em;
@@ -179,6 +176,6 @@ const Layout = ({ children }) => {
       </main>
     </MDXProvider>
   );
-};
+}
 
 export default Layout;
