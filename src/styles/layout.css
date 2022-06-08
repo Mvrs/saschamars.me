@@ -90,7 +90,7 @@ gatsby-highlight > code[class*='language-'],
   overflow-wrap: normal;
   line-height: 1.5;
   tab-size: 4;
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
   text-align: left;
   white-space: pre;
   word-wrap: normal;
