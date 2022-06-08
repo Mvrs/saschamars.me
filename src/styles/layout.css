@@ -19,7 +19,7 @@ body {
   padding-bottom: 1rem;
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
-  font-size: 0.75rem !important;
+  /* font-size: 0.75rem !important; */
 }
 
 .token-line {
@@ -70,6 +70,7 @@ p > code::after {
 .gatsby-highlight pre[class*='language-'] {
   float: left;
   min-width: 100%;
+  font-size: 0.875em !important;
 }
 
 .css-1r3iq0u {
@@ -105,6 +106,7 @@ gatsby-highlight > code[class*='language-'],
   line-height: 1.5;
   tab-size: 4;
   /* font-size: 0.65rem !important; */
+  font-size: 0.875em !important;
   text-align: left;
   white-space: pre;
   word-wrap: normal;
@@ -124,7 +126,7 @@ gatsby-highlight > code[class*='language-'],
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  display: inline;
+  /* display: inline; */
 }
 
 .line-number-style::before {
@@ -158,6 +160,3 @@ gatsby-highlight > code[class*='language-'],
   left: -2px;
 }
 
-.prism-code pre {
-  font-size: 0.875em;
-}
