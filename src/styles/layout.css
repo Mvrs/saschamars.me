@@ -28,13 +28,6 @@ body {
   /* height: 25px; */
 }
 
-/* :not(pre) > code[class*='language-'] {
-  border-radius: 0.3em;
-  background: rgba(255, 229, 100, 0.2);
-  color: #1a1a1a;
-  padding: 0.15em 0.2em 0.05em;
-  white-space: normal;
-} */
 /* p > code, */
 li > code {
   /* background: rgb(1, 22, 39); */
@@ -71,6 +64,10 @@ p > code::after {
   float: left;
   min-width: 100%;
   font-size: 0.875em !important;
+  /* @media (max-width: 326px) {
+    border-radius: 0px;
+  } */
+  
 }
 
 .css-1r3iq0u {
@@ -98,7 +95,7 @@ blockquote.css-1avyp1d  {
   border-bottom-right-radius: 0.3rem;
 }
 
-gatsby-highlight > code[class*='language-'],
+.gatsby-highlight > code[class*='language-'],
 .gatsby-highlight > pre[class*='language-'] {
   word-spacing: normal;
   word-break: normal;
@@ -113,10 +110,23 @@ gatsby-highlight > code[class*='language-'],
   line-height: 1.5;
   hyphens: none;
   font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  border-radius: 0.3rem;
 }
 
+
+@media (max-width: 767px) {
+  gatsby-highlight > code[class*='language-'],
+.gatsby-highlight > pre[class*='language-'] {
+    border-radius: 0px;
+  }
+}
+
+/* gatsby-highlight > code[class*='language-'],
+.gatsby-highlight > pre[class*='language-'] */
+
+
 .line-number-style {
-  display: inline-block;
+  /* display: inline-block; */
   padding-left: 1em;
   padding-right: 1em;
   width: 1.2em;
@@ -126,7 +136,7 @@ gatsby-highlight > code[class*='language-'],
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  /* display: inline; */
+  display: inline;
 }
 
 .line-number-style::before {

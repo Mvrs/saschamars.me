@@ -7,6 +7,7 @@ import Header from './header';
 import { Code } from './mdx/code';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 import '../styles/layout.css';
+import { bpMaxSM } from '../lib/breakpoints';
 
 const components = {
   pre: (preProps) => {
@@ -43,7 +44,7 @@ function Layout({ children }) {
             font-family: Averta, sans-serif;
             background-color: #fafafc;
 
-            font-size: 18px;
+            /* font-size: 18px; */
             line-height: 1.4rem;
 
             /* remove margin for the main dive that Gatsby mounts into */
@@ -122,7 +123,7 @@ function Layout({ children }) {
 
             code {
               white-space: pre;
-              border-radius: 0.3em;
+              /* border-radius: 0.3rem; */
               /* background: rgba(255, 229, 100, 0.2); */
               font-weight: 600;
               font-size: 0.875em;
@@ -130,17 +131,12 @@ function Layout({ children }) {
               padding: 0.15em 0.2em 0.05em;
               white-space: normal;
               font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+              /* ${bpMaxSM} {
+                font-size: 50px;
+              } */
               /* @media (max-width: 767px) {
                 font-size: 16px;
               } */
-            }
-
-            :not(pre) > code[class*='language-'] {
-              /* border-radius: 0.3em; */
-              background: rgba(255, 229, 100, 0.2);
-              color: #1a1a1a;
-              padding: 0.15em 0.2em 0.05em;
-              white-space: normal;
             }
           }
         `}
