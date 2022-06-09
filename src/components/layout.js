@@ -44,7 +44,7 @@ function Layout({ children }) {
             font-family: Averta, sans-serif;
             background-color: #fafafc;
 
-            /* font-size: 18px; */
+            font-size: 18px;
             line-height: 1.4rem;
 
             /* remove margin for the main dive that Gatsby mounts into */

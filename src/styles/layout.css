@@ -63,7 +63,7 @@ p > code::after {
 .gatsby-highlight pre[class*='language-'] {
   float: left;
   min-width: 100%;
-  font-size: 0.875em !important;
+  /* font-size: 0.875em !important; */
   /* @media (max-width: 326px) {
     border-radius: 0px;
   } */
@@ -103,7 +103,7 @@ blockquote.css-1avyp1d  {
   line-height: 1.5;
   tab-size: 4;
   /* font-size: 0.65rem !important; */
-  font-size: 0.875em !important;
+  /* font-size: 0.875em !important; */
   text-align: left;
   white-space: pre;
   word-wrap: normal;
@@ -118,6 +118,19 @@ blockquote.css-1avyp1d  {
   gatsby-highlight > code[class*='language-'],
 .gatsby-highlight > pre[class*='language-'] {
     border-radius: 0px;
+    /* font-size: 0.875rem; */
+    font-size: 14px;
+    /* font-size: 40px !important; */
+  }
+}
+
+@media (max-width: 1023px) {
+  gatsby-highlight > code[class*='language-'],
+.gatsby-highlight > pre[class*='language-'] {
+    /* border-radius: 0px; */
+    /* font-size: 0.875rem; */
+    font-size: 14px;
+    /* font-size: 40px !important; */
   }
 }
 
