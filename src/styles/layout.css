@@ -76,12 +76,6 @@ p > code::after {
   margin-right: -20px;
 }
 
-@media (max-width: 767px) {
-  .css-1r3iq0u.gatsby-highlight {
-    font-size: 50px !important;
-  }
-}
-
 .css-1avyp1d p {
   color: rgb(87, 62, 222);
   font-family: inherit;
@@ -120,7 +114,7 @@ blockquote.css-1avyp1d  {
 .gatsby-highlight > pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 10px !important;
+    font-size: 8px !important;
     /* font-size: 40px !important; */
   }
 }
@@ -139,7 +133,7 @@ blockquote.css-1avyp1d  {
   pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 10px;
+    font-size: 8px;
     /* font-size: 40px !important; */
   }
 }
