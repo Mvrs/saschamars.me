@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 import MarlonLaptop from '../assets/marlon-laptop.svg';
+import { bpMaxSM } from '../lib/breakpoints';
 
 const fadeCard = keyframes`
   from {
@@ -264,7 +265,7 @@ letter-spacing: .4px;
 line-height: 1.5;
  */
 
-const Intro = () => {
+function Intro() {
   return (
     <HeroContainer>
       <IntroContainer>
@@ -279,19 +280,15 @@ const Intro = () => {
             css={css`
               font-size: 2.3rem;
 
-              @media (max-width: 479px) {
-                font-size: 2rem;
-                text-align: left;
-              }
-              @media (max-width: 991px) {
-                font-size: 2rem;
+              ${bpMaxSM} {
+                font-size: 1.7rem;
                 text-align: left;
               }
             `}
           >
             Hi, I'm Marlon.
             <br />
-            I'm a frontend engineer.
+            I'm a software engineer @Fullcourt 🏀
           </IntroHeaderText>
           <IntroStyleBar
             css={css`
@@ -328,9 +325,7 @@ const Intro = () => {
               }
             `}
           >
-            I build applications on the web with JavaScript, TypeScript, React,
-            and Node.js. Making sure websites are performant, accessible and
-            look great is what I enjoy.
+            Currently, we're building a digital Basketball Community. Designed to bring basketball enthusiasts together.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -464,7 +459,19 @@ const Intro = () => {
             >
               projects
             </a>
-            &nbsp;I'm building, or contact me on&nbsp;
+            &nbsp;I'm building, &nbsp; 
+            checkout&nbsp; 
+            <a
+              href="https://www.50four.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+             Fullcourt
+            </a>
+            &nbsp;or contact me on&nbsp;
             <a
               href="https://twitter.com/saschamars"
               target="_blank"
@@ -504,6 +511,6 @@ const Intro = () => {
       </IntroContainer>
     </HeroContainer>
   );
-};
+}
 
 export default Intro;

@@ -7,9 +7,10 @@ tags: ['JavaScript', 'React']
 excerpt: going in depth with the latest hooks React has to offer
 ---
 
-Let’s look at a simple example
+Since the adoption of `Hooks` developers found a new way of sharing logic across multiple siblings. With a less cumbersome approach than the typical **Class** pattern the behavior of passing down props are less convoluted. Hooks which are functions
+making the perfect mechanism for code reuse and sharing amongst the community.
 
-<br />
+For example:
 
 ```js
 // Parent.jsx
@@ -60,7 +61,7 @@ export default React.memo(Child);
 
 <br />
 
-## React.memo(Comp[, fn[)
+## React.memo(Comp[, fn])
 
 - Used to reduce re-rendering of child components
 - `React.memo` It is a higher-order component (the parameter is the component, and the **function** whose return value is the new component is the higher-order component)
@@ -100,7 +101,7 @@ Modify our example, note that React.memo the sub-component is wrapped to ensure 
 
 <br />
 
-```js
+```js {15-17}
 // Parent.jsx
 import React, { useState, useMemo } from 'react';
 import Child from '../Child';
@@ -151,9 +152,7 @@ function Parent() {
 
 ## useCallback(fn[, DependentArray])
 
-<br />
-
-Used for functions that need to be passed to subcomponents to reduce repeated rendering of subcomponents, the parameters are a funciton and an optional array of dependencies, and return a memoized version of the function
+- Used for functions that need to be passed to subcomponents to reduce repeated rendering of subcomponents, the parameters are a funciton and an optional array of dependencies, and return a memoized version of the function
 
 <br />
 
@@ -208,7 +207,7 @@ export default React.memo(Child);
 
 <br />
 
-```js
+```js {6-9}
 // Parent.jsx
 import React, { useState, useCallback } from 'react';
 
@@ -285,7 +284,7 @@ export default Parent;
 
 <br />
 
-```js
+```js {3-14}
 function Form() {
   const [text, updateText] = useState('');
   const textRef = useRef();
@@ -313,8 +312,6 @@ function Form() {
 <br />
 
 ## useRef
-
-<br />
 
 The conventional approach way of creating a ref:
 
