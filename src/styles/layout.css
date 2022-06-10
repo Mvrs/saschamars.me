@@ -138,9 +138,9 @@ blockquote.css-1avyp1d  {
   }
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 1023px) {
   pre[class*='language-'] {
-    border-radius: 0px;
+    /* border-radius: 0px; */
     /* font-size: 0.875rem; */
     font-size: 14px;
     /* font-size: 40px !important; */
