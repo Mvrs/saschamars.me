@@ -7,9 +7,10 @@ tags: ['JavaScript', 'React']
 excerpt: going in depth with the latest hooks React has to offer
 ---
 
-Let’s look at a simple example
+Since the adoption of `Hooks` develpers found a new way of sharing logic across multiple siblings. With a less cumbersome approach than the typical **Class** pattern the behavior of passing down props are less convoluted. Hooks which are functions
+making the perfect mechanism for code reuse and sharing amongst the community.
 
-<br />
+For example:
 
 ```js
 // Parent.jsx
@@ -100,7 +101,7 @@ Modify our example, note that React.memo the sub-component is wrapped to ensure 
 
 <br />
 
-```js
+```js {15-17}
 // Parent.jsx
 import React, { useState, useMemo } from 'react';
 import Child from '../Child';
@@ -206,7 +207,7 @@ export default React.memo(Child);
 
 <br />
 
-```js
+```js {6-9}
 // Parent.jsx
 import React, { useState, useCallback } from 'react';
 
@@ -283,7 +284,7 @@ export default Parent;
 
 <br />
 
-```js
+```js {3-14}
 function Form() {
   const [text, updateText] = useState('');
   const textRef = useRef();
