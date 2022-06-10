@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 import MarlonLaptop from '../assets/marlon-laptop.svg';
+import { bpMaxSM } from '../lib/breakpoints';
 
 const fadeCard = keyframes`
   from {
@@ -264,7 +265,7 @@ letter-spacing: .4px;
 line-height: 1.5;
  */
 
-const Intro = () => {
+function Intro() {
   return (
     <HeroContainer>
       <IntroContainer>
@@ -279,12 +280,8 @@ const Intro = () => {
             css={css`
               font-size: 2.3rem;
 
-              @media (max-width: 479px) {
-                font-size: 2rem;
-                text-align: left;
-              }
-              @media (max-width: 991px) {
-                font-size: 2rem;
+              ${bpMaxSM} {
+                font-size: 1.7rem;
                 text-align: left;
               }
             `}
@@ -514,6 +511,6 @@ const Intro = () => {
       </IntroContainer>
     </HeroContainer>
   );
-};
+}
 
 export default Intro;
