@@ -175,11 +175,22 @@ blockquote.css-1avyp1d  {
   left: 0;
 }
 
-.highlight-line > span[class*='line-number-style'] {
-  padding-left: 5px;
-  padding-right: 14px;
-  /* padding-left: 0px; */
-  /* padding-right: 10px; */
+@media only screen and (min-width: 768px) {
+  .highlight-line > span[class*='line-number-style'] {
+    padding-left: 11px;
+    padding-right: 26px;
+    /* padding-left: 0px; */
+    /* padding-right: 10px; */
+
+  }
+    
+}
+
+@media only screen and (max-width: 767px) {
+  .highlight-line>span[class*=line-number-style] {
+    padding-left: 5px;
+    padding-right: 14px;
+  }
 }
 
 .token-line.highlight-line {
