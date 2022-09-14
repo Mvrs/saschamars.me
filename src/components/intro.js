@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+import React from 'react';
 import MarlonLaptop from '../assets/marlon-laptop.svg';
 import { bpMaxSM } from '../lib/breakpoints';
 
@@ -325,7 +325,7 @@ function Intro() {
               }
             `}
           >
-            Currently, we're building a digital Basketball Community. Designed to bring basketball enthusiasts together.
+            Fullcourt is a pickup basketball app for finding players, courts, and organizing games. Our business is driven by an ad platform for marketing goods and services to our users.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -363,7 +363,7 @@ function Intro() {
               }
             `}
           >
-            I believe in Growth, Humility, and being a Student at heart.
+            <b>About me</b>: I believe in Growth, Humility, and being a Student at heart.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -459,8 +459,8 @@ function Intro() {
             >
               projects
             </a>
-            &nbsp;I'm building, &nbsp; 
-            checkout&nbsp; 
+            &nbsp;I'm building, &nbsp;
+            checkout&nbsp;
             <a
               href="https://www.50four.com/"
               target="_blank"
@@ -469,7 +469,7 @@ function Intro() {
                 color: #db99b9;
               `}
             >
-             Fullcourt
+              Fullcourt
             </a>
             &nbsp;or contact me on&nbsp;
             <a
