@@ -144,6 +144,12 @@ function Layout({ children }) {
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" href={url} />
+        <meta name="twitter:creator" content="@saschamars" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content="../../images/hero-og.jpeg" />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta property="og:title" content={title} />
