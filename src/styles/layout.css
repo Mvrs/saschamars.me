@@ -195,7 +195,9 @@ blockquote.css-1avyp1d  {
     font-size: 9px !important;
   }
 }
-
+.line-number-style {
+  font-size: 9px !important;
+}
 
 @media only screen and (max-width: 767px) {
   .line-number-style {
