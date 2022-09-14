@@ -186,10 +186,20 @@ blockquote.css-1avyp1d  {
     
 }
 
+
+
 @media only screen and (max-width: 767px) {
   .highlight-line>span[class*=line-number-style] {
     padding-left: 5px;
     padding-right: 14px;
+    font-size: 8px !important;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .line-number-style {
+    font-size: 8px !important;
   }
 }
 
