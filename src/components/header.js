@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
-import Link from './link';
+import styled from '@emotion/styled';
+import React from 'react';
 import MarlonJohnsonIcon from '../assets/marlon-johnson.svg';
-import Container from './container';
-import MobileNav from './mobile-nav';
 import { bpMaxSM } from '../lib/breakpoints';
+import Container from './container';
+import Link from './link';
+import MobileNav from './mobile-nav';
 
 const grow = keyframes`
 
@@ -179,7 +179,7 @@ function Header({
             css={css`
               font-size: 1rem;
               line-height: 1.25;
-              display: flex;
+              display: none;
               margin-top: 0;
               align-items: center;
               .mobile-nav {
