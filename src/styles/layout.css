@@ -98,7 +98,7 @@ blockquote.css-1avyp1d  {
   tab-size: 4;
   /* font-size: 14px; */
   /* font-size: 0.65rem !important; */
-  font-size: 0.75rem !important;
+  font-size: 0.7rem !important;
   /* font-size: 0.875em !important; */
   text-align: left;
   white-space: pre;
@@ -179,7 +179,7 @@ blockquote.css-1avyp1d  {
 @media only screen and (min-width: 768px) {
   .highlight-line > span[class*='line-number-style'] {
     padding-left: 11px;
-    padding-right: 25px;
+    padding-right: 21.8px;
     /* padding-left: 0px; */
     /* padding-right: 10px; */
 
