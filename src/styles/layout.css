@@ -72,7 +72,7 @@ p > code::after {
 
 .css-1r3iq0u {
   overflow-x: auto;
-
+  border-radius: 0.375rem;
   /* margin-left: -20px;
   margin-right: -20px; */
 }
@@ -99,7 +99,7 @@ blockquote.css-1avyp1d  {
   tab-size: 4;
   /* font-size: 14px; */
   /* font-size: 0.65rem !important; */
-  font-size: 0.79rem !important;
+  /* font-size: 0.79rem !important; */
   /* font-size: 0.875em !important; */
   text-align: left;
   white-space: pre;
@@ -124,7 +124,8 @@ blockquote.css-1avyp1d  {
 @media (max-width: 1023px) {
   gatsby-highlight > code[class*='language-'],
 .gatsby-highlight > pre[class*='language-'] {
-    border-radius: 0px;
+    border-radius: 0.375rem;
+    /* border-radius: 0px; */
     /* font-size: 0.875rem; */
     font-size: 14px;
     /* font-size: 40px !important; */
@@ -180,7 +181,8 @@ blockquote.css-1avyp1d  {
 @media only screen and (min-width: 768px) {
   .highlight-line > span[class*='line-number-style'] {
     padding-left: 11px;
-    padding-right: 26.8px;
+    padding-right: 26.1px;
+;
     /* padding-left: 0px; */
     /* padding-right: 10px; */
 
