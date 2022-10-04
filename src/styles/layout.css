@@ -98,6 +98,7 @@ blockquote.css-1avyp1d  {
   tab-size: 4;
   /* font-size: 14px; */
   /* font-size: 0.65rem !important; */
+  font-size: 0.75rem !important;
   /* font-size: 0.875em !important; */
   text-align: left;
   white-space: pre;
@@ -114,7 +115,7 @@ blockquote.css-1avyp1d  {
 .gatsby-highlight > pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 8.5px !important;
+    /* font-size: 8.5px !important; */
     /* font-size: 40px !important; */
   }
 }
@@ -178,7 +179,7 @@ blockquote.css-1avyp1d  {
 @media only screen and (min-width: 768px) {
   .highlight-line > span[class*='line-number-style'] {
     padding-left: 11px;
-    padding-right: 26px;
+    padding-right: 25px;
     /* padding-left: 0px; */
     /* padding-right: 10px; */
 
@@ -190,16 +191,22 @@ blockquote.css-1avyp1d  {
 
 @media only screen and (max-width: 767px) {
   .highlight-line>span[class*=line-number-style] {
-    padding-left: 5px;
-    padding-right: 15.5px;
-    font-size: 8.5px !important;
+    padding-left: 11px;
+    padding-right: 24.5px;
+    font-size: 0.75rem !important;
   }
 }
 
+/* @media only screen and (max-width: 767px) {
+  .highlight-line>span[class*=line-number-style] {
+    padding-left: 11px;
+    padding-right: 24.5px;
+  }
+} */
 
 @media only screen and (max-width: 767px) {
   .line-number-style {
-       font-size: 8.5px !important;
+       font-size: 0.75rem !important;
   }
 }
 
