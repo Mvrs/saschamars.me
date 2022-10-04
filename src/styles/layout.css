@@ -143,7 +143,7 @@ blockquote.css-1avyp1d {
     border-radius: 0.375rem;
     /* border-radius: 0px; */
     /* font-size: 0.875rem; */
-    font-size: 14px;
+    /* font-size: 14px; */
     /* font-size: 40px !important; */
   }
 }
@@ -162,7 +162,7 @@ blockquote.css-1avyp1d {
 
 @media (max-width: 767px) {
   pre[class*='language-'] {
-    border-radius: 0px;
+    /* border-radius: 0px; */
     /* font-size: 0.875rem; */
     /* font-size: 0.75rem !important; */
     /* font-size: 40px !important; */
