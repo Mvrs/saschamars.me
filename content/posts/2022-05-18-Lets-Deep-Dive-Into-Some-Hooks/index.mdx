@@ -79,12 +79,13 @@ function MyComponent(props) {
 }
 function areEqual(prevProps, nextProps) {
   /*
-If nextProps is passed to the render method, the return result is the same as
+  If nextProps is passed to the render method, the return result is the same as
   Returns true if the result of passing prevProps to the render method is consistent,
   else return false
   */
 }
 export default React.memo(MyComponent, areEqual);
+
 ```
 
 <br />
@@ -241,37 +242,41 @@ function Parent() {
   const [otherCount, setOtherCount] = useState(0);
   console.log('Parent component re-rendering --------------');
 
-  const computedFn = useCallback(() => {
+ const computedFn = useCallback(() => {
     // The dependency is empty, the printed value here is always unchanged;
-    // Because the entire component will be re-rendered when the component state changes, and here parentCount always takes the value of the first rendered version
-    console.log(parentCount);
-    // The printed value here will be updated in real time, because the variable is defined directly outside the component and is not affected by the re-rendering of the component
-    console.log(a);
-    return parentCount + 1;
-  }, []);
+    // Because the entire component will be re-rendered when the component
+    // state changes,
+    // and here parentCount always takes the value of the first rendered version
+   console.log(parentCount);
+    // The printed value here will be updated in real time, because the variable
+    // is defined directly outside the component and is not affected
+    // by the re-rendering of the component
+   console.log(a);
+   return parentCount + 1;
+ }, []);
 
-  return (
-    <div style={{ background: 'lightseagreen' }}>
-      <Child parentCount={parentCount} computedFn={computedFn} />
-      <button
-        type="button"
-        onClick={() => {
-          setParentCount(parentCount + 1);
-          a += 1;
-        }}
-      >
-        Parent component +1
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setOtherCount(otherCount + 1);
-        }}
-      >
-        Parent component otherCount+1
-      </button>
-    </div>
-  );
+ return (
+  <div style={{ background: 'lightseagreen' }}>
+    <Child parentCount={parentCount} computedFn={computedFn} />
+    <button
+      type="button"
+      onClick={() => {
+        setParentCount(parentCount + 1);
+        a += 1;
+      }}
+    >
+      Parent component +1
+    </button>
+    <button
+      type="button"
+      onClick={() => {
+        setOtherCount(otherCount + 1);
+      }}
+    >
+      Parent component otherCount+1
+    </button>
+  </div>
+);
 }
 
 export default Parent;
@@ -295,17 +300,18 @@ function Form() {
 
   const handleSubmit = useCallback(() => {
     // ref objects remain the same for the lifetime of the component
-    // Read it from ref, the current change will not cause the component to re-render, and the correct value can be obtained inside the function
+    // Read it from ref, the current change will not cause the component
+    // to re-render, and the correct value can be obtained inside the function
     const currentText = textRef.current;
     alert(currentText);
   }, [textRef]);
 
-  return (
-    <>
-      <input value={text} onChange={(e) => updateText(e.target.value)} />
-      <ExpensiveTree onSubmit={handleSubmit} />
-    </br>
-  );
+ return (
+  <>
+    <input value={text} onChange={(e) => updateText(e.target.value)} />
+    <ExpensiveTree onSubmit={handleSubmit} />
+  </>
+ );
 }
 ```
 
