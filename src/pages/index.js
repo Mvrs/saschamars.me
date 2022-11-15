@@ -1,11 +1,8 @@
 import React from 'react';
-import { css } from '@emotion/react';
 
-import projects from '../../content/data/projects';
-import Layout from '../components/layout';
-import Intro from '../components/intro';
-import Project from '../components/projects/project';
 import Footer from '../components/footer/footer';
+import Intro from '../components/intro';
+import Layout from '../components/layout';
 
 const Home = () => {
   return (
@@ -13,7 +10,7 @@ const Home = () => {
       <Layout>
         <Intro />
 
-        <section>
+        {/* <section>
           <h1
             css={css`
               padding-top: 2.5rem;
@@ -34,7 +31,7 @@ const Home = () => {
               <Project key={project.title} project={project} />
             ))}
           </div>
-        </section>
+        </section> */}
         <Footer />
       </Layout>
     </>
