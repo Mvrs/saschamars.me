@@ -440,7 +440,7 @@ function Intro() {
           >
             You can check out my&nbsp;
             <a
-              href="/blog"
+              href="https://inexpensive-begonia-923.notion.site/My-Technical-Jargons-c65c4c6c1ad74bf2bb309639cce7c1ca"
               rel="noopener noreferrer"
               css={css`
                 color: #db99b9;
