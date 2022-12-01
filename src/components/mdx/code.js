@@ -3,9 +3,9 @@
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/prefer-default-export */
-import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
 
 const RE = /{([\d,-]+)}/;
 
@@ -48,8 +48,8 @@ export function Code({ codeString, language, metastring, ...props }) {
                 }
 
                 return (
-                  <div {...lineProps}>
-                    <span className="line-number-style">{i + 1}</span>
+                  <div {...lineProps} style={{ paddingLeft: 20 }}>
+                    {/* <span className="line-number-style">{i + 1}</span> */}
                     {line.map((token, key) => (
                       <span {...getTokenProps({ token, key })} />
                     ))}
