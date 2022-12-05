@@ -241,19 +241,20 @@ function Parent() {
   const [parentCount, setParentCount] = useState(0);
   const [otherCount, setOtherCount] = useState(0);
   console.log('Parent component re-rendering --------------');
+  
+  const computedFn = useCallback(() => {
 
- const computedFn = useCallback(() => {
     // The dependency is empty, the printed value here is always unchanged;
     // Because the entire component will be re-rendered when the component
     // state changes,
     // and here parentCount always takes the value of the first rendered version
-   console.log(parentCount);
+    console.log(parentCount);
     // The printed value here will be updated in real time, because the variable
     // is defined directly outside the component and is not affected
     // by the re-rendering of the component
-   console.log(a);
-   return parentCount + 1;
- }, []);
+    console.log(a);
+    return parentCount + 1;
+  }, []);
 
  return (
   <div style={{ background: 'lightseagreen' }}>
@@ -276,7 +277,7 @@ function Parent() {
       Parent component otherCount+1
     </button>
   </div>
-);
+  );
 }
 
 export default Parent;
@@ -306,12 +307,12 @@ function Form() {
     alert(currentText);
   }, [textRef]);
 
- return (
+  return (
   <>
     <input value={text} onChange={(e) => updateText(e.target.value)} />
     <ExpensiveTree onSubmit={handleSubmit} />
   </>
- );
+  );
 }
 ```
 

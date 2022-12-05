@@ -96,6 +96,7 @@ blockquote.css-1avyp1d {
   overflow-wrap: normal;
   line-height: 1.5;
   tab-size: 4;
+  /* font-size: 12px !important; */
   /* font-size: 14px; */
   /* font-size: 0.65rem !important; */
   /* font-size: 0.875em !important; */
@@ -115,7 +116,7 @@ blockquote.css-1avyp1d {
   .gatsby-highlight>pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 13.6px !important;
+    /* font-size: 10px !important; */
     /* font-size: 40px !important; */
   }
 }
@@ -126,7 +127,7 @@ blockquote.css-1avyp1d {
   .gatsby-highlight>pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 14px;
+    /* font-size: 12px !important; */
     /* font-size: 40px !important; */
   }
 }
@@ -135,7 +136,7 @@ blockquote.css-1avyp1d {
   pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 8px;
+    font-size: 9px;
     /* font-size: 40px !important; */
   }
 }
@@ -190,13 +191,13 @@ blockquote.css-1avyp1d {
 
 
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   .highlight-line>span[class*=line-number-style] {
     padding-left: 5px;
     padding-right: 15.5px;
-    font-size: 13.6px !important;
+    font-size: 12px !important;
   }
-}
+} */
 
 
 /* @media only screen and (max-width: 767px) {
