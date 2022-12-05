@@ -96,7 +96,7 @@ blockquote.css-1avyp1d {
   overflow-wrap: normal;
   line-height: 1.5;
   tab-size: 4;
-  /* font-size: 12.6px; */
+  /* font-size: 12px !important; */
   /* font-size: 14px; */
   /* font-size: 0.65rem !important; */
   /* font-size: 0.875em !important; */
@@ -127,7 +127,7 @@ blockquote.css-1avyp1d {
   .gatsby-highlight>pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 12.6px !important;
+    font-size: 12px !important;
     /* font-size: 40px !important; */
   }
 }
