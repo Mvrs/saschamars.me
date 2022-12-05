@@ -404,7 +404,6 @@ function Intro() {
             When I'm not coding, you can catch me stock trading, making
             electronic music, or eating pizza 🍕.
           </IntroHeaderText>
-
         </IntroHeader>
         <ImageContainer>
           <MarlonLaptop
