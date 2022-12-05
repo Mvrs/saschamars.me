@@ -404,6 +404,95 @@ function Intro() {
             When I'm not coding, you can catch me stock trading, making
             electronic music, or eating pizza 🍕.
           </IntroHeaderText>
+          <IntroHeaderText
+            css={css`
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #60656c;
+              font-weight: 400;
+              @media (max-width: 479px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+            `}
+          >
+            You can check out my&nbsp;
+            <a
+              href="/blog"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+              blog,
+            </a>
+            &nbsp;explore&nbsp;
+            <a
+              href="https://github.com/Mvrs"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+              projects
+            </a>
+            &nbsp;I'm building, &nbsp;
+            checkout&nbsp;
+            <a
+              href="https://www.50four.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={css`
+                color: #db99b9;
+              `}
+            >
+              Fullcourt
+            </a>
+            &nbsp;or contact me on&nbsp;
+            <a
+              href="https://twitter.com/saschamars"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={css`
+                background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                box-sizing: border-box;
+                color: #2b90d9;
+                cursor: pointer;
+                letter-spacing: 0.4px;
+                text-decoration: none;
+
+                :hover {
+                  background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                  color: #555;
+                }
+              `}
+            >
+              Twitter.
+            </a>
+          </IntroHeaderText>
         </IntroHeader>
         <ImageContainer>
           <MarlonLaptop

@@ -179,7 +179,7 @@ function Header({
             css={css`
               font-size: 1rem;
               line-height: 1.25;
-              display: none;
+              display: flex;
               margin-top: 0;
               align-items: center;
               .mobile-nav {
