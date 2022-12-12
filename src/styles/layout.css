@@ -72,8 +72,7 @@ p>code::after {
 
 .css-1r3iq0u {
   overflow: auto;
-  margin-left: -20px;
-  margin-right: -20px;
+  overscroll-behavior-x: contain;
 }
 
 .css-1avyp1d p {
@@ -85,28 +84,29 @@ p>code::after {
 blockquote.css-1avyp1d {
   background-color: rgba(87, 62, 222, 0.2);
   padding: 0.5rem 1rem;
-  border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
 }
 
 .gatsby-highlight>code[class*='language-'],
 .gatsby-highlight>pre[class*='language-'] {
-  word-spacing: normal;
-  word-break: normal;
-  overflow-wrap: normal;
+  word-wrap: normal;
+  border-radius: 0.1rem;
+  border: 1px solid #A593E0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
   line-height: 1.5;
+  overflow-wrap: normal;
+  -o-tab-size: 4;
   tab-size: 4;
-  /* font-size: 14px; */
-  /* font-size: 0.65rem !important; */
-  /* font-size: 0.875em !important; */
   text-align: left;
   white-space: pre;
-  word-wrap: normal;
-  line-height: 1.5;
-  hyphens: none;
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  border-radius: 0.3rem;
+  word-break: normal;
+  word-spacing: normal;
 }
+
 
 
 @media (max-width: 767px) {
