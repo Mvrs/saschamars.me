@@ -115,7 +115,7 @@ blockquote.css-1avyp1d {
   .gatsby-highlight>pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 13.6px !important;
+    font-size: 0.8rem !important;
     /* font-size: 40px !important; */
   }
 }
@@ -135,7 +135,7 @@ blockquote.css-1avyp1d {
   pre[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 8px;
+    font-size: 0.8rem;
     /* font-size: 40px !important; */
   }
 }
@@ -144,7 +144,7 @@ blockquote.css-1avyp1d {
   pre[class*='language-'] {
     /* border-radius: 0px; */
     /* font-size: 0.875rem; */
-    font-size: 14px;
+    font-size: 0.8rem;
     /* font-size: 40px !important; */
   }
 }
