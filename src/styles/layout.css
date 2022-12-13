@@ -14,6 +14,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* code {
+  font-size: 0.9rem;
+} */
+
 .prism-code {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -60,7 +64,7 @@ p>code::after {
   min-width: 100%;
 }
 
-.gatsby-highlight pre[class*='language-'] {
+.gatsby-highlight code[class*='language-'] {
   float: left;
   min-width: 100%;
   /* font-size: 0.875em !important; */
@@ -75,10 +79,30 @@ p>code::after {
   overscroll-behavior-x: contain;
 }
 
+
+
+
 .css-1avyp1d p {
   color: rgb(87, 62, 222);
   font-family: inherit;
   font-style: normal;
+}
+
+p.css-1avyp1d @media (min-width: 767px) {
+  font-size: 1.1rem !important;
+}
+
+p.css-1avyp1d @media (max-width: 1023px) {
+  font-size: 1.62rem !important;
+}
+
+
+h1.css-vblx68-PostTemplate {
+  font-size: 2rem;
+}
+
+h2.css-1avyp1d {
+  font-size: 1.5rem;
 }
 
 blockquote.css-1avyp1d {
@@ -88,8 +112,7 @@ blockquote.css-1avyp1d {
   border-top-right-radius: 0.1rem;
 }
 
-.gatsby-highlight>code[class*='language-'],
-.gatsby-highlight>pre[class*='language-'] {
+.gatsby-highlight>code[class*='language-'] {
   word-wrap: normal;
   border-radius: 0.1rem;
   border: 1px solid #A593E0;
@@ -111,28 +134,26 @@ blockquote.css-1avyp1d {
 
 @media (max-width: 767px) {
 
-  gatsby-highlight>code[class*='language-'],
-  .gatsby-highlight>pre[class*='language-'] {
+  .gatsby-highlight>code[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 0.8rem !important;
+    font-size: 0.825rem !important;
     /* font-size: 40px !important; */
   }
 }
 
 @media (max-width: 1023px) {
 
-  gatsby-highlight>code[class*='language-'],
-  .gatsby-highlight>pre[class*='language-'] {
+  .gatsby-highlight>code[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
-    font-size: 14px;
+    font-size: 0.875rem;
     /* font-size: 40px !important; */
   }
 }
 
 @media (max-width: 767px) {
-  pre[class*='language-'] {
+  code[class*='language-'] {
     border-radius: 0px;
     /* font-size: 0.875rem; */
     font-size: 0.8rem;
@@ -140,8 +161,8 @@ blockquote.css-1avyp1d {
   }
 }
 
-@media (min-width: 1023px) {
-  pre[class*='language-'] {
+@media (max-width: 1023px) {
+  code[class*='language-'] {
     /* border-radius: 0px; */
     /* font-size: 0.875rem; */
     font-size: 0.8rem;

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Global, css } from '@emotion/react';
-import Helmet from 'react-helmet';
+import { css, Global } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { preToCodeBlock } from 'mdx-utils';
+import React from 'react';
+import Helmet from 'react-helmet';
+import useSiteMetadata from '../hooks/use-sitemetadata';
+import { bpMaxSM } from '../lib/breakpoints';
+import '../styles/layout.css';
 import Header from './header';
 import { Code } from './mdx/code';
-import useSiteMetadata from '../hooks/use-sitemetadata';
-import '../styles/layout.css';
-import { bpMaxSM } from '../lib/breakpoints';
 
 const components = {
   pre: (preProps) => {
@@ -44,7 +44,7 @@ function Layout({ children }) {
             font-family: Averta, sans-serif;
             background-color: #fafafc;
 
-            font-size: 18px;
+            /* font-size: 18px; */
             line-height: 1.4rem;
 
             /* remove margin for the main dive that Gatsby mounts into */
@@ -108,6 +108,9 @@ function Layout({ children }) {
             }
 
 
+
+
+
 /* 
             pre {
               font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
@@ -138,6 +141,12 @@ function Layout({ children }) {
                 font-size: 16px;
               } */
             }
+
+            .gatsby-highlight>code[class*='language-'] {
+              font-weight: 500;
+            }
+
+    
           }
         `}
       />

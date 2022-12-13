@@ -39,7 +39,7 @@ export function Code({ codeString, language, metastring, ...props }) {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="css-1r3iq0u">
           <div className="gatsby-highlight" data-language={language}>
-            <pre className={className} style={style}>
+            <code className={className} style={style}>
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({ line, key: i });
 
@@ -56,7 +56,7 @@ export function Code({ codeString, language, metastring, ...props }) {
                   </div>
                 );
               })}
-            </pre>
+            </code>
           </div>
         </div>
       )}
