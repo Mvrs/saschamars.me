@@ -146,7 +146,6 @@ blockquote.css-1avyp1d {
     border-radius: 0px;
     /* font-size: 0.875rem; */
     font-size: 0.825rem !important;
-    /* font-size: 40px !important; */
   }
 }
 
@@ -156,7 +155,6 @@ blockquote.css-1avyp1d {
     border-radius: 0px;
     /* font-size: 0.875rem; */
     font-size: 0.875rem;
-    /* font-size: 40px !important; */
   }
 }
 
@@ -165,7 +163,6 @@ blockquote.css-1avyp1d {
     border-radius: 0px;
     /* font-size: 0.875rem; */
     font-size: 0.8rem;
-    /* font-size: 40px !important; */
   }
 }
 
@@ -219,13 +216,13 @@ blockquote.css-1avyp1d {
 
 
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   .highlight-line>span[class*=line-number-style] {
     padding-left: 5px;
     padding-right: 15.5px;
-    font-size: 13.6px !important;
+    font-size: 12px !important;
   }
-}
+} */
 
 
 /* @media only screen and (max-width: 767px) {
