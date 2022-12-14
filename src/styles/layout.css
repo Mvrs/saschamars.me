@@ -27,13 +27,8 @@ body {
 }
 
 .token-line {
-  /* display: block;
-  margin-top: 0px; */
-
-  display: table;
+  display: block;
   margin-top: 0px;
-  position: relative;
-  /* height: 25px;
   /* height: 25px; */
 }
 
@@ -85,11 +80,19 @@ p>code::after {
 }
 
 
+/* .css-1r3iq0u @media (max-width: 468px) {
+  margin-left: -20px !important;
+  margin-right: -20px !important;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+} */
+
+
 
 
 .css-1avyp1d p {
   color: rgb(87, 62, 222);
-  font-family: inherit;
+  /* font-family: inherit; */
   font-style: normal;
 }
 
@@ -98,7 +101,7 @@ p.css-1avyp1d @media (max-width: 767px) {
 }
 
 p.css-1avyp1d @media (max-width: 1023px) {
-  font-size: 1.062rem !important;
+  font-size: 1.125rem !important;
 }
 
 

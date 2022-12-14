@@ -3,6 +3,7 @@
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/prefer-default-export */
+import { css } from '@emotion/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React from 'react';
@@ -37,7 +38,15 @@ export function Code({ codeString, language, metastring, ...props }) {
       {...props}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="css-1r3iq0u">
+        <div className="css-1r3iq0u"
+          css={css`
+            @media (max-width: 767px) {
+              margin-left: -20px;
+              margin-right: -20px;
+              font-size: 20px;
+            }
+         `}
+        >
           <div className="gatsby-highlight" data-language={language}>
             <code className={className} style={style}>
               {tokens.map((line, i) => {

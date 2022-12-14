@@ -43,7 +43,6 @@ function Layout({ children }) {
             color: #555;
             font-family: Averta, sans-serif;
             background-color: #fafafc;
-
             /* font-size: 18px; */
             line-height: 1.4rem;
 
@@ -144,6 +143,10 @@ function Layout({ children }) {
 
             .gatsby-highlight>code[class*='language-'] {
               font-weight: 500;
+
+              @media (max-width: 767px) {
+                font-size: 0.825rem !important;
+              }
             }
 
     
