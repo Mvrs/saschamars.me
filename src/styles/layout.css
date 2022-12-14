@@ -27,8 +27,13 @@ body {
 }
 
 .token-line {
-  display: block;
+  /* display: block;
+  margin-top: 0px; */
+
+  display: table;
   margin-top: 0px;
+  position: relative;
+  /* height: 25px;
   /* height: 25px; */
 }
 
@@ -88,12 +93,12 @@ p>code::after {
   font-style: normal;
 }
 
-p.css-1avyp1d @media (min-width: 767px) {
-  font-size: 1.1rem !important;
+p.css-1avyp1d @media (max-width: 767px) {
+  font-size: 1.001rem !important;
 }
 
 p.css-1avyp1d @media (max-width: 1023px) {
-  font-size: 1.62rem !important;
+  font-size: 1.062rem !important;
 }
 
 
