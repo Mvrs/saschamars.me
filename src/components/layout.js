@@ -4,7 +4,7 @@ import { preToCodeBlock } from 'mdx-utils';
 import React from 'react';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '../hooks/use-sitemetadata';
-import { bpMaxSM } from '../lib/breakpoints';
+import { bpDesktopOnly, bpMaxSM, bpMaxXS } from '../lib/breakpoints';
 import '../styles/layout.css';
 import Header from './header';
 import { Code } from './mdx/code';
@@ -106,50 +106,60 @@ function Layout({ children }) {
               margin-right: 0px !important;
             }
 
+            p.css-1avyp1d {
+              ${bpMaxXS} {
+                font-size: 1.001rem !important;
+               }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
+            }
 
+            li.css-1avyp1d {
+              ${bpMaxSM} {
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
+            }
 
-
-
-/* 
-            pre {
-              font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
-                Consolas, 'Liberation Mono', 'Courier New', monospace sans-serif;
-              line-height: 1.55rem;
-              overflow: auto;
-              font-size: 0.875rem;
-              white-space: pre;
-  
+            /* li > code {
+              ${bpMaxSM} {
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
             } */
-
-
 
             code {
               white-space: pre;
-              /* border-radius: 0.3rem; */
-              /* background: rgba(255, 229, 100, 0.2); */
               font-weight: 600;
               font-size: 0.875em;
               color: #1a1a1a;
               padding: 0.15em 0.2em 0.05em;
               white-space: normal;
               font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+              
               /* ${bpMaxSM} {
-                font-size: 50px;
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
               } */
-              /* @media (max-width: 767px) {
-                font-size: 16px;
-              } */
+
             }
 
             .gatsby-highlight>code[class*='language-'] {
               font-weight: 500;
-
-              @media (max-width: 767px) {
+              ${bpMaxSM} {
                 font-size: 0.825rem !important;
               }
+              ${bpDesktopOnly} {
+                font-size: 0.875rem !important;
+              }
             }
-
-    
           }
         `}
       />
@@ -172,7 +182,6 @@ function Layout({ children }) {
         <meta property="og:url" href={url} />
         <link rel="canonical" href={url} />
       </Helmet>
-      {/* <header></header> */}
       <Header />
       <main
         css={css`

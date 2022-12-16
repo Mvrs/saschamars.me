@@ -2,7 +2,7 @@ import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
 import MarlonLaptop from '../assets/marlon-laptop.svg';
-import { bpMaxSM } from '../lib/breakpoints';
+import { bpDesktopOnly, bpMaxSM } from '../lib/breakpoints';
 
 const fadeCard = keyframes`
   from {
@@ -44,7 +44,7 @@ const ImageContainer = styled('svg')`
 
   @media only screen and (min-width: 800px) {
     zoom: 1;
-    height: 360px;
+    height: 760px;
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -284,11 +284,14 @@ function Intro() {
                 font-size: 1.7rem;
                 text-align: left;
               }
+              ${bpDesktopOnly} {
+                font-size: 2.563rem;
+              }
             `}
           >
             Hi, I'm Marlon.
             <br />
-            I'm a software engineer @Fullcourt 🏀
+            I'm a software engineer 🏀
           </IntroHeaderText>
           <IntroStyleBar
             css={css`
@@ -302,7 +305,7 @@ function Intro() {
               color: #60656c;
               font-weight: 400;
               @media (max-width: 479px) {
-                font-size: 1.1rem;
+                font-size: 1.238rem;
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
@@ -313,7 +316,7 @@ function Intro() {
                 margin-left: auto;
               }
               @media (max-width: 991px) {
-                font-size: 1.1rem;
+                font-size: 1.238rem;
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
@@ -323,9 +326,12 @@ function Intro() {
                 margin-right: auto;
                 margin-left: auto;
               }
+              ${bpDesktopOnly} {
+                font-size: 1.238rem;
+              }
             `}
           >
-            Fullcourt is a pickup basketball app for finding players, courts, and organizing games. Our business is driven by an ad platform for marketing goods and services to our users.
+            <b>About me</b>: As a Frontend Engineer with 4 years of experience, I have a strong skillset in technologies such as React, TypeScript, JavaScript, and React Native. My expertise in these technologies has allowed me to effectively develop and maintain high-quality web applications, ensuring that they are visually appealing, user-friendly, and performant.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -361,9 +367,12 @@ function Intro() {
                 /* padding-left: 20px; */
                 margin-left: auto;
               }
+              ${bpDesktopOnly} {
+                font-size: 1.238rem;
+              }
             `}
           >
-            <b>About me</b>: I believe in Growth, Humility, and being a Student at heart.
+            I have a passion for continuously learning and staying up to date with the latest front-end technologies and best practices, which allows me to bring fresh ideas and solutions to the table. I am also a strong problem-solver and able to debug and troubleshoot issues efficiently. In addition, I am a team player with excellent communication skills and have a proven track record of collaborating effectively with cross-functional teams. I am confident that my expertise and skillset in Frontend Engineering make me a valuable asset to any organization.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -399,10 +408,28 @@ function Intro() {
                 /* padding-left: 20px; */
                 margin-left: auto;
               }
+              ${bpDesktopOnly} {
+                font-size: 1.238rem;
+              }
             `}
           >
-            When I'm not coding, you can catch me stock trading, making
-            electronic music, or eating pizza 🍕.
+            <b>Recently</b>: I've developed an interested in Web3 and it's welcoming community has peaked my interested in DeFi tooling. This led me to join <a
+              href='https://twitter.com/AlchemyLearn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'
+              rel="noopener noreferrer"
+              css={css`
+              background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+              box-sizing: border-box;
+              color: #2b90d9;
+              cursor: pointer;
+              letter-spacing: 0.4px;
+              text-decoration: none;
+
+              :hover {
+                background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                color: #555;
+              }
+            `}
+            >@AlchemyUniversity</a> and broaden my knowledge of the space.
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
@@ -436,9 +463,12 @@ function Intro() {
                 /* padding-left: 20px; */
                 margin-left: auto;
               }
+              ${bpDesktopOnly} {
+                font-size: 1.238rem;
+              }
             `}
           >
-            You can check out my&nbsp;
+            <b>Dev[Log]</b>: You can check out my&nbsp;
             <a
               href="/blog"
               rel="noopener noreferrer"
@@ -471,7 +501,7 @@ function Intro() {
             >
               Fullcourt
             </a>
-            &nbsp;or contact me on&nbsp;
+            &nbsp;or follow my journey as I document my learnings from Web3 on &nbsp;
             <a
               href="https://twitter.com/saschamars"
               target="_blank"

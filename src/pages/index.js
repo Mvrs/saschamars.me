@@ -6,6 +6,7 @@ import Footer from '../components/footer/footer';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
 import Project from '../components/projects/project';
+import { bpDesktopOnly } from '../lib/breakpoints';
 
 const Home = () => {
   return (
@@ -20,7 +21,10 @@ const Home = () => {
               padding-bottom: 0.2rem;
               border-bottom: 4px solid #f1f4f8;
               color: #343a40;
-              font-size: 2rem;
+              /* font-size: 2rem; */
+              ${bpDesktopOnly} {
+                font-size: 2.25rem;
+              }
             `}
           >
             Projects
@@ -28,7 +32,11 @@ const Home = () => {
           <div
             css={css`
               margin-top: 1.5rem;
+              ${bpDesktopOnly} {
+                font-size: 1.238rem;
+              }
             `}
+
           >
             {projects.map((project) => (
               <Project key={project.title} project={project} />

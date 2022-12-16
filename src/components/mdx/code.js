@@ -7,6 +7,7 @@ import { css } from '@emotion/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React from 'react';
+import { bpDesktopOnly, bpMaxSM } from '../../lib/breakpoints';
 
 const RE = /{([\d,-]+)}/;
 
@@ -39,16 +40,19 @@ export function Code({ codeString, language, metastring, ...props }) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="css-1r3iq0u"
-          css={css`
-            @media (max-width: 767px) {
-              margin-left: -20px;
-              margin-right: -20px;
-              font-size: 20px;
-            }
-         `}
         >
           <div className="gatsby-highlight" data-language={language}>
-            <code className={className} style={style}>
+            <code className={className} style={style}
+              css={css` 
+              ${bpMaxSM} {
+                font-size: 0.825rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 0.875rem !important;
+              }
+            `}
+
+            >
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({ line, key: i });
 
