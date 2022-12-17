@@ -335,12 +335,12 @@ function Intro() {
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
-              font-size: 1.1rem;
+              /* font-size: 1.1rem; */
               line-height: 1.5;
               font-weight: 400;
               color: #60656c;
               @media (max-width: 479px) {
-                font-size: 1.1rem;
+                font-size: 1.238rem;
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
@@ -354,7 +354,9 @@ function Intro() {
                 margin-left: auto;
               }
               @media (max-width: 991px) {
-                font-size: 1.1rem;
+                /* font-size: 1.1rem; */
+                font-size: 1.238rem;
+
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
@@ -376,12 +378,14 @@ function Intro() {
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
-              font-size: 1.1rem;
+              /* font-size: 1.1rem; */
               line-height: 1.5;
               color: #60656c;
               font-weight: 400;
               @media (max-width: 479px) {
-                font-size: 1.1rem;
+                /* font-size: 1.1rem; */
+                font-size: 1.238rem;
+
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
@@ -395,7 +399,9 @@ function Intro() {
                 margin-left: auto;
               }
               @media (max-width: 991px) {
-                font-size: 1.1rem;
+                /* font-size: 1.1rem; */
+                font-size: 1.238rem;
+
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
@@ -433,12 +439,12 @@ function Intro() {
           </IntroHeaderText>
           <IntroHeaderText
             css={css`
-              font-size: 1.1rem;
+              font-size: 1.238rem;
               line-height: 1.5;
               color: #60656c;
               font-weight: 400;
               @media (max-width: 479px) {
-                font-size: 1.1rem;
+                /* font-size: 1.1rem; */
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;
@@ -451,7 +457,7 @@ function Intro() {
                 margin-left: auto;
               }
               @media (max-width: 991px) {
-                font-size: 1.1rem;
+              font-size: 1.238rem;
                 line-height: 1.5;
                 font-weight: 400;
                 margin-bottom: 0;

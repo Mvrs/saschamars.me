@@ -154,7 +154,7 @@ function Layout({ children }) {
             .gatsby-highlight>code[class*='language-'] {
               font-weight: 500;
               ${bpMaxSM} {
-                font-size: 0.825rem !important;
+                font-size: 0.8rem !important;
               }
               ${bpDesktopOnly} {
                 font-size: 0.875rem !important;

@@ -128,7 +128,7 @@ blockquote.css-1avyp1d {
 .gatsby-highlight>code[class*='language-'] @media (max-width: 320px) {
   border-radius: 0px;
   /* font-size: 0.875rem; */
-  font-size: 0.825rem !important;
+  font-size: 0.8rem !important;
 }
 
 .gatsby-highlight>code[class*='language-'] @media (min-width: 1024px) {
