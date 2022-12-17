@@ -284,9 +284,11 @@ function Intro() {
               ${bpMaxSM} {
                 font-size: 1rem;
                 text-align: left;
+                font-weight: 400;
               }
               ${bpDesktopOnly} {
                 font-size: 1rem;
+                font-weight: 400;
               }
             `}
           >
