@@ -1,7 +1,6 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-import MarlonLaptop from '../assets/marlon-laptop.svg';
 import { bpDesktopOnly, bpMaxSM } from '../lib/breakpoints';
 
 const fadeCard = keyframes`
@@ -278,20 +277,20 @@ function Intro() {
         >
           <IntroHeaderText
             css={css`
-              font-size: 2.3rem;
+              font-size: 1rem;
+              color: #60656c;
+              font-weight: 400;
 
               ${bpMaxSM} {
-                font-size: 1.7rem;
+                font-size: 1rem;
                 text-align: left;
               }
               ${bpDesktopOnly} {
-                font-size: 2.563rem;
+                font-size: 1rem;
               }
             `}
           >
-            Hi, I'm Marlon.
-            <br />
-            I'm a software engineer 🏀
+            Hi, I'm <b>Marlon</b> — I'm a software engineer specializing in frontend, fullstack, and mobile development.
           </IntroHeaderText>
           <IntroStyleBar
             css={css`
@@ -304,7 +303,7 @@ function Intro() {
               color: #60656c;
               font-weight: 400;
               ${bpMaxSM} {
-              font-size: 1.1rem;
+              font-size: 1rem;
 
                 line-height: 1.5;
                 font-weight: 400;
@@ -316,7 +315,7 @@ function Intro() {
                 margin-left: auto;
               }
               @media (max-width: 991px) {
-                font-size: 1.238rem;
+                font-size: 1rem;
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
@@ -327,54 +326,120 @@ function Intro() {
                 margin-left: auto;
               }
               ${bpDesktopOnly} {
-                font-size: 1.238rem;
+                font-size: 1rem;
               }
             `}
           >
-            <b>About me</b>: As a Frontend Engineer with 4 years of experience, I have a strong skillset in technologies such as React, TypeScript, JavaScript, and React Native. My expertise in these technologies has allowed me to effectively develop and maintain high-quality web applications, ensuring that they are visually appealing, user-friendly, and performant.
+            <b css={css`
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}>currently</b>
+            <br />
+            <ul>
+
+              <li> building the #1 <a
+                href="https://www.50four.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                color: #db99b9;
+                text-decoration: underline dotted;
+                   text-underline-offset: 5px;
+                `}
+              >digital basketball app</a> @ fullcourt.
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/AlchemyLearn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  css={css`
+                  text-decoration: underline dotted;
+                  text-underline-offset: 5px;
+                  color: inherit;
+                ` }>
+                  learning blockchain development
+                </a> @ alchemy university <br /> and @ buildspace</li>
+            </ul>
           </IntroHeaderText>
+
           <IntroHeaderText
             css={css`
               line-height: 1.5;
-              font-weight: 400;
               color: #60656c;
+              font-weight: 400;
               ${bpMaxSM} {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                color: #60656c;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-                /* font-size: 1.1rem; */
-                font-size: 1.238rem;
+              font-size: 1rem;
 
                 line-height: 1.5;
                 font-weight: 400;
                 color: #60656c;
                 margin-bottom: 0;
                 text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
+                margin-top: 10px;
                 margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
+                font-size: 1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
                 margin-left: auto;
               }
               ${bpDesktopOnly} {
-                font-size: 1.238rem;
+                font-size: 1rem;
               }
             `}
           >
-            I have a passion for continuously learning and staying up to date with the latest front-end technologies and best practices, which allows me to bring fresh ideas and solutions to the table. I am also a strong problem-solver and able to debug and troubleshoot issues efficiently. In addition, I am a team player with excellent communication skills and have a proven track record of collaborating effectively with cross-functional teams. I am confident that my expertise and skillset in Frontend Engineering make me a valuable asset to any organization.
+            <b css={css`
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}>previously</b>
+            <br />
+            <ul>
+              <li>ui engineer @ gap</li>
+              <li>contributed <a
+                href="https://www.producthunt.com/products/dogehouse"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                   
+                   text-decoration: underline dotted;
+                   text-underline-offset: 5px;
+                   color: inherit;
+                   `}
+
+              >
+                open source as a ui engineer
+
+              </a> @ dogehouse
+              </li>
+            </ul>
           </IntroHeaderText>
+
           <IntroHeaderText
             css={css`
               /* font-size: 1.1rem; */
@@ -382,7 +447,7 @@ function Intro() {
               color: #60656c;
               font-weight: 400;
               ${bpMaxSM} {
-                font-size: 1.1rem;
+                font-size: 1rem;
 
                 line-height: 1.5;
                 font-weight: 400;
@@ -398,7 +463,7 @@ function Intro() {
               }
               @media (max-width: 991px) {
                 /* font-size: 1.1rem; */
-                font-size: 1.238rem;
+                font-size: 1rem;
 
                 line-height: 1.5;
                 font-weight: 400;
@@ -413,134 +478,30 @@ function Intro() {
                 margin-left: auto;
               }
               ${bpDesktopOnly} {
-                font-size: 1.238rem;
+                font-size: 1rem;
               }
             `}
           >
-            <b>Recently</b>: I've developed an interested in Web3 and it's welcoming community has peaked my interested in DeFi tooling. This led me to join <a
-              href='https://twitter.com/AlchemyLearn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'
-              rel="noopener noreferrer"
+            <b
               css={css`
-              background-image: linear-gradient(transparent 70%, #dbe4ff 0);
-              box-sizing: border-box;
-              color: #2b90d9;
-              cursor: pointer;
-              letter-spacing: 0.4px;
-              text-decoration: none;
-
-              :hover {
-                background-image: linear-gradient(transparent 70%, #bac8ff 0);
-                color: #555;
-              }
-            `}
-            >@AlchemyUniversity</a> and broaden my knowledge of the space.
-          </IntroHeaderText>
-          <IntroHeaderText
-            css={css`
-              line-height: 1.5;
-              color: #60656c;
-              font-weight: 400;
-              ${bpMaxSM} {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-              font-size: 1.238rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              ${bpDesktopOnly} {
-                font-size: 1.238rem;
-              }
-            `}
-          >
-            <b>Dev[Log]</b>: You can check out my&nbsp;
-            <a
-              href="/blog"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              blog,
-            </a>
-            &nbsp;explore&nbsp;
-            <a
-              href="https://github.com/Mvrs"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              projects
-            </a>
-            &nbsp;I'm building, &nbsp;
-            checkout&nbsp;
-            <a
-              href="https://www.50four.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              Fullcourt
-            </a>
-            &nbsp;or follow my journey as I document my learnings from Web3 on &nbsp;
-            <a
-              href="https://twitter.com/saschamars"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                background-image: linear-gradient(transparent 70%, #dbe4ff 0);
-                box-sizing: border-box;
-                color: #2b90d9;
-                cursor: pointer;
-                letter-spacing: 0.4px;
-                text-decoration: none;
-
-                :hover {
-                  background-image: linear-gradient(transparent 70%, #bac8ff 0);
-                  color: #555;
-                }
-              `}
-            >
-              Twitter.
-            </a>
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}
+            >interests</b>
+            <br />
+            web3, blockchain development, anime, basketball, being a girl-dad, option trading and investing.
           </IntroHeaderText>
         </IntroHeader>
-        <ImageContainer>
-          <MarlonLaptop
-            css={css`
-              width: 50vw;
-              height: 50vh;
-              /* width: 120px; */
-              /* margin-bottom: 20px; */
-              max-width: calc(33% - 1rem);
 
-              @media (max-width: 479px) {
-              }
-            `}
-          />
-        </ImageContainer>
       </IntroContainer>
     </HeroContainer>
   );

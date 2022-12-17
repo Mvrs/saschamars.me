@@ -6,7 +6,6 @@ import Helmet from 'react-helmet';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 import { bpDesktopOnly, bpMaxSM, bpMaxXS } from '../lib/breakpoints';
 import '../styles/layout.css';
-import Header from './header';
 import { Code } from './mdx/code';
 
 const components = {
@@ -179,7 +178,6 @@ function Layout({ children }) {
         <meta property="og:url" href={url} />
         <link rel="canonical" href={url} />
       </Helmet>
-      <Header />
       <main
         css={css`
           margin: 2rem auto 4rem;
