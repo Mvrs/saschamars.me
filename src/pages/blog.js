@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
-import PostPreview from '../components/blog/blog-preview';
-import usePosts from '../hooks/use-posts';
+import React, { useState } from 'react';
 import { BlogContainer } from '../components/blog/blog-container';
+import PostPreview from '../components/blog/blog-preview';
 import Footer from '../components/footer';
+import Layout from '../components/layout';
+import usePosts from '../hooks/use-posts';
 
 const BlogHeader = styled('header')`
   box-sizing: border-box;

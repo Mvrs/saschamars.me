@@ -3,9 +3,11 @@
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/prefer-default-export */
+import { css } from '@emotion/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React from 'react';
+import { bpDesktopOnly, bpMaxSM } from '../../lib/breakpoints';
 
 const RE = /{([\d,-]+)}/;
 
@@ -37,26 +39,40 @@ export function Code({ codeString, language, metastring, ...props }) {
       {...props}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="css-1r3iq0u">
+        <div className="css-1r3iq0u"
+        >
           <div className="gatsby-highlight" data-language={language}>
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i });
+            <pre className={className}>
+              <code className={className} style={style}
+                css={css` 
+              ${bpMaxSM} {
+                font-size: 0.825rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 0.875rem !important;
+              }
+            `}
 
-                if (shouldHighlightLine(i)) {
-                  lineProps.className = `${lineProps.className} highlight-line`;
-                }
+              >
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i });
 
-                return (
-                  <div {...lineProps} style={{ paddingLeft: 20 }}>
-                    {/* <span className="line-number-style">{i + 1}</span> */}
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                );
-              })}
+                  if (shouldHighlightLine(i)) {
+                    lineProps.className = `${lineProps.className} highlight-line`;
+                  }
+
+                  return (
+                    <div {...lineProps}>
+                      {/* <span className="line-number-style">{i + 1}</span> */}
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  );
+                })}
+              </code>
             </pre>
+
           </div>
         </div>
       )}

@@ -1,8 +1,7 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
-import MarlonLaptop from '../assets/marlon-laptop.svg';
-import { bpMaxSM } from '../lib/breakpoints';
+import { bpDesktopOnly, bpMaxSM } from '../lib/breakpoints';
 
 const fadeCard = keyframes`
   from {
@@ -44,7 +43,7 @@ const ImageContainer = styled('svg')`
 
   @media only screen and (min-width: 800px) {
     zoom: 1;
-    height: 360px;
+    height: 760px;
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -278,17 +277,22 @@ function Intro() {
         >
           <IntroHeaderText
             css={css`
-              font-size: 2.3rem;
+              font-size: 1rem;
+              color: #60656c;
+              font-weight: 400;
 
               ${bpMaxSM} {
-                font-size: 1.7rem;
+                font-size: 1rem;
                 text-align: left;
+                font-weight: 400;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1rem;
+                font-weight: 400;
               }
             `}
           >
-            Hi, I'm Marlon.
-            <br />
-            I'm a software engineer @Fullcourt 🏀
+            Hi, I'm <b>Marlon</b> — I'm a software engineer specializing in frontend, fullstack, and mobile development.
           </IntroHeaderText>
           <IntroStyleBar
             css={css`
@@ -297,217 +301,209 @@ function Intro() {
           />
           <IntroHeaderText
             css={css`
-              font-size: 1.1rem;
               line-height: 1.5;
               color: #60656c;
               font-weight: 400;
-              @media (max-width: 479px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                color: #60656c;
-                margin-bottom: 0;
-                text-align: left;
-                margin-top: 10px;
-                margin-right: auto;
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                color: #60656c;
-                margin-bottom: 0;
-                text-align: left;
-                margin-top: 10px;
-                margin-right: auto;
-                margin-left: auto;
-              }
-            `}
-          >
-            Fullcourt is a pickup basketball app for finding players, courts, and organizing games. Our business is driven by an ad platform for marketing goods and services to our users.
-          </IntroHeaderText>
-          <IntroHeaderText
-            css={css`
-              font-size: 1.1rem;
-              line-height: 1.5;
-              font-weight: 400;
-              color: #60656c;
-              @media (max-width: 479px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                color: #60656c;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                color: #60656c;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-            `}
-          >
-            <b>About me</b>: I believe in Growth, Humility, and being a Student at heart.
-          </IntroHeaderText>
-          <IntroHeaderText
-            css={css`
-              font-size: 1.1rem;
-              line-height: 1.5;
-              color: #60656c;
-              font-weight: 400;
-              @media (max-width: 479px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                color: #60656c;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                color: #60656c;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-            `}
-          >
-            When I'm not coding, you can catch me stock trading, making
-            electronic music, or eating pizza 🍕.
-          </IntroHeaderText>
-          <IntroHeaderText
-            css={css`
-              font-size: 1.1rem;
-              line-height: 1.5;
-              color: #60656c;
-              font-weight: 400;
-              @media (max-width: 479px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-              @media (max-width: 991px) {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                font-weight: 400;
-                margin-bottom: 0;
-                text-align: left;
-                /* margin: 0 auto; */
-                margin-top: 20px;
-                margin-right: auto;
-                /* padding-right: 20px; */
-                /* padding-left: 20px; */
-                margin-left: auto;
-              }
-            `}
-          >
-            You can check out my&nbsp;
-            <a
-              href="/blog"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              blog,
-            </a>
-            &nbsp;explore&nbsp;
-            <a
-              href="https://github.com/Mvrs"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              projects
-            </a>
-            &nbsp;I'm building, &nbsp;
-            checkout&nbsp;
-            <a
-              href="https://www.50four.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                color: #db99b9;
-              `}
-            >
-              Fullcourt
-            </a>
-            &nbsp;or contact me on&nbsp;
-            <a
-              href="https://twitter.com/saschamars"
-              target="_blank"
-              rel="noopener noreferrer"
-              css={css`
-                background-image: linear-gradient(transparent 70%, #dbe4ff 0);
-                box-sizing: border-box;
-                color: #2b90d9;
-                cursor: pointer;
-                letter-spacing: 0.4px;
-                text-decoration: none;
+              ${bpMaxSM} {
+              font-size: 1rem;
 
-                :hover {
-                  background-image: linear-gradient(transparent 70%, #bac8ff 0);
-                  color: #555;
-                }
-              `}
-            >
-              Twitter.
-            </a>
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
+                font-size: 1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1rem;
+              }
+            `}
+          >
+            <b css={css`
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}>currently</b>
+            <br />
+            <ul>
+
+              <li> building the #1 <a
+                href="https://www.50four.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                color: #db99b9;
+                text-decoration: underline dotted;
+                   text-underline-offset: 5px;
+                `}
+              >digital basketball app</a> @ fullcourt.
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/AlchemyLearn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  css={css`
+                  text-decoration: underline dotted;
+                  text-underline-offset: 5px;
+                  color: inherit;
+                ` }>
+                  learning blockchain development
+                </a> @ alchemy university <br /> and @ buildspace</li>
+            </ul>
+          </IntroHeaderText>
+
+          <IntroHeaderText
+            css={css`
+              line-height: 1.5;
+              color: #60656c;
+              font-weight: 400;
+              ${bpMaxSM} {
+              font-size: 1rem;
+
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
+                font-size: 1rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: #60656c;
+                margin-bottom: 0;
+                text-align: left;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-left: auto;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1rem;
+              }
+            `}
+          >
+            <b css={css`
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}>previously</b>
+            <br />
+            <ul>
+              <li>ui engineer @ gap</li>
+              <li>contributed <a
+                href="https://www.producthunt.com/products/dogehouse"
+                target="_blank"
+                rel="noopener noreferrer"
+                css={css`
+                   
+                   text-decoration: underline dotted;
+                   text-underline-offset: 5px;
+                   color: inherit;
+                   `}
+
+              >
+                open source as a ui engineer
+
+              </a> @ dogehouse
+              </li>
+            </ul>
+          </IntroHeaderText>
+
+          <IntroHeaderText
+            css={css`
+              /* font-size: 1.1rem; */
+              line-height: 1.5;
+              color: #60656c;
+              font-weight: 400;
+              ${bpMaxSM} {
+                font-size: 1rem;
+
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                color: #60656c;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              @media (max-width: 991px) {
+                /* font-size: 1.1rem; */
+                font-size: 1rem;
+
+                line-height: 1.5;
+                font-weight: 400;
+                margin-bottom: 0;
+                text-align: left;
+                color: #60656c;
+                /* margin: 0 auto; */
+                margin-top: 20px;
+                margin-right: auto;
+                /* padding-right: 20px; */
+                /* padding-left: 20px; */
+                margin-left: auto;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1rem;
+              }
+            `}
+          >
+            <b
+              css={css`
+                            background-image: linear-gradient(transparent 70%, #dbe4ff 0);
+                            box-sizing: border-box;
+                            color: #2b90d9;
+                            cursor: pointer;
+                            letter-spacing: 0.4px;
+                            text-decoration: none;
+            
+                            :hover {
+                              background-image: linear-gradient(transparent 70%, #bac8ff 0);
+                              color: #555;
+                            }
+                          `}
+            >interests</b>
+            <br />
+            web3, blockchain development, anime, basketball, being a girl-dad, option trading and investing.
           </IntroHeaderText>
         </IntroHeader>
-        <ImageContainer>
-          <MarlonLaptop
-            css={css`
-              width: 50vw;
-              height: 50vh;
-              /* width: 120px; */
-              /* margin-bottom: 20px; */
-              max-width: calc(33% - 1rem);
 
-              @media (max-width: 479px) {
-              }
-            `}
-          />
-        </ImageContainer>
       </IntroContainer>
     </HeroContainer>
   );

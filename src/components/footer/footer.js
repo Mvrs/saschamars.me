@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
   const [copySuccessMessage, setCopySuccessMessage] = useState('');
@@ -147,7 +147,7 @@ const Footer = () => {
                 background: whitesmoke;
               }
             `}
-            href="https://twitter.com/saschamars"
+            href="https://twitter.com/MarlonJohnsxn"
             target="_blank"
             rel="noopener noreferrer"
           >

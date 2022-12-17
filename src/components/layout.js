@@ -1,13 +1,12 @@
-import React from 'react';
-import { Global, css } from '@emotion/react';
-import Helmet from 'react-helmet';
+import { css, Global } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 import { preToCodeBlock } from 'mdx-utils';
-import Header from './header';
-import { Code } from './mdx/code';
+import React from 'react';
+import Helmet from 'react-helmet';
 import useSiteMetadata from '../hooks/use-sitemetadata';
+import { bpDesktopOnly, bpMaxSM, bpMaxXS } from '../lib/breakpoints';
 import '../styles/layout.css';
-import { bpMaxSM } from '../lib/breakpoints';
+import { Code } from './mdx/code';
 
 const components = {
   pre: (preProps) => {
@@ -43,8 +42,7 @@ function Layout({ children }) {
             color: #555;
             font-family: Averta, sans-serif;
             background-color: #fafafc;
-
-            font-size: 18px;
+            /* font-size: 18px; */
             line-height: 1.4rem;
 
             /* remove margin for the main dive that Gatsby mounts into */
@@ -107,37 +105,57 @@ function Layout({ children }) {
               margin-right: 0px !important;
             }
 
+            p.css-1avyp1d {
+              ${bpMaxXS} {
+                font-size: 1.001rem !important;
+               }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
+            }
 
-/* 
-            pre {
-              font-family: Operator Mono, SFMono-Regular, Menlo, Monaco,
-                Consolas, 'Liberation Mono', 'Courier New', monospace sans-serif;
-              line-height: 1.55rem;
-              overflow: auto;
-              font-size: 0.875rem;
-              white-space: pre;
-  
+            li.css-1avyp1d {
+              ${bpMaxSM} {
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
+            }
+
+            /* li > code {
+              ${bpMaxSM} {
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
+              }
             } */
-
-
 
             code {
               white-space: pre;
-              /* border-radius: 0.3rem; */
-              /* background: rgba(255, 229, 100, 0.2); */
               font-weight: 600;
               font-size: 0.875em;
               color: #1a1a1a;
               padding: 0.15em 0.2em 0.05em;
               white-space: normal;
               font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+              
               /* ${bpMaxSM} {
-                font-size: 50px;
+                font-size: 1.001rem !important;
+              }
+              ${bpDesktopOnly} {
+                font-size: 1.125rem !important;
               } */
-              /* @media (max-width: 767px) {
-                font-size: 16px;
-              } */
+
             }
+
+            pre>code {
+              display: block;
+              padding: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+              overflow-x: auto;
+              overscroll-behavior-x: contain;
+              -webkit-overflow-scrolling: touch;
           }
         `}
       />
@@ -160,8 +178,6 @@ function Layout({ children }) {
         <meta property="og:url" href={url} />
         <link rel="canonical" href={url} />
       </Helmet>
-      {/* <header></header> */}
-      <Header />
       <main
         css={css`
           margin: 2rem auto 4rem;
