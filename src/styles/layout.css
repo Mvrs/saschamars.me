@@ -81,13 +81,13 @@ p>code::after {
   font-style: normal;
 }
 
-p.css-1avyp1d @media (max-width: 767px) {
+/* p.css-1avyp1d @media (max-width: 767px) {
   font-size: 1.001rem !important;
-}
-
-p.css-1avyp1d @media (max-width: 1023px) {
+} */
+/* 
+p.css-1avyp1d @media (m: 1023px) {
   font-size: 1.125rem !important;
-}
+} */
 
 
 h1.css-vblx68-PostTemplate {
@@ -121,34 +121,32 @@ blockquote.css-1avyp1d {
   white-space: pre;
   word-break: normal;
   word-spacing: normal;
+  font-weight: 500;
+  display: block;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+
 }
 
 
 
-.gatsby-highlight>code[class*='language-'] @media (max-width: 320px) {
+.gatsby-highlight>code[class*='language-'] @media (max-width: 767px) {
   border-radius: 0px;
-  /* font-size: 0.875rem; */
   font-size: 0.8rem !important;
 }
 
 .gatsby-highlight>code[class*='language-'] @media (min-width: 1024px) {
   border-radius: 0px;
-  /* font-size: 0.875rem; */
   font-size: 0.875rem;
 }
 
-code[class*='language-'] @media (max-width: 320px) {
+code[class*='language-'] @media (max-width: 767px) {
   border-radius: 0px;
-  /* font-size: 0.875rem; */
   font-size: 0.8rem;
 }
 
-
 code[class*='language-'] @media (min-width: 1024px) {
-  /* border-radius: 0px; */
   font-size: 0.875rem;
-  /* font-size: 0.8rem; */
-  /* font-size: 40px !important; */
 }
 
 
