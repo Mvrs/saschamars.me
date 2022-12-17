@@ -42,8 +42,9 @@ export function Code({ codeString, language, metastring, ...props }) {
         <div className="css-1r3iq0u"
         >
           <div className="gatsby-highlight" data-language={language}>
-            <code className={className} style={style}
-              css={css` 
+            <pre className={className}>
+              <code className={className} style={style}
+                css={css` 
               ${bpMaxSM} {
                 font-size: 0.825rem !important;
               }
@@ -52,24 +53,26 @@ export function Code({ codeString, language, metastring, ...props }) {
               }
             `}
 
-            >
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i });
+              >
+                {tokens.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i });
 
-                if (shouldHighlightLine(i)) {
-                  lineProps.className = `${lineProps.className} highlight-line`;
-                }
+                  if (shouldHighlightLine(i)) {
+                    lineProps.className = `${lineProps.className} highlight-line`;
+                  }
 
-                return (
-                  <div {...lineProps} style={{ paddingLeft: 20 }}>
-                    {/* <span className="line-number-style">{i + 1}</span> */}
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                );
-              })}
-            </code>
+                  return (
+                    <div {...lineProps}>
+                      {/* <span className="line-number-style">{i + 1}</span> */}
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  );
+                })}
+              </code>
+            </pre>
+
           </div>
         </div>
       )}

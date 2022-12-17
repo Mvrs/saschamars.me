@@ -150,6 +150,13 @@ function Layout({ children }) {
               } */
 
             }
+
+            pre>code {
+              display: block;
+              padding: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+              overflow-x: auto;
+              overscroll-behavior-x: contain;
+              -webkit-overflow-scrolling: touch;
           }
         `}
       />
