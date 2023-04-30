@@ -147,7 +147,7 @@ const Footer = () => {
                 background: whitesmoke;
               }
             `}
-            href="https://twitter.com/MarlonJohnsxn"
+            href="https://twitter.com/saschamars"
             target="_blank"
             rel="noopener noreferrer"
           >
