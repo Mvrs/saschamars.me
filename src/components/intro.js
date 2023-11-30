@@ -347,6 +347,7 @@ function Intro() {
                           `}>currently</b>
             <br />
             <ul>
+              <li> ☕ drinking coffee & always learning 💜</li>
 
               <li> building the #1 <a
                 href="https://www.50four.com/"
@@ -359,7 +360,7 @@ function Intro() {
                 `}
               >digital basketball app</a> @ fullcourt.
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="https://twitter.com/AlchemyLearn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
                   target="_blank"
@@ -370,7 +371,7 @@ function Intro() {
                   color: inherit;
                 ` }>
                   learning blockchain development
-                </a> @ alchemy university <br /> and @ buildspace</li>
+                </a> @ alchemy university <br /> and @ buildspace</li> */}
             </ul>
           </IntroHeaderText>
 
@@ -422,6 +423,7 @@ function Intro() {
                           `}>previously</b>
             <br />
             <ul>
+            <li>built an internal NPM package supported product & design engineers @ handshake</li>
               <li>ui engineer @ gap</li>
               <li>contributed <a
                 href="https://www.producthunt.com/products/dogehouse"
